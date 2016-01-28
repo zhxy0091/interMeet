@@ -133,12 +133,16 @@ html { height: 100%;}
 }
 
 .sidebar-nav li a:hover,
+.sidebar-nav li.open a:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: transparent;
+}
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus,
-.sidebar-nav li.open a:hover,
 .sidebar-nav li.open a:active,
 .sidebar-nav li.open a:focus{
-    color: #fff;
+    color: #000;
     text-decoration: none;
     background-color: transparent;
 }
