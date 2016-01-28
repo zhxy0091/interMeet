@@ -28,6 +28,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/sidebar.css" type="text/css">
  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,24 +36,68 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+</head>
+<body id="page-top">
+        <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       interMeet
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Team</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
 
-    </head>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            
+                            
+             <div class="brand">
+                <h1>interMeet</h1>
+            </div>
+            <div class="home-content">
 
-    <body id="page-top">
-
-        <header>
-         <div class="brand">
-            <h1>interMeet</h1>
+              <div class="home-content-btn">
+                <a href="#about" class="btn btn-homepage btn-xl page-scroll">Create</a>
+                <br><br><br><br>
+                <a href="#about" class="btn btn-homepage btn-xl page-scroll">Join</a>
+            </div>
+            </div>
         </div>
-        <div class="header-content">
+        
+    </div>
+            
+        <!-- /#page-content-wrapper -->
 
-          <div class="header-content-btn">
-            <a href="#about" class="btn btn-homepage btn-xl page-scroll">Create</a>
-            <br><br><br><br>
-            <a href="#about" class="btn btn-homepage btn-xl page-scroll">Join</a>
-        </div>
-        </div>
-        </header>
+</div>
+    <!-- /#wrapper -->
+
+
+    
+
+        
 
 
 
@@ -72,6 +117,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/creative.js"></script>
+<script src="js/sidebar.js"></script>
 
 </body>
 

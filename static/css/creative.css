@@ -60,27 +60,29 @@ body {
     min-height: 100%;
 }
 
-header .header-content {
+/*header .header-content {
     position: relative;
     width: 100%;
     padding-top: 15px;
     text-align: center;
-}
+}*/
 
 
 
 
-header .header-content {
+.home-content {
   position: absolute;
   top: 60%;
   padding: 0 50px;
+  width: 100%;
+  text-align: center;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 
-header .brand {
+.brand {
   position: absolute;
   top: 20%;
   padding: 0 50px;
