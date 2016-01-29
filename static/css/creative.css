@@ -129,8 +129,8 @@ p {
 }
 
 .modal-dialog {
+    width: 60%;
     display: inline-block;
     vertical-align: middle;
     margin: auto;
-    width: 60%;
 }
