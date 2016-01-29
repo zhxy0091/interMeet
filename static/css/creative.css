@@ -131,5 +131,6 @@ p {
 .modal-dialog {
     display: inline-block;
     vertical-align: middle;
+    margin: auto;
     width: 60%;
 }
