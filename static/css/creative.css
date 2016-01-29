@@ -132,5 +132,6 @@ p {
     width: 60%;
     display: inline-block;
     vertical-align: middle;
-    margin: auto;
+    margin left: auto;
+    margin-right: auto;
 }
