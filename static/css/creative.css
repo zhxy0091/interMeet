@@ -5,9 +5,9 @@ body {
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;;
+    font-family: 'Ubuntu', sans-serif;
+    ;
 }
-
 
 a {
     color: #f05f40;
@@ -36,9 +36,6 @@ p {
     line-height: 1.5;
 }
 
-
-
-
 body {
     position: relative;
     width: 100%;
@@ -54,6 +51,7 @@ body {
     min-height: 100%;
 }
 
+
 /*header .header-content {
     position: relative;
     width: 100%;
@@ -61,29 +59,24 @@ body {
     text-align: center;
 }*/
 
-
-
-
 .home-content {
-  position: absolute;
-  top: 60%;
-  padding: 0 50px;
-  width: 100%;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+    position: absolute;
+    top: 60%;
+    padding: 0 50px;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
-
 
 .brand {
-  position: absolute;
-  top: 20%;
-  padding: 0 50px;
-  text-align: center;
-  width: 100%;
+    position: absolute;
+    top: 20%;
+    padding: 0 50px;
+    text-align: center;
+    width: 100%;
 }
-
 
 .btn-homepage {
     color: #fff;
@@ -94,15 +87,13 @@ body {
     width: 60%
 }
 
-.btn-homepage:hover,    
+.btn-homepage:hover,
 .btn-homepage:active,
 .btn-homepage.active {
     border: 2px solid #000000;
     color: #fff;
     background-color: #ee4b28;
 }
-
-
 
 .btn {
     border: 2px solid #ffffff;
@@ -116,25 +107,29 @@ body {
     padding: 15px 30px;
 }
 
-.modal h1, h2, h3, h4, h5, h6, p {
-	color: #000000 !important;
+.modal h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: #000000 !important;
 }
 
 .modal {
-  text-align: center;
+    text-align: center;
 }
-
 
 .modal:before {
-	display: inline-block;
-	vertical-align: middle;
-	content: " ";
-	height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
 }
 
-
 .modal-dialog {
-  display: inline-block;
-  vertical-align: middle;
-	width: 40%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60%;
 }
