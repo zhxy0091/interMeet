@@ -40,7 +40,6 @@ body {
     position: relative;
     width: 100%;
     min-height: auto;
-    text-align: center;
     color: #fff;
     background-image: url(../image/home.jpg);
     background-position: center;
@@ -159,15 +158,44 @@ p {
 .navbar-brand {
   float:none;
   color: #fff !important;
+  font-size: 24px !important;
 }
 
 .page-content {
     position: absolute;
-    top: 60%;
-    padding: 0 50px;
+    margin-top: 300px;
     width: 100%;
-    text-align: center;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+.input-container {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  border: 2px solid white;
+  padding: 20px 20px;
+  width: 90%;  
+}
+
+.create-code {
+  text-align: center;
+  font-size: 50px !important;
+}
+
+.input-short {
+  color:#525252;
+}
+
+.input-short input {
+  width: 100%;
+}
+
+.create-text-md { 
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.text-section {
+  margin-bottom: 15px;
 }
