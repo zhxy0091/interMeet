@@ -163,7 +163,7 @@ p {
 
 .page-content {
     position: absolute;
-    margin-top: 300px;
+    margin-top: 350px;
     width: 100%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -198,4 +198,61 @@ p {
 
 .text-section {
   margin-bottom: 15px;
+}
+
+.btn-section {
+  margin-top: 30px;
+}
+
+.btn-common {
+    color: #fff;
+    background-color: rgba(240, 98, 66, 0.2);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    width: 90%;
+}
+
+.btn-common:hover,
+.btn-common:active,
+.btn-common.active {
+    border: 2px solid #000000;
+    color: #fff;
+    background-color: #ee4b28;
+}
+
+.items-wrapper {
+  margin-top: 56px;
+  overflow: scroll;
+  position: fixed;
+  width: 100%;
+  display: block;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.card-polling {
+  margin: 10px 0;
+  padding: 0 5px 0px 5px;
+}
+
+.card-container {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.card-polling .card-header {
+}
+
+.card-polling h1,
+.card-polling h2,
+.card-polling h3,
+.card-polling h4,
+.card-polling h5,
+.card-polling h6,
+.card-polling p {
+  color: #fff !important;
+  text-shadow: 2px 1px #000000;
 }
