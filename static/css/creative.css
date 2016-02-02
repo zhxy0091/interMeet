@@ -130,6 +130,7 @@ p {
 }
 
 .modal-dialog {
+    width: 60%;
     display: inline-block;
     vertical-align: middle;
     width: 60%;
@@ -170,5 +171,3 @@ p {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
-
