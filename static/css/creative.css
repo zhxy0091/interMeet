@@ -76,6 +76,7 @@ body {
     padding: 0 50px;
     text-align: center;
     width: 100%;
+    text-shadow: 2px 2px #000000
 }
 
 .btn-homepage {
@@ -133,3 +134,41 @@ p {
     vertical-align: middle;
     width: 60%;
 }
+
+/* navbar */
+#fixtop {
+  position: fixed;
+  left: 0;right: 0; 
+  top:0;
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  background-color: rgba(0,0,0,0.3);
+  border: 0px;
+  border-bottom: 3px solid white;
+}
+
+/* navbar header */
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+  float:none;
+  color: #fff !important;
+}
+
+.page-content {
+    position: absolute;
+    top: 60%;
+    padding: 0 50px;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
