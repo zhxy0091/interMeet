@@ -235,6 +235,18 @@ p {
   right:0;
 }
 
+.home-wrapper {
+  margin-top: 56px;
+  position: fixed;
+  max-width: 100%;
+  display: block;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+}
+
 .card-polling {
   margin: 10px 0;
   padding: 0 5px 0px 5px;
