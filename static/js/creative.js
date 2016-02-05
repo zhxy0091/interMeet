@@ -30,14 +30,14 @@
     );
   
     $(".create-text-sm").fitText(
-        1.2, {
+        1.5, {
             minFontSize: '12px',
-            maxFontSize: '35px'
+            maxFontSize: '30px'
         }
     );
     
     $(".btn-xl").fitText(
-        1.2, {
+        1.5, {
             minFontSize: '11px',
             maxFontSize: '18px'
         })
