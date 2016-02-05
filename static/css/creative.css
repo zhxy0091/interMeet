@@ -58,21 +58,15 @@ body {
     text-align: center;
 }*/
 
-.home-content {
-    position: absolute;
-    top: 60%;
-    padding: 0 50px;
+.home-content-btn {
+
     width: 100%;
     text-align: center;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .brand {
-    position: absolute;
-    top: 20%;
-    padding: 0 50px;
+    margin-top: 20px;
+    padding: 0px;
     text-align: center;
     width: 100%;
     text-shadow: 2px 2px #000000
@@ -174,7 +168,8 @@ p {
   background: rgba(0,0,0,0.2);
   border-radius: 10px;
   border: 2px solid white;
-  padding: 20px 20px;
+  padding: 10px 20px;
+  margin-top: 50px;
   width: 90%;  
 }
 
@@ -196,8 +191,14 @@ p {
   margin-bottom: 5px;
 }
 
+.create-text-sm {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
 .text-section {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .btn-section {

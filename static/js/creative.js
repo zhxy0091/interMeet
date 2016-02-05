@@ -23,11 +23,24 @@
 
     // Fit Text Plugin for Main Header
     $("h1").fitText(
-        1.2, {
-            minFontSize: '45px',
-            maxFontSize: '75px'
+        0.8, {
+            minFontSize: '30px',
+            maxFontSize: '65px'
         }
     );
+  
+    $(".create-text-sm").fitText(
+        1.2, {
+            minFontSize: '12px',
+            maxFontSize: '35px'
+        }
+    );
+    
+    $(".btn-xl").fitText(
+        1.2, {
+            minFontSize: '11px',
+            maxFontSize: '18px'
+        })
 
     // Offset for Main Navigation
     $('#mainNav').affix({
