@@ -1,0 +1,271 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    ;
+}
+
+a {
+    color: #f05f40;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+a:hover,
+a:focus {
+    color: #eb3812;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    color: #fff;
+    background-image: url(../image/home.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    min-height: 100%;
+}
+
+
+/*header .header-content {
+    position: relative;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+}*/
+
+.home-content-btn {
+
+    width: 100%;
+    text-align: center;
+}
+
+.brand {
+    margin-top: 20px;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px #000000
+}
+
+.btn-homepage {
+    color: #fff;
+    background-color: rgba(240, 98, 66, 0.2);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    width: 60%
+}
+
+.btn-homepage:hover,
+.btn-homepage:active,
+.btn-homepage.active {
+    border: 2px solid #000000;
+    color: #fff;
+    background-color: #ee4b28;
+}
+
+.btn {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+}
+
+.modal h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: #000000 !important;
+}
+
+.modal {
+    text-align: center;
+}
+
+.modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+}
+
+.modal-dialog {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 60%;
+}
+
+/* navbar */
+#fixtop {
+  position: fixed;
+  left: 0;right: 0; 
+  top:0;
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  background-color: rgba(0,0,0,0.3);
+  border: 0px;
+  border-bottom: 3px solid white;
+}
+
+/* navbar header */
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+  float:none;
+  color: #fff !important;
+  font-size: 24px !important;
+}
+
+.page-content {
+    position: absolute;
+    margin-top: 350px;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.input-container {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  border: 2px solid white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  width: 90%;  
+}
+
+.create-code {
+  text-align: center;
+  font-size: 50px !important;
+}
+
+.input-short {
+  color:#525252;
+}
+
+.input-short input {
+  width: 100%;
+}
+
+.create-text-md { 
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.create-text-sm {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.text-section {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.btn-section {
+  margin-top: 30px;
+}
+
+.btn-common {
+    color: #fff;
+    background-color: rgba(240, 98, 66, 0.2);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    width: 90%;
+}
+
+.btn-common:hover,
+.btn-common:active,
+.btn-common.active {
+    border: 2px solid #000000;
+    color: #fff;
+    background-color: #ee4b28;
+}
+
+.items-wrapper {
+  margin-top: 56px;
+  overflow: scroll;
+  position: fixed;
+  width: 100%;
+  display: block;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.home-wrapper {
+  margin-top: 56px;
+  position: fixed;
+  max-width: 100%;
+  display: block;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.card-polling {
+  margin: 10px 0;
+  padding: 0 5px 0px 5px;
+}
+
+.card-container {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.card-polling .card-header {
+}
+
+.card-polling h1,
+.card-polling h2,
+.card-polling h3,
+.card-polling h4,
+.card-polling h5,
+.card-polling h6,
+.card-polling p {
+  color: #fff !important;
+  text-shadow: 2px 1px #000000;
+}
