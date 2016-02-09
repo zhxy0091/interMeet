@@ -18,7 +18,7 @@ $('#join-meeting-button').click(function (e) {
 
 (function ($) {
     "use strict"; // Start of use strict
-
+	/*
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
@@ -38,7 +38,7 @@ $('#join-meeting-button').click(function (e) {
     $('.navbar-collapse ul li a').click(function () {
         $('.navbar-toggle:visible').click();
     });
-
+	*/
     // Fit Text Plugin for Main Header
     $("h1").fitText(
         0.8, {
