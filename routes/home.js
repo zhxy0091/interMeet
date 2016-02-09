@@ -1,4 +1,5 @@
 
 exports.view = function(req, res){
-  res.render('home');
+	var code = req.params.code;
+  	res.render('home', code);
 };
