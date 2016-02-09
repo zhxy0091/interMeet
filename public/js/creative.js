@@ -2,7 +2,7 @@
 $('#join-meeting-button').click(function (e) {
     console.log("join clicked");
     e.preventDefault();
-    var code = $("#join-input-code").val();
+    var code = $('#join-input-code').val();
     console.log(code);
     var firstName = $("#join-input-firstname").val();
     var lastName = $("#join-input-lastname").val();
