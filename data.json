@@ -17,7 +17,21 @@
       ],
       
       "polling": [
-        
+        {
+          "question": "Do you like this web App?",
+          "choice": [
+            "Like",
+            "Dislike"
+          ]
+        },
+        {
+          "question": "Which team do you support?",
+          "choice": [
+            "Panthers",
+            "Broncos"
+          ]
+        }
+
       ]
     },
 
