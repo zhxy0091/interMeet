@@ -77,64 +77,15 @@
                 <a class="navbar-brand" href="index.html">interMeet</a>
               </div>
             </nav>
+			{{#each pollingItem}}
             <div class="wrapper items-wrapper">
               <div class="container card-container">
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 1</h3>
+                <div class="card card-polling" id="polling{{id}}">
+                  <a id="pollingLink{{id}}" href="#">
+                  <h3 class="card-header">{{title}}</h3>
                   <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
-                  </div>
-                  </a>
-                </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 2</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
-                  </div>
-                  </a>
-                </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 1</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
-                  </div>
-                  </a>
-                </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 3</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
-                  </div>
-                  </a>
-                </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 4</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
-                  </div>
-                  </a>
-                </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="polling.html">
-                  <h3 class="card-header">Polling 5</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">Monday, 7:28pm, 02/01/2016</h4>
-                    <p class="card-text">Something something something something something</p>
+                    <h4 class="card-title">{{date}}</h4>
+                    <p class="card-text">{{description}}</p>
                   </div>
                   </a>
                 </div>
@@ -143,7 +94,8 @@
                   <a href="./newpolling.html">Create new polling</a>
                 </div>
               </div>
-            </div>  
+            </div>
+			{{/each}}
         </div>
         <!-- /.modal -->
         
