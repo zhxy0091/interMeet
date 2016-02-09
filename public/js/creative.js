@@ -53,3 +53,20 @@
     new WOW().init();
 
 })(jQuery); // End of use strict
+
+// handle form
+$('#join-meeting-button').click(function(e) {
+    e.preventDefault();
+    $().click(function(e) {
+        var code = $(this).find("join-input-code").text();
+        var firstName = $(this).find("join-input-firstname").text();
+        var lastName = $(this).find("join-input-lastname").text();
+        var joinInputData = {
+            "code": code,
+            "firstName": firstName,
+            "lastName": lastName
+        }
+        console.log(joinInputData);
+        $.post("/home", joinInputData, )
+    });
+})
