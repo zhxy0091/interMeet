@@ -3,16 +3,16 @@
     "123456": {
       "user": [
         {
-          "first-name": "Xinyuan",
-          "last-name": "Zhang"
+          "firstname": "Xinyuan",
+          "lastname": "Zhang"
         },
         {
-          "first-name": "Shuming",
-          "last-name": "Cao"
+          "firstname": "Shuming",
+          "lastname": "Cao"
         },
         {
-          "first-name": "Changtong",
-          "last-name": "Qiu"
+          "firstname": "Changtong",
+          "lastname": "Qiu"
         }
       ],
       
@@ -24,16 +24,16 @@
     "000000": {
       "user": [
         {
-          "first-name": "Alex",
-          "last-name": "Zhang"
+          "firstname": "Alex",
+          "lastname": "Zhang"
         },
         {
-          "first-name": "Paul",
-          "last-name": "Cao"
+          "firstname": "Paul",
+          "lastname": "Cao"
         },
         {
-          "first-name": "John",
-          "last-name": "Qiu"
+          "firstname": "John",
+          "lastname": "Qiu"
         }
       ],
       "polling": [
