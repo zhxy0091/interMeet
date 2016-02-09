@@ -1,8 +1,25 @@
-(function($) {
+// handle form
+$('#join-meeting-button').click(function (e) {
+    console.log("join clicked");
+    e.preventDefault();
+    var code = $("#join-input-code").val();
+    console.log(code);
+    var firstName = $("#join-input-firstname").val();
+    var lastName = $("#join-input-lastname").val();
+    var joinInputData = {
+        "code": code,
+        "firstName": firstName,
+        "lastName": lastName
+    }
+    console.log(joinInputData);
+    window.location.href = '/home?code=' + code;
+});
+
+(function ($) {
     "use strict"; // Start of use strict
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
+    $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -17,7 +34,7 @@
     })
 
     // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
+    $('.navbar-collapse ul li a').click(function () {
         $('.navbar-toggle:visible').click();
     });
 
@@ -28,14 +45,14 @@
             maxFontSize: '65px'
         }
     );
-  
+
     $(".create-text-sm").fitText(
         1.5, {
             minFontSize: '12px',
             maxFontSize: '30px'
         }
     );
-    
+
     $(".btn-xl").fitText(
         1.5, {
             minFontSize: '11px',
@@ -54,19 +71,3 @@
 
 })(jQuery); // End of use strict
 
-// handle form
-$('#join-meeting-button').click(function(e) {
-    e.preventDefault();
-    $().click(function(e) {
-        var code = $(this).find("join-input-code").text();
-        var firstName = $(this).find("join-input-firstname").text();
-        var lastName = $(this).find("join-input-lastname").text();
-        var joinInputData = {
-            "code": code,
-            "firstName": firstName,
-            "lastName": lastName
-        }
-        console.log(joinInputData);
-        // redirction
-    });
-})

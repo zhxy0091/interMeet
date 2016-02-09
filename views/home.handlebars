@@ -73,45 +73,46 @@
                 <span class="hamb-bottom"></span>
             </button>
             <nav class="navbar navbar-default" id="fixtop">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">interMeet</a>
-              </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">interMeet</a>
+                </div>
             </nav>
-			{{#each pollingItem}}
+            {{#each pollingItem}}
             <div class="wrapper items-wrapper">
-              <div class="container card-container">
-                <div class="card card-polling" id="polling{{id}}">
-                  <a id="pollingLink{{id}}" href="#">
-                  <h3 class="card-header">{{title}}</h3>
-                  <div class="card-block">
-                    <h4 class="card-title">{{date}}</h4>
-                    <p class="card-text">{{description}}</p>
-                  </div>
-                  </a>
+                <div class="container card-container">
+                    <div class="card card-polling" id="polling{{id}}">
+                        <a id="pollingLink{{id}}" href="#">
+                            <h3 class="card-header">{{title}}</h3>
+                            <div class="card-block">
+                                <h4 class="card-title">{{date}}</h4>
+                                <p class="card-text">{{description}}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="card card-polling">
+                        <a href="./newpolling.html">Create new polling</a>
+                    </div>
                 </div>
-                <hr>
-                <div class="card card-polling">
-                  <a href="./newpolling.html">Create new polling</a>
-                </div>
-              </div>
             </div>
-			{{/each}}
+            {{/each}}
         </div>
         <!-- /.modal -->
-        
+
         <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
                         <h2>interMeet</h2>
                         <p>Alpha 1.0</p>
+                        <p>{{code}}</p>
                     </div>
                 </div>
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
         </div>
-        
+
     </div>
 
     <!-- /#page-content-wrapper -->
