@@ -1,23 +1,24 @@
 // handle form
 $('#join-meeting-button').click(function (e) {
     console.log("join clicked");
-    e.preventDefault();
-    var code = $('#join-input-code').val();
-    console.log(code);
-    var firstName = $("#join-input-firstname").val();
-    var lastName = $("#join-input-lastname").val();
-    var joinInputData = {
-        "code": code,
-        "firstName": firstName,
-        "lastName": lastName
-    }
-    console.log(joinInputData);
-    window.location.href = '/home?code=' + code;
+    $("#join-form").submit();
+//    e.preventDefault();
+//    var code = $('#join-input-code').val();
+//    console.log(code);
+//    var firstName = $("#join-input-firstname").val();
+//    var lastName = $("#join-input-lastname").val();
+//    var joinInputData = {
+//        "code": code,
+//        "firstName": firstName,
+//        "lastName": lastName
+//    }
+//    console.log(joinInputData);
+    // $.post('/home')
 });
 
 (function ($) {
     "use strict"; // Start of use strict
-
+	/*
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
@@ -37,7 +38,7 @@ $('#join-meeting-button').click(function (e) {
     $('.navbar-collapse ul li a').click(function () {
         $('.navbar-toggle:visible').click();
     });
-
+	*/
     // Fit Text Plugin for Main Header
     $("h1").fitText(
         0.8, {

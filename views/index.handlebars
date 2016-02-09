@@ -74,14 +74,14 @@
                 <h1>interMeet</h1>
               </div>
               <div class="input-container container">
-                <form id="create-form">
+                <form id="join-form" method="post" action="/home">
                   <div class="input-group text-section">
                     <div class="create-text-sm create-header">
                       Code
                     </div>
                     <div class="col-xs-12">
                       <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-code" type="text">
+                        <input id="join-input-code" name="meeting[code]" type="text">
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-xs-12">
                       <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-firstname" type="text">
+                        <input id="join-input-firstname" name="user[firstname]" type="text">
                       </div>
                     </div>
                   </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-xs-12">
                       <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-lastname" type="text">
+                        <input id="join-input-lastname" name="user[lastname]" type="text">
                       </div>
                     </div>
                   </div>
