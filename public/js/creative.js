@@ -1,18 +1,19 @@
 // handle form
 $('#join-meeting-button').click(function (e) {
     console.log("join clicked");
-    e.preventDefault();
-    var code = $('#join-input-code').val();
-    console.log(code);
-    var firstName = $("#join-input-firstname").val();
-    var lastName = $("#join-input-lastname").val();
-    var joinInputData = {
-        "code": code,
-        "firstName": firstName,
-        "lastName": lastName
-    }
-    console.log(joinInputData);
-    window.location.href = '/home?code=' + code;
+    $("#join-form").submit();
+//    e.preventDefault();
+//    var code = $('#join-input-code').val();
+//    console.log(code);
+//    var firstName = $("#join-input-firstname").val();
+//    var lastName = $("#join-input-lastname").val();
+//    var joinInputData = {
+//        "code": code,
+//        "firstName": firstName,
+//        "lastName": lastName
+//    }
+//    console.log(joinInputData);
+    // $.post('/home')
 });
 
 (function ($) {
