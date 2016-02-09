@@ -67,6 +67,6 @@ $('#join-meeting-button').click(function(e) {
             "lastName": lastName
         }
         console.log(joinInputData);
-        $.post("/home", joinInputData, )
+        // redirction
     });
 })
