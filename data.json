@@ -1,0 +1,44 @@
+{
+  "meeting": {
+    "123456": {
+      "user": [
+        {
+          "first-name": "Xinyuan",
+          "last-name": "Zhang"
+        },
+        {
+          "first-name": "Shuming",
+          "last-name": "Cao"
+        },
+        {
+          "first-name": "Changtong",
+          "last-name": "Qiu"
+        }
+      ],
+      
+      "polling": [
+        
+      ]
+    },
+
+    "000000": {
+      "user": [
+        {
+          "first-name": "Alex",
+          "last-name": "Zhang"
+        },
+        {
+          "first-name": "Paul",
+          "last-name": "Cao"
+        },
+        {
+          "first-name": "John",
+          "last-name": "Qiu"
+        }
+      ],
+      "polling": [
+
+      ]
+    }
+  }
+}
