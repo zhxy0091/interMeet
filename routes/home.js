@@ -1,6 +1,6 @@
 var data = require('../data.json');
 var util = require('util');
-var validator = require()
+
 exports.view = function (req, res) {
     if (req.method == 'GET') {
         var firstname = req.session.firstname;

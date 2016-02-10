@@ -16,7 +16,7 @@ var polling = require('./routes/polling');
 // var user = require('./routes/user');
 
 //Declare Express-Validator
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var expressValidator = require('express-validator'); 
 
 
