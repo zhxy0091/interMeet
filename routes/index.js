@@ -4,9 +4,13 @@
 
 exports.view = function (req, res) {
     console.log("in index page");
-    if (req.method == 'DELETE') {
+    if (req.method == 'DELETE')  {
         console.log("in index page, delete detected");
         req.session.destroy();
+        res.send();
     }
-    res.render('index');
+    else if (req.method == 'GET') {
+        console.log("in index page, get detected");
+        res.render('index');
+    }
 };
