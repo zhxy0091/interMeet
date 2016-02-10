@@ -42,10 +42,10 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a>{{firstname}} {{lastname}}</a>
+                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
                 </li>
 				<li>
-					<a>Meeting {{code}}</a>
+					<a>Meeting {{thisSession.code}}</a>
 				</li>
                 <li>
                     <a href="./home">Home</a>
@@ -75,7 +75,7 @@
                     <a class="navbar-brand" href="index.html">interMeet</a>
                 </div>
             </nav>
-            {{#each pollingItem}}
+            {{#each polling}}
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
                     <div class="card card-polling" id="polling{{id}}">
