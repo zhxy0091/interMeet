@@ -16,8 +16,8 @@ var polling = require('./routes/polling');
 // var user = require('./routes/user');
 
 //Declare Express-Validator
-//var bodyParser = require('body-parser');
-var expressValidator = require('express-validator'); 
+var bodyParser = require('body-parser');
+var validator = require('express-validator');
 
 
 
@@ -41,7 +41,7 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(expressValidator);  //required for Express-Validator
+app.use(validator);  //required for Express-Validator
 
 // development only
 if ('development' == app.get('env')) {
@@ -54,7 +54,7 @@ app.delete('/', index.view);
 app.get('/home', home.view);
 app.post('/home', home.view);
 app.get('/newPolling', newPolling.view);
-app.post('/polling', polling.create);
+app.post('/polling', polling.view);
 app.get('/polling', polling.view);
 // Example route
 // app.get('/users', user.list);
