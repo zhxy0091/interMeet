@@ -16,6 +16,18 @@ $('#join-meeting-button').click(function (e) {
     // $.post('/home')
 });
 
+$('#leave-meeting').click(function (e) {
+    console.log("leave clicked");
+    $.ajax({
+    url: '/',
+    type: 'DELETE',
+    success: function(result) {
+        console.log("leave the meeting successfully");
+    }
+    });
+});
+
+
 (function ($) {
     "use strict"; // Start of use strict
 	/*
