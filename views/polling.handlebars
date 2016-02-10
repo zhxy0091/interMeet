@@ -138,8 +138,13 @@
             ]
         };
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data);
-
+        var myBarChart = new Chart(ctx).Bar(data, {responsive: true});
+        myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
+        myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
+        myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
+        myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
+        myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
+        myBarChart.update();
       }
     </script>
 </body>
