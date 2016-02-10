@@ -1,6 +1,9 @@
 // handle form
 $('#join-meeting-button').click(function (e) {
     console.log("join clicked");
+    if(!validateJoin()) {
+        return;
+    }
     $("#join-form").submit();
 //    e.preventDefault();
 //    var code = $('#join-input-code').val();
@@ -132,4 +135,58 @@ function pollingRemove() {
 		if (count == 7)
 			$("#polling-create-add").show();
 	}
+}
+
+function validateJoin() {
+    var error = "";
+    var errorExist = false;
+    var legalName = /^[a-zA-Z]+$/; // allow letters, numbers, and underscores
+    var legalCode = /^\d+$/
+    var firstname = document.getElementById("join-input-firstname");
+    var lastname = document.getElementById("join-input-lastname");
+    var code = document.getElementById("join-input-code");
+    var errorMessage = document.getElementById("error-message");
+    var errorInput = document.createElement('ul');
+    //initialize color 
+    code.style.background = 'White';
+    firstname.style.background = 'White';
+    lastname.style.background = 'White';
+    $('#error-message ul').remove();
+
+    if(!(legalCode.test(code.value))) {
+        code.style.background = 'Yellow';
+        error += "<li>Please enter a 6 digits code.</li>";
+        errorExist = true;
+    }
+    if (firstname.value == "") {
+        firstname.style.background = 'Yellow';
+        error += "<li>Please enter the firstname.</li>";
+        errorExist = true;
+    }
+    else if (!legalName.test(firstname.value)) {
+        firstname.style.background = 'Yellow';
+        error += "<li>Please enter your correct firstname</li>";
+        errorExist = true;
+    }
+
+    if (lastname.value == "") {
+        lastname.style.background = 'Yellow';
+        error += "<li>Please enter the lastname.</li>";
+        errorExist = true;
+    }
+    else if (!legalName.test(lastname.value)) {
+        lastname.style.background = 'Yellow';
+        error += "<li>Please enter your correct lastname</li>";
+        errorExist = true;
+    } 
+
+    if(errorExist) {
+        console.log(error);
+        errorInput.innerHTML = error;
+        errorMessage.appendChild(errorInput);
+        return false;
+    }
+    else {
+        return true;
+    }
 }

@@ -17,6 +17,18 @@ exports.view = function (req, res) {
         req.session.firstname = firstname;
         req.session.lastname = lastname;
         req.session.code = code;
+
+        //log if user join or create
+        //req.session.operation = "join";
+
+        //check if code is valid
+        var meeting = data['meeting'];
+        if(!(code in meeting)) {
+            console.log('code is not valid');
+            req.session.error = 'Invalid Code';
+            return res.redirect('/');
+        }
+
         console.log('post');
         console.log(req.session);
     }
