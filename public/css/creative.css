@@ -196,6 +196,16 @@ p {
   margin-bottom: 2px;
 }
 
+.polling-text-md { 
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.polling-text-sm {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
 .text-section {
   margin-bottom: 5px;
   width: 100%;

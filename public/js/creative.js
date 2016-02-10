@@ -72,3 +72,37 @@ $('#join-meeting-button').click(function (e) {
 
 })(jQuery); // End of use strict
 
+function pollingAdd() {
+	var count = document.getElementById("polling-create-form").elements.length;
+	console.log(count);
+	if (count < 7) {
+		var newInput = document.createElement('div');
+		newInput.innerHTML ='<div class="create-text-sm create-header">'
+                            +'Option '+(count-1)
+                          +'</div>'
+                          +'<div class="col-xs-12">'
+                            +'<div class="create-text-sm input-short container-fluid">'
+                              +'<input id="polling-create-option' + (count-1) + '" type="text">'
+                            +'</div>'
+                          +'</div>';
+		newInput.className += 'input-group text-section'
+		console.log(newInput);
+		document.getElementById("polling-create-form").appendChild(newInput);
+		if (count == 6)
+			$("#polling-create-add").hide();
+		if (count == 4)
+			$("#polling-create-minus").show();
+	}
+}
+
+function pollingRemove() {
+	var count = document.getElementById("polling-create-form").elements.length;
+	console.log(count);
+	if (count > 4) {
+		$('#polling-create-form .text-section:last-child').remove();
+		if (count == 5)
+			$("#polling-create-minus").hide();
+		if (count == 7)
+			$("#polling-create-add").show();
+	}
+}

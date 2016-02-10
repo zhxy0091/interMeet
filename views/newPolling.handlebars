@@ -51,7 +51,7 @@
                     <a href="./home">Home</a>
                 </li>
                 <li>
-                    <a href="./newpolling">Create polling</a>
+                    <a href="./newpolling.html">Create polling</a>
                 </li>
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
@@ -78,25 +78,61 @@
                     <a class="navbar-brand" href="index.html">interMeet</a>
                 </div>
             </nav>
-            {{#each pollingItem}}
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
-                    <div class="card card-polling" id="polling{{id}}">
-                        <a id="pollingLink{{id}}" href="#">
-                            <h3 class="card-header">{{title}}</h3>
-                            <div class="card-block">
-                                <h4 class="card-title">{{date}}</h4>
-                                <p class="card-text">{{description}}</p>
+					<form method="POST" id="polling-create-form" name="pollingCreateForm">
+						<div class="input-group text-section">
+                          <div class="polling-text-md create-header">
+                            Create new polling
+                          </div>
+                          <div class="polling-text-sm create-header">
+                            Title
+                          </div>
+                          <div class="col-xs-12">
+                            <div class="polling-text-sm input-short container-fluid">
+                              <input id="polling-create-title" type="text">
                             </div>
-                        </a>
-                    </div>
-                    <hr>
-                    <div class="card card-polling">
-                        <a href="./newpolling.html">Create new polling</a>
-                    </div>
+                          </div>
+                        </div>
+                        <div class="input-group text-section">
+                          <div class="polling-text-sm create-header">
+                            Description
+                          </div>
+                          <div class="col-xs-12">
+                            <div class="polling-text-sm input-short container-fluid">
+                              <input id="polling-create-description" type="text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-group text-section">
+                          <div class="polling-text-sm create-header">
+                            Option 1
+                          </div>
+                          <div class="col-xs-12">
+                            <div class="polling-text-sm input-short container-fluid">
+                              <input id="polling-create-option1" type="text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-group text-section">
+                          <div class="polling-text-sm create-header">
+                            Option 2
+                          </div>
+                          <div class="col-xs-12">
+                            <div class="polling-text-sm input-short container-fluid">
+                              <input id="polling-create-option2" type="text">
+                            </div>
+                          </div>
+                        </div>
+					</form>	
+					<a class="polling-text-md" id="polling-create-add" onclick="pollingAdd()">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</a>
+					<a class="polling-text-md" id="polling-create-minus" onclick="pollingRemove()">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</a>
                 </div>
             </div>
-            {{/each}}
         </div>
         <!-- /.modal -->
 

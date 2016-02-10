@@ -2,7 +2,7 @@ var data = require('../data.json');
 var util = require('util');
 
 exports.view = function(req, res){
-	if (req.method == 'GET'){
+	/*if (req.method == 'GET'){
 		var firstname = req.session.firstname;
 		var lastname = req.session.lastname;
 		var code = req.session.code;
@@ -31,6 +31,6 @@ exports.view = function(req, res){
         'lastname': lastname,
         'firstname': firstname
     });
-    console.log(util.inspect(data, {showHidden: false, depth: null}));
-  	res.render('home', joinInfo);
+    console.log(util.inspect(data, {showHidden: false, depth: null}));*/
+  	res.render('newPolling');
 };
