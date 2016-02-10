@@ -7,6 +7,9 @@ exports.view = function(req, res){
 		var lastname = req.session.lastname;
 		var code = req.session.code;
 		console.log('get');
+		if(code == undefined) {
+			res.redirect('/');
+		}
 	}
 	else {
 		var code = req.body.meeting.code;
