@@ -1,6 +1,6 @@
 var data = require('../data.json');
 var util = require('util');
-
+var validator = require()
 exports.view = function (req, res) {
     if (req.method == 'GET') {
         var firstname = req.session.firstname;
@@ -19,6 +19,14 @@ exports.view = function (req, res) {
         req.session.code = code;
         console.log('post');
         console.log(req.session);
+       	req.assert(firstname, 'Firstname is required').notEmpty();
+       	req.assert(lastname, 'Lastname is required').notEmpty();
+
+       	var errors = req.validationErrors();
+       	if(errors) {
+       		res.send(errors);
+       		return;
+       	}
     }
 
     console.log(util.inspect(data, {
