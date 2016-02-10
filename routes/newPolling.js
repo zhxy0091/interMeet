@@ -2,10 +2,22 @@ var data = require('../data.json');
 var util = require('util');
 
 exports.view = function(req, res){
-    var firstname = req.session.firstname;
-    var lastname = req.session.lastname;
-    var code = req.session.code;
-    console.log(req.session);
+	if (req.method == 'GET'){
+		var firstname = req.session.firstname;
+		var lastname = req.session.lastname;
+		var code = req.session.code;
+		console.log(req.session);
+	}
+	else {
+		var code = req.body.meeting.code;
+		var firstname = req.body.user.firstname;
+		var lastname = req.body.user.lastname;
+		req.session.firstname = firstname;
+		req.session.lastname = lastname;
+		req.session.code = code;
+		console.log('post');
+		console.log(req.session);
+	}
 
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     data['meeting'][code]['user'].push({

@@ -112,8 +112,7 @@ function pollingAdd() {
                           +'</div>'
                           +'<div class="col-xs-12">'
                             +'<div class="create-text-sm input-short container-fluid">'
-                              +'<input id="polling-create-option' + (count-1) + '" name="pollingOption'+
-                              (count-1) + '" type="text">'
+                              +'<input id="polling-create-option' + (count-1) + '" type="text">'
                             +'</div>'
                           +'</div>';
 		newInput.className += 'input-group text-section'
