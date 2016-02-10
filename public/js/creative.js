@@ -39,7 +39,9 @@ $('#leave-meeting').click(function (e) {
     url: '/',
     type: 'DELETE',
     success: function(result) {
+        console.log(result);
         console.log("leave the meeting successfully");
+        window.location.href = '/';
     }
     });
 });
