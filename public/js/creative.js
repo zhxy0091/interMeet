@@ -140,6 +140,7 @@ function pollingRemove() {
 function validateJoin() {
     var error = "";
     var errorExist = false;
+    var errorColor = '#ffff4c';
     var legalName = /^[a-zA-Z]+$/; // allow letters, numbers, and underscores
     var legalCode = /^\d+$/
     var firstname = document.getElementById("join-input-firstname");
@@ -153,29 +154,29 @@ function validateJoin() {
     lastname.style.background = 'White';
     $('#error-message ul').remove();
 
-    if(!(legalCode.test(code.value))) {
-        code.style.background = 'Yellow';
-        error += "<li>Please enter a 6 digits code.</li>";
+    if(!(legalCode.test(code.value)) || code.value.length!=6) {
+        code.style.background = errorColor;
+        error += "<li>Please enter a 6-digit code.</li>";
         errorExist = true;
     }
     if (firstname.value == "") {
-        firstname.style.background = 'Yellow';
+        firstname.style.background = errorColor;
         error += "<li>Please enter the firstname.</li>";
         errorExist = true;
     }
     else if (!legalName.test(firstname.value)) {
-        firstname.style.background = 'Yellow';
+        firstname.style.background = errorColor;
         error += "<li>Please enter your correct firstname</li>";
         errorExist = true;
     }
 
     if (lastname.value == "") {
-        lastname.style.background = 'Yellow';
+        lastname.style.background = errorColor;
         error += "<li>Please enter the lastname.</li>";
         errorExist = true;
     }
     else if (!legalName.test(lastname.value)) {
-        lastname.style.background = 'Yellow';
+        lastname.style.background = errorColor;
         error += "<li>Please enter your correct lastname</li>";
         errorExist = true;
     } 
@@ -183,6 +184,7 @@ function validateJoin() {
     if(errorExist) {
         console.log(error);
         errorInput.innerHTML = error;
+        errorInput.style.color = 'Red';
         errorMessage.appendChild(errorInput);
         return false;
     }
