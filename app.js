@@ -15,8 +15,17 @@ var polling = require('./routes/polling');
 // Example route
 // var user = require('./routes/user');
 
+//Declare Express-Validator
+//var bodyParser = require('body-parser');
+var expressValidator = require('express-validator'); 
+
+
+
 var app = express();
 
+// middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +40,8 @@ app.use(express.cookieParser('Intro HCI secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(expressValidator);  //required for Express-Validator
 
 // development only
 if ('development' == app.get('env')) {

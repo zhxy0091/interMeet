@@ -70,6 +70,17 @@
               <div class="brand">
                 <h1>interMeet</h1>
               </div>
+
+              <div class="error-message">
+              {{ #if errors }}
+                    <ul>
+                     {{ #each errors }}
+                     <li>{{ this.msg }}</li>
+                    {{ /each }}
+                        </ul>
+                {{ /if }}
+                </div>
+                
               <div class="input-container container">
                 <form id="join-form" method="post" action="/home">
                   <div class="input-group text-section">
