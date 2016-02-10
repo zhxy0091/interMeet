@@ -16,16 +16,16 @@ var polling = require('./routes/polling');
 // var user = require('./routes/user');
 
 //Declare Express-Validator
-var bodyParser = require('body-parser');
-var validator = require('express-validator');
+//var bodyParser = require('body-parser');
+//var validator = require('express-validator');
 
 
 
 var app = express();
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(validator());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(validator());
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -41,7 +41,7 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(validator);  //required for Express-Validator
+//app.use(validator);  //required for Express-Validator
 
 // development only
 if ('development' == app.get('env')) {
