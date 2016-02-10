@@ -19,14 +19,6 @@ exports.view = function (req, res) {
         req.session.code = code;
         console.log('post');
         console.log(req.session);
-       	req.assert(firstname, 'Firstname is required').notEmpty();
-       	req.assert(lastname, 'Lastname is required').notEmpty();
-
-       	var errors = req.validationErrors();
-       	if(errors) {
-       		res.send(errors);
-       		return;
-       	}
     }
 
     console.log(util.inspect(data, {
