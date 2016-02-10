@@ -7,7 +7,6 @@ exports.view = function(req, res){
 		var lastname = req.session.lastname;
 		var code = req.session.code;
 		console.log('get');
-		console.log(req.session);
 	}
 	else {
 		var code = req.body.meeting.code;
@@ -19,12 +18,6 @@ exports.view = function(req, res){
 		console.log('post');
 		console.log(req.session);
 	}
-    var joinInfo = {
-        'code': code,
-        'lastname': lastname,
-        'firstname': firstname
-    }
-
 
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     data['meeting'][code]['user'].push({
@@ -32,5 +25,13 @@ exports.view = function(req, res){
         'firstname': firstname
     });
     console.log(util.inspect(data, {showHidden: false, depth: null}));
-  	res.render('home', joinInfo);
+    
+    var passIn = data['meeting'][code];
+    passIn['thisSession'] = {
+            'code': code,
+            'lastname': lastname,
+            'firstname': firstname
+        };
+    // handlebar data pass in
+  	res.render('home', passIn);
 };

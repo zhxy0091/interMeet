@@ -42,11 +42,11 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a>{{firstname}} {{lastname}}</a>
+                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
                 </li>
-				<li>
-					<a>Meeting {{code}}</a>
-				</li>
+                <li>
+                    <a>Meeting {{thisSession.code}}</a>
+                </li>
                 <li>
                     <a href="./home">Home</a>
                 </li>
@@ -78,9 +78,10 @@
                     <a class="navbar-brand" href="index.html">interMeet</a>
                 </div>
             </nav>
-            {{#each pollingItem}}
+
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
+                    {{#each polling}}
                     <div class="card card-polling" id="polling{{id}}">
                         <a id="pollingLink{{id}}" href="#">
                             <h3 class="card-header">{{title}}</h3>
@@ -90,13 +91,12 @@
                             </div>
                         </a>
                     </div>
-                    <hr>
+                    <hr> {{/each}}
                     <div class="card card-polling">
                         <a href="./newpolling.html">Create new polling</a>
                     </div>
                 </div>
             </div>
-            {{/each}}
         </div>
         <!-- /.modal -->
 
@@ -106,7 +106,7 @@
                     <div class="modal-body">
                         <h2>interMeet</h2>
                         <p>Alpha 1.0</p>
-                        
+
                     </div>
                 </div>
                 <!-- /.modal-content -->

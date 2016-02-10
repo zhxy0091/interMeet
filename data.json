@@ -18,20 +18,23 @@
       
       "polling": [
         {
-          "question": "Do you like this web App?",
+          "id": 0,
+          "title": "Do you like this web App?",
+          "date": "1/9/2016",
           "choice": [
             "Like",
             "Dislike"
           ]
         },
         {
-          "question": "Which team do you support?",
+          "id": 1,
+          "title": "Which team do you support?",
+          "date": "1/7/2016",
           "choice": [
             "Panthers",
             "Broncos"
           ]
         }
-
       ]
     },
 
