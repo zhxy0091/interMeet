@@ -79,8 +79,8 @@
                 </div>
             </nav>
             <div class="wrapper items-wrapper">
-              <div class="container-fluid">
-                <canvas id="myChart" height="400" style="width:100% !important"></canvas>
+              <div class="container">
+                <canvas id="myChart" height="300"></canvas>
               </div>
             </div>
         </div>
@@ -124,26 +124,35 @@
 
     <script type="text/javascript">
       window.onload = function () {
-        var data = {
-            labels: ["January", "February", "March", "April", "May"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(255,255,255,0.9)",
-                    strokeColor: "rgba(255,255,255,1)",
-                    highlightFill: "rgba(220,220,220,0.75)",
-                    highlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56]
-                }
-            ]
-        };
+        var data = [
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    }
+]
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, {responsive: true});
+        var myBarChart = new Chart(ctx).Pie(data, {responsive: true});
         myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
         myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
         myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
         myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
         myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
+        myBarChart.datasets[0].bars[5].fillColor = "white"; //bar 5
+
         myBarChart.update();
       }
     </script>
