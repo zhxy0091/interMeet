@@ -38,6 +38,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.delete('/', index.view);
 app.get('/home', home.view);
 app.post('/home', home.view);
 app.get('/newPolling', newPolling.view);
