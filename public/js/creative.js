@@ -103,7 +103,6 @@ $('#leave-meeting').click(function (e) {
 
 function pollingAdd() {
 	var count = document.getElementById("polling-create-form").elements.length;
-	console.log(count);
 	if (count < 7) {
 		var newInput = document.createElement('div');
 		newInput.innerHTML ='<div class="create-text-sm create-header">'
@@ -115,7 +114,6 @@ function pollingAdd() {
                             +'</div>'
                           +'</div>';
 		newInput.className += 'input-group text-section'
-		console.log(newInput);
 		document.getElementById("polling-create-form").appendChild(newInput);
 		if (count == 6)
 			$("#polling-create-add").hide();
@@ -126,7 +124,6 @@ function pollingAdd() {
 
 function pollingRemove() {
 	var count = document.getElementById("polling-create-form").elements.length;
-	console.log(count);
 	if (count > 4) {
 		$('#polling-create-form .text-section:last-child').remove();
 		if (count == 5)
