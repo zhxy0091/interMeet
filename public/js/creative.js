@@ -208,7 +208,7 @@ function validateCreate() {
     var count = document.getElementById("polling-create-form").elements.length - 2;
     var options = [];
     for(var i=0; i<count; i++) {
-        options[i] = (document.getElementById("polling-create-option"+(i+1)));
+        options[i] = (document.getElementById("polling-create-option"+(i)));
     }
     if(errorMessage == undefined) {
         console.log("errorMessage undefined");
