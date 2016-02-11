@@ -8,16 +8,12 @@ exports.view = function(req, res){
     console.log(req.session);
 
     console.log(util.inspect(data, {showHidden: false, depth: null}));
-    data['meeting'][code]['user'].push({
-        'lastname': lastname,
-        'firstname': firstname
-    });
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
             'code': code,
-            'lastname': lastname,
-            'firstname': firstname
+            'firstname': firstname,
+            'lastname': lastname
         };
   	res.render('polling', passIn );
 };
