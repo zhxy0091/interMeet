@@ -7,7 +7,7 @@ exports.view = function (req, res) {
     console.log("in index page");
     if (req.method == 'DELETE')  {
         console.log("in index page, delete detected");
-        if (req.session.creator == "true") {
+        if (req.session.creator == true) {
             delete data['meeting'][req.session.code]
             console.log("room"+req.session.code+"was deleted");
             console.log(data['meeting']);
