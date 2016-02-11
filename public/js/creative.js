@@ -19,6 +19,11 @@ $('#join-meeting-button').click(function (e) {
     // $.post('/home')
 });
 
+$('#create-meeting-button').click(function (e) {
+    console.log("create clicked");
+    $.get('/create');
+})
+
 $('#polling-submit-button').click(function (e) {
     console.log("join clicked");
     if(!validateCreate()) {
