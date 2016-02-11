@@ -23,8 +23,8 @@ exports.view = function(req, res){
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
             'code': code,
-            'lastname': lastname,
-            'firstname': firstname
+            'firstname': firstname,
+            'lastname': lastname
         };
 	passIn['thisPolling'] = thisPolling;
   	res.render('pollingVote', passIn );
