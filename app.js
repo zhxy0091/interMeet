@@ -45,9 +45,10 @@ app.delete('/', index.view);
 app.get('/home', home.view);
 app.post('/home', home.view);
 app.get('/newPolling', newPolling.view);
-app.post('/polling', polling.create);
-app.get('/polling/:id', pollingVote.view);
-app.get('/polling', polling.view);
+app.post('/polling/new', polling.create);
+app.post('/polling/:id', polling.pollingSubmit);
+app.get('/pollingVote/:id', pollingVote.view);
+app.get('/polling/:id', polling.view);
 app.get('/pollingVote', pollingVote.view);
 app.get('/create', create.view);
 // Example route

@@ -22,15 +22,42 @@ exports.view = function(req, res){
   	res.render('polling', passIn );
 };
 
+exports.pollingSubmit = function(req, res){
+    var firstname = req.session.firstname;
+    var lastname = req.session.lastname;
+    var code = req.session.code;
+    var pollingVote = req.body.options;
+	var pollingId = req.params.id;
+	console.log(data['meeting'][code]['polling'][req.params.id]);
+	data['meeting'][code]['polling'][req.params.id]['result'][pollingVote]++;
+    var thisPolling;
+	for (var i = 0; i < data['meeting'][code]['polling'].length; i++) {
+		console.log(data['meeting'][code]['polling'][i]);
+		if (data['meeting'][code]['polling'][i]['id'] == pollingId) {
+			thisPolling = data['meeting'][code]['polling'][i];
+			break;
+		}
+	}
+	var passIn = data['meeting'][code];
+    passIn['thisSession'] = {
+            'code': code,
+            'lastname': lastname,
+            'firstname': firstname
+        };
+    passIn['thisPolling'] = thisPolling;
+	console.log(util.inspect(data, {
+        showHidden: false,
+        depth: null
+    }));
+    console.log('polling.js thisPolling:' + thisPolling);
+  	res.render('polling', passIn );
+};
+
 exports.create = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
-    console.log(req.session);
-    var pollingVote = req.body.options;
-	console.log("Vote: " + pollingVote);
-  	
-    var pollingTitle = req.body.pollingTitle;
+	var pollingTitle = req.body.pollingTitle;
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
     var count;
@@ -41,9 +68,6 @@ exports.create = function(req, res){
         break;
       }
     }
-	console.log(pollingOptions);
-	
-    console.log(util.inspect(data, {showHidden: false, depth: null}));
 	var pollingId = data['meeting'][code]['polling'].length;
 	var today = new Date();
     var dd = today.getDate();
@@ -62,11 +86,14 @@ exports.create = function(req, res){
 		'title': pollingTitle,
 		'date': today,
 		'choice': [
-		]
+		],
+		'result':[]
     };
 	for (i=0; i<count; i++)
-		if (pollingOptions[i] != undefined)
+		if (pollingOptions[i] != undefined){
+			pollingData['result'][i] = 0;
 			pollingData['choice'].push(pollingOptions[i]);
+		}
 	console.log(pollingData);
 	if (pollingTitle != undefined) {
     	data['meeting'][code]['polling'].push(pollingData);
@@ -78,5 +105,6 @@ exports.create = function(req, res){
             'lastname': lastname,
             'firstname': firstname
         };
-  	res.render('polling', passIn );
-};
+	passIn['thisPolling'] = pollingData;
+	res.render('polling', passIn );
+}

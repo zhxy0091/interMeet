@@ -17,15 +17,15 @@
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:700,400,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
     
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="../css/creative.css" type="text/css">
+    <link rel="stylesheet" href="../css/sidebar.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,16 +49,16 @@
                     <a>Meeting {{thisSession.code}}</a>
                 </li>
                 <li>
-                    <a href="./home">Home</a>
+                    <a href="../home">Home</a>
                 </li>
                 <li>
-                    <a href="./newpolling">Create polling</a>
+                    <a href="../newpolling">Create polling</a>
                 </li>
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
                 <li>
-                    <a href="./team.html">Contact</a>
+                    <a href="../team.html">Contact</a>
                 </li>
 				<li>
 					<a href="#" id="leave-meeting">Leave meeting</a>
@@ -108,51 +108,52 @@
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/jquery.fittext.js"></script>
+    <script src="../js/wow.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="js/chart/Chart.js"></script>
+    <script src="../js/creative.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/chart/Chart.js"></script>
 
     <script type="text/javascript">
       window.onload = function () {
-        var data = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }
-]
+        var data = {
+          labels: [],
+          datasets: [
+            {
+              label: "My First dataset",
+              fillColor: "rgba(220,220,220,0.5)",
+              strokeColor: "rgba(220,220,220,0.8)",
+              highlightFill: "rgba(220,220,220,0.75)",
+              highlightStroke: "rgba(220,220,220,1)",
+              data: []
+            }
+          ]
+        };
+		var choice;
+		{{#each thisPolling.choice}}
+          console.log("aaa");
+          data['labels'].push('{{this}}');
+        {{/each}}
+        {{#each thisPolling.result}}
+          data['datasets'][0]['data'].push({{this}});
+        {{/each}}
+		console.log(data['datasets'][0]['data']);
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Pie(data, {responsive: true});
+        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff"});
         myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
         myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
         myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
         myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
         myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
-        myBarChart.datasets[0].bars[5].fillColor = "white"; //bar 5
         myBarChart.update();
       }
     </script>

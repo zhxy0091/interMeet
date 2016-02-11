@@ -86,7 +86,7 @@
                           {{thisPolling.title}}
                         </div>
                     </div>
-					<form method="POST" id="polling-vote-form" name="pollingCreateForm" action="/polling">
+					<form method="POST" id="polling-vote-form" name="pollingCreateForm" action="/polling/{{thisPolling.id}}">
 						<div class="btn-group-vertical text-center" data-toggle="buttons">
                           {{#each thisPolling.choice}}
                             <label class="btn btn-common">

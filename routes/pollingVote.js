@@ -18,7 +18,6 @@ exports.view = function(req, res){
 		}
 	}
 	console.log(thisPolling);
-
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     data['meeting'][code]['user'].push({
         'lastname': lastname,
