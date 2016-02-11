@@ -21,6 +21,9 @@ $('#join-meeting-button').click(function (e) {
 
 $('#polling-submit-button').click(function (e) {
     console.log("join clicked");
+    if(!validateCreate()) {
+        return;
+    }
     $("#polling-create-form").submit();
 //    e.preventDefault();
 //    var code = $('#join-input-code').val();
@@ -185,6 +188,7 @@ function validateJoin() {
         console.log(error);
         errorInput.innerHTML = error;
         errorInput.style.color = 'Red';
+
         errorMessage.appendChild(errorInput);
         return false;
     }
@@ -192,3 +196,55 @@ function validateJoin() {
         return true;
     }
 }
+
+function validateCreate() {
+    var error = "";
+    var errorExist = false;
+    var errorColor = '#ffff4c';
+
+    var errorInput = document.createElement('ul');
+    var errorMessage= document.getElementById("error-message");
+    var title = document.getElementById("polling-create-title");
+    var count = document.getElementById("polling-create-form").elements.length - 2;
+    var options = [];
+    for(var i=0; i<count; i++) {
+        options[i] = (document.getElementById("polling-create-option"+(i+1)));
+    }
+    if(errorMessage == undefined) {
+        console.log("errorMessage undefined");
+    }
+    //initialize background color
+    for(var i=0; i<count; i++) {
+        options[i].style.background = 'White';
+    }
+    title.style.background = 'White';
+    //clear error message
+    $('#error-message ul').remove();
+
+    if(title.value=="") {
+        title.style.background = errorColor;
+        error += "<li>Please enter your question in title.</li>";
+        errorExist = true;
+    }
+
+    for(var i=0; i<count; i++) {
+        if(options[i].value=="") {
+            options[i].style.background = errorColor;
+            error += "<li>Please fill in option" + (i+1) + ".</li>";
+            errorExist = true;
+        }
+    }
+
+    if(errorExist) {
+        console.log(error);
+        errorInput.innerHTML = error;
+        errorInput.style.color = 'Red';
+        errorMessage.appendChild(errorInput);
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
