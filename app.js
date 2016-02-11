@@ -11,6 +11,7 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var newPolling = require('./routes/newPolling');
 var polling = require('./routes/polling');
+var pollingVote = require('./routes/pollingVote');
 // Example route
 // var user = require('./routes/user');
 
@@ -43,7 +44,9 @@ app.get('/home', home.view);
 app.post('/home', home.view);
 app.get('/newPolling', newPolling.view);
 app.post('/polling', polling.create);
+app.get('/polling/:id', pollingVote.view);
 app.get('/polling', polling.view);
+app.get('/pollingVote', pollingVote.view);
 // Example route
 // app.get('/users', user.list);
 

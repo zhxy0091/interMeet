@@ -33,10 +33,10 @@ exports.create = function(req, res){
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
     var count;
-    for (var i=1; i<6; i++) {
+    for (var i=0; i<5; i++) {
       pollingOptions[i] = req.body['pollingOption'+i];
       if (pollingOptions[i] == undefined) {
-        count = i;
+        count = i+1;
         break;
       }
     }
@@ -63,7 +63,7 @@ exports.create = function(req, res){
 		'choice': [
 		]
     };
-	for (i=1; i<=count; i++)
+	for (i=0; i<count; i++)
 		pollingData['choice'].push(pollingOptions[i]);
 	console.log(pollingData);
     data['meeting'][code]['polling'].push(pollingData);
