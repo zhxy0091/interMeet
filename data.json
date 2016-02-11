@@ -21,18 +21,24 @@
           "id": 0,
           "title": "Do you like this web App?",
           "date": "1/9/2016",
+          "status": "active", 
           "choice": [
             "Like",
             "Dislike"
-          ]
-        },
-        {
-          "id": 1,
-          "title": "Which team do you support?",
-          "date": "1/7/2016",
-          "choice": [
-            "Panthers",
-            "Broncos"
+          ],
+          "participant": [
+            {
+              "firstname": "Xinyuan",
+              "lastname": "Zhang"
+            },
+            {
+              "firstname": "Shuming",
+              "lastname": "Cao"
+            }
+          ],
+          "result": [
+              1,
+              1
           ]
         }
       ]
