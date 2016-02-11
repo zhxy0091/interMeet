@@ -27,8 +27,9 @@ exports.create = function(req, res){
     var lastname = req.session.lastname;
     var code = req.session.code;
     console.log(req.session);
-    
-  
+    var pollingVote = req.body.options;
+	console.log("Vote: " + pollingVote);
+  	
     var pollingTitle = req.body.pollingTitle;
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
@@ -64,9 +65,12 @@ exports.create = function(req, res){
 		]
     };
 	for (i=0; i<count; i++)
-		pollingData['choice'].push(pollingOptions[i]);
+		if (pollingOptions[i] != undefined)
+			pollingData['choice'].push(pollingOptions[i]);
 	console.log(pollingData);
-    data['meeting'][code]['polling'].push(pollingData);
+	if (pollingTitle != undefined) {
+    	data['meeting'][code]['polling'].push(pollingData);
+	}
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
