@@ -27,16 +27,17 @@ exports.create = function(req, res){
     var lastname = req.session.lastname;
     var code = req.session.code;
     console.log(req.session);
-    
-  
+    var pollingVote = req.body.options;
+	console.log("Vote: " + pollingVote);
+  	
     var pollingTitle = req.body.pollingTitle;
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
     var count;
-    for (var i=1; i<6; i++) {
+    for (var i=0; i<5; i++) {
       pollingOptions[i] = req.body['pollingOption'+i];
       if (pollingOptions[i] == undefined) {
-        count = i;
+        count = i+1;
         break;
       }
     }
@@ -63,10 +64,13 @@ exports.create = function(req, res){
 		'choice': [
 		]
     };
-	for (i=1; i<=count; i++)
-		pollingData['choice'].push(pollingOptions[i]);
+	for (i=0; i<count; i++)
+		if (pollingOptions[i] != undefined)
+			pollingData['choice'].push(pollingOptions[i]);
 	console.log(pollingData);
-    data['meeting'][code]['polling'].push(pollingData);
+	if (pollingTitle != undefined) {
+    	data['meeting'][code]['polling'].push(pollingData);
+	}
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {

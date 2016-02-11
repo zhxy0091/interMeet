@@ -20,11 +20,29 @@ $('#join-meeting-button').click(function (e) {
 });
 
 $('#polling-submit-button').click(function (e) {
-    console.log("join clicked");
+    console.log("polling submitted");
     if(!validateCreate()) {
         return;
     }
     $("#polling-create-form").submit();
+//    e.preventDefault();
+//    var code = $('#join-input-code').val();
+//    console.log(code);
+//    var firstName = $("#join-input-firstname").val();
+//    var lastName = $("#join-input-lastname").val();
+//    var joinInputData = {
+//        "code": code,
+//        "firstName": firstName,
+//        "lastName": lastName
+//    }
+//    console.log(joinInputData);
+    // $.post('/home')
+});
+
+$('#polling-vote-submit-button').click(function (e) {
+    console.log("vote clicked");
+	
+    $("#polling-vote-form").submit();
 //    e.preventDefault();
 //    var code = $('#join-input-code').val();
 //    console.log(code);
@@ -116,8 +134,8 @@ function pollingAdd() {
                           +'</div>'
                           +'<div class="col-xs-12">'
                             +'<div class="create-text-sm input-short container-fluid">'
-                              +'<input id="polling-create-option' + (count-1) + '" name="pollingOption'+
-                              (count-1) + '" type="text">'
+                              +'<input id="polling-create-option' + (count-2) + '" name="pollingOption'+
+                              (count-2) + '" type="text">'
                             +'</div>'
                           +'</div>';
 		newInput.className += 'input-group text-section'
@@ -208,7 +226,7 @@ function validateCreate() {
     var count = document.getElementById("polling-create-form").elements.length - 2;
     var options = [];
     for(var i=0; i<count; i++) {
-        options[i] = (document.getElementById("polling-create-option"+(i+1)));
+        options[i] = (document.getElementById("polling-create-option"+(i)));
     }
     if(errorMessage == undefined) {
         console.log("errorMessage undefined");

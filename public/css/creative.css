@@ -5,8 +5,20 @@ body {
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Hind', sans-serif;
     ;
+}
+
+.brand {
+    margin-top: 20px;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px #000000;
+}
+
+.brand h1 {
+    font-family: "Ubuntu", sans-serif;
 }
 
 a {
@@ -27,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Hind', sans-serif;
 }
 
 p {
@@ -64,13 +76,6 @@ body {
     text-align: center;
 }
 
-.brand {
-    margin-top: 20px;
-    padding: 0px;
-    text-align: center;
-    width: 100%;
-    text-shadow: 2px 2px #000000
-}
 
 .btn-homepage {
     color: #fff;
@@ -153,6 +158,7 @@ p {
   float:none;
   color: #fff !important;
   font-size: 24px !important;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .page-content {
@@ -264,6 +270,8 @@ p {
 
 .card-container {
   background: rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  min-height: 100%;
 }
 
 .card-polling .card-header {
@@ -278,4 +286,15 @@ p {
 .card-polling p {
   color: #fff !important;
   text-shadow: 2px 1px #000000;
+}
+
+.btn-group-vertical .btn-common {
+  white-space: normal !important; 
+  word-wrap:break-word;
+}
+
+
+.btn-group-vertical {
+  width: 90%;
+  margin-bottom: 20px;
 }

@@ -25,6 +25,6 @@ exports.view = function (req, res) {
     // update cookie
     req.session.creator = true;
     req.session.code = randCode;
-
+    
     res.render('create');
 };
