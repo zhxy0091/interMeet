@@ -157,16 +157,12 @@ function pollingAdd() {
 	var count = document.getElementById("polling-create-form").elements.length;
 	if (count < 7) {
 		var newInput = document.createElement('div');
-		newInput.innerHTML ='<div class="create-text-sm create-header">'
-                            +'Option '+(count-1)
-                          +'</div>'
-                          +'<div class="col-xs-12">'
-                            +'<div class="create-text-sm input-short container-fluid">'
-                              +'<input id="polling-create-option' + (count-2) + '" name="pollingOption'+
-                              (count-2) + '" type="text">'
-                            +'</div>'
-                          +'</div>';
-		newInput.className += 'input-group text-section'
+		newInput.innerHTML ='<label class="create-label">Option '+(count-1)+'</label>'
+                          +'<input type="text" class="form-control" id="polling-create-option'+(count-2)+'" name="pollingOption'+(count-2)+ '" aria-describedby="inputError2Status">'
+                          + '<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>'+
+                          '<span id="inputError2Status" class="sr-only">(error)</span>'
+		newInput.className += 'form-group has-feedback text-section'
+        newInput.id = 'option'+(count-2)+'-polling-group'
 		document.getElementById("polling-create-form").appendChild(newInput);
 		if (count == 6)
 			$("#polling-create-add").hide();
@@ -178,7 +174,7 @@ function pollingAdd() {
 function pollingRemove() {
 	var count = document.getElementById("polling-create-form").elements.length;
 	if (count > 4) {
-		$('#polling-create-form .text-section:last-child').remove();
+		$('#polling-create-form .form-group:last-child').remove();
 		if (count == 5)
 			$("#polling-create-minus").hide();
 		if (count == 7)
@@ -211,12 +207,12 @@ function validateJoin() {
     
     if(!(legalCode.test(code.value)) || code.value.length!=6) {
         code.style.background = errorColor;
-        codeVmessage = "Please enter a 6-digit code.";
+        codeVmessage = "Please enter a 6-digit code";
         codeV = false;
     }
     if (firstname.value == "") {
         firstname.style.background = errorColor;
-        firstnameVmessage = "Please enter the firstname.";
+        firstnameVmessage = "Please enter your firstname";
         firstnameV = false;
     }
     else if (!legalName.test(firstname.value)) {
@@ -227,7 +223,7 @@ function validateJoin() {
 
     if (lastname.value == "") {
         lastname.style.background = errorColor;
-        lastnameVmessage = "Please enter the lastname.";
+        lastnameVmessage = "Please enter your lastname";
         lastnameV = false;
     }
     else if (!legalName.test(lastname.value)) {
@@ -239,6 +235,7 @@ function validateJoin() {
 	if (codeV && firstnameV && lastnameV)
 		return true;
 	else {
+		console.log('error');
 		if (!codeV) {
 			$('#code-join-form-group').addClass(' has-error');
 			$('#join-input-code').val('');
@@ -286,7 +283,7 @@ function validateCreate() {
     
     if (firstname.value == "") {
         firstname.style.background = errorColor;
-        firstnameVmessage = "Please enter the firstname.";
+        firstnameVmessage = "Please enter your firstname";
         firstnameV = false;
     }
     else if (!legalName.test(firstname.value)) {
@@ -297,7 +294,7 @@ function validateCreate() {
 
     if (lastname.value == "") {
         lastname.style.background = errorColor;
-        lastnameVmessage = "Please enter the lastname.";
+        lastnameVmessage = "Please enter your lastname";
         lastnameV = false;
     }
     else if (!legalName.test(lastname.value)) {
@@ -309,13 +306,16 @@ function validateCreate() {
 	if (firstnameV && lastnameV)
 		return true;
 	else {
+		console.log('error');
 		if (!firstnameV) {
 			$('#firstname-create-form-group').addClass(' has-error');
+			$('#firstname-create-form-group').val('');
 		}
 		else
 			$('#firstname-create-form-group').removeClass('has-error');
 		if (!lastnameV) {
 			$('#lastname-create-form-group').addClass(' has-error');
+			$('#lastname-create-form-group').val('');
 		}
 		else
 			$('#lastname-create-form-group').removeClass('has-error');
@@ -347,32 +347,54 @@ function validatePolling() {
         options[i].style.background = 'White';
     }
     title.style.background = 'White';
-    //clear error message
-    $('#error-message ul').remove();
 
+  	var valid = true;
+    var titleV = true;
+	var titleVmessage = '';
+    var optionsV = [];
+	var optionsVmessage = [];
     if(title.value=="") {
         title.style.background = errorColor;
-        error += "<li>Please enter your question in title.</li>";
-        errorExist = true;
+        titleVmessage = "Please enter your question here";
+        titleV = false;
+		valid = false;
     }
 
     for(var i=0; i<count; i++) {
         if(options[i].value=="") {
             options[i].style.background = errorColor;
-            error += "<li>Please fill in option" + (i+1) + ".</li>";
-            errorExist = true;
+            optionsVmessage[i] = "Please fill in option " + (i+1);
+            optionsV[i] = false;
+			valid = false;
         }
+		else {
+			optionsV[i] = true;
+			optionsVmessage[i] = '';
+		}
     }
 
-    if(errorExist) {
-        console.log(error);
-        errorInput.innerHTML = error;
-        errorInput.style.color = 'Red';
-        errorMessage.appendChild(errorInput);
-        return false;
+    if(valid) {
+       	return true;
     }
     else {
-        return true;
+        console.log('error');
+		if (!titleV) {
+			$('#title-polling-group').addClass(' has-error');
+			$('#title-polling-group').val('');
+		}
+		else
+			$('#title-polling-group').removeClass('has-error');
+		$('#polling-create-title').attr('placeholder', titleVmessage);
+		for(var i=0; i<count; i++) {
+			if(!optionsV[i]) {
+				$('#option'+i+'-polling-group').addClass(' has-error');
+				$('#polling-create-option'+i).attr('placeholder', optionsVmessage[i]);
+
+			}
+			else
+				$('#option'+i+'-polling-group').removeClass('has-error');
+		}
+		return false;
     }
 }
 

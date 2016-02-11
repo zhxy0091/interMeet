@@ -90,44 +90,30 @@
                           <div class="polling-text-md create-header">
                             Create new polling
                           </div>
-                          <div class="polling-text-sm create-header">
-                            Title
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-title" name="pollingTitle" type="text">
-                            </div>
-                          </div>
                         </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Description
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-description" name="pollingDescription" type="text">
-                            </div>
-                          </div>
+						<div class="form-group has-feedback text-section" id="title-polling-group">
+                          <label class="create-label">Title</label>
+                          <input type="text" class="form-control" id="polling-create-title" name="pollingTitle" aria-describedby="inputError2Status">
+                          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                          <span id="inputError2Status" class="sr-only">(error)</span>
                         </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Option 1
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-option0" name="pollingOption0" type="text">
-                            </div>
-                          </div>
+                        <div class="form-group has-feedback text-section" id="description-polling-group">
+                          <label class="create-label">Description (Optional)</label>
+                          <input type="text" class="form-control" id="polling-create-description" name="pollingDescription" aria-describedby="inputError2Status">
+                          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                          <span id="inputError2Status" class="sr-only">(error)</span>
                         </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Option 2
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-option1" name="pollingOption1" type="text">
-                            </div>
-                          </div>
+                        <div class="form-group has-feedback text-section" id="option0-polling-group">
+                          <label class="create-label">Option 1</label>
+                          <input type="text" class="form-control" id="polling-create-option0" name="pollingOption0" aria-describedby="inputError2Status">
+                          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                          <span id="inputError2Status" class="sr-only">(error)</span>
+                        </div>
+                        <div class="form-group has-feedback text-section" id="option1-polling-group">
+                          <label class="create-label">Option 2</label>
+                          <input type="text" class="form-control" id="polling-create-option1" name="pollingOption1" aria-describedby="inputError2Status">
+                          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                          <span id="inputError2Status" class="sr-only">(error)</span>
                         </div>
 					</form>	
 					<a class="polling-text-md" id="polling-create-add" onclick="pollingAdd()">
