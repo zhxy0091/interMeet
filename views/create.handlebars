@@ -75,14 +75,19 @@
               </div>
             </nav>
             <div class="home-wrapper">
+
+            <div class="join-error-info" id="error-message">
+              </div>
+              
               <div class="input-container container">
-                <form id="create-form">
+
+                <form id="create-form" method="post" action="/home">
                   <div class="text-section">
                     <div class="create-text-md create-header">
                       Code
                     </div>
                     <div class="create-text-md create-code">
-                      1 2 3 4 5 6
+                      6 6 6 6 6 6
                     </div>
                   </div>
                   <div class="input-group text-section">
@@ -91,7 +96,7 @@
                     </div>
                     <div class="col-xs-12">
                       <div class="create-text-md input-short container-fluid">
-                        <input type="text">
+                        <input id="create-input-firstname" name="user[firstname]" type="text">
                       </div>
                     </div>
                   </div>
@@ -101,7 +106,7 @@
                     </div>
                     <div class="col-xs-12">
                       <div class="create-text-md input-short container-fluid">
-                        <input type="text">
+                        <input id="create-input-lastname" name="user[lastname]" type="text">
                       </div>
                     </div>
                   </div>

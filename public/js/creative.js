@@ -19,9 +19,38 @@ $('#join-meeting-button').click(function (e) {
     // $.post('/home')
 });
 
+$('#create-meeting-button').click(function (e) {
+    e.preventDefault();
+    console.log("create clicked");
+    window.location.href = '/create';
+});
+
+
+$('#create-meeting-cancel-button').click(function (e) {
+    console.log("cancel create");
+    $.ajax({
+    url: '/',
+    type: 'DELETE',
+    success: function(result) {
+        console.log("cancel the meeting successfully");
+        window.location.href = '/';
+    }
+    });
+});
+
+$('#create-meeting-next-button').click(function (e) {
+    console.log("creator enter the room");
+    if(!validateCreate()) {
+        return;
+    }
+    $("#create-form").submit();
+});
+
+
+
 $('#polling-submit-button').click(function (e) {
     console.log("polling submitted");
-    if(!validateCreate()) {
+    if(!validatePolling()) {
         return;
     }
     $("#polling-create-form").submit();
@@ -63,7 +92,6 @@ $('#leave-meeting').click(function (e) {
     url: '/',
     type: 'DELETE',
     success: function(result) {
-        console.log(result);
         console.log("leave the meeting successfully");
         window.location.href = '/';
     }
@@ -216,6 +244,58 @@ function validateJoin() {
 }
 
 function validateCreate() {
+    var error = "";
+    var errorExist = false;
+    var errorColor = '#ffff4c';
+    var legalName = /^[a-zA-Z]+$/; // allow letters, numbers, and underscores
+    var firstname = document.getElementById("create-input-firstname");
+    var lastname = document.getElementById("create-input-lastname");
+
+    var errorMessage = document.getElementById("error-message");
+    var errorInput = document.createElement('ul');
+    //initialize color 
+    firstname.style.background = 'White';
+    lastname.style.background = 'White';
+    $('#error-message ul').remove();
+
+    
+    if (firstname.value == "") {
+        firstname.style.background = errorColor;
+        error += "<li>Please enter the firstname.</li>";
+        errorExist = true;
+    }
+    else if (!legalName.test(firstname.value)) {
+        firstname.style.background = errorColor;
+        error += "<li>Please enter your correct firstname</li>";
+        errorExist = true;
+    }
+
+    if (lastname.value == "") {
+        lastname.style.background = errorColor;
+        error += "<li>Please enter the lastname.</li>";
+        errorExist = true;
+    }
+    else if (!legalName.test(lastname.value)) {
+        lastname.style.background = errorColor;
+        error += "<li>Please enter your correct lastname</li>";
+        errorExist = true;
+    } 
+
+    if(errorExist) {
+        console.log(error);
+        errorInput.innerHTML = error;
+        errorInput.style.color = 'Red';
+
+        errorMessage.appendChild(errorInput);
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+function validatePolling() {
     var error = "";
     var errorExist = false;
     var errorColor = '#ffff4c';

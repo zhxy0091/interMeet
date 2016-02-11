@@ -11,6 +11,7 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var newPolling = require('./routes/newPolling');
 var polling = require('./routes/polling');
+
 var pollingVote = require('./routes/pollingVote');
 var create = require('./routes/create');
 

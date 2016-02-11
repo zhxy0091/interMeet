@@ -11,12 +11,20 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } else {
-        var code = req.body.meeting.code;
+        var code;
+        if(req.session.code == undefined) { 
+            code = req.body.meeting.code;
+        }
+        else {
+            code = req.session.code;
+        }
         var firstname = req.body.user.firstname;
         var lastname = req.body.user.lastname;
         req.session.firstname = firstname;
         req.session.lastname = lastname;
+        //code will be undefined if user create the room and enter
         req.session.code = code;
+        
 
         //log if user join or create
         //req.session.operation = "join";
@@ -33,18 +41,14 @@ exports.view = function (req, res) {
         console.log(req.session);
     }
 
-    console.log(util.inspect(data, {
-        showHidden: false,
-        depth: null
-    }));
     data['meeting'][code]['user'].push({
-        'lastname': lastname,
-        'firstname': firstname
+        'firstname': firstname,
+        'lastname': lastname
     });
-    console.log(util.inspect(data, {
-        showHidden: false,
-        depth: null
-    }));
+//    console.log(util.inspect(data, {
+//        showHidden: false,
+//        depth: null
+//    }));
 
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
