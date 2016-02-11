@@ -20,7 +20,6 @@ exports.view = function (req, res) {
         "polling": []
     };
     data["meeting"][randCode] = (newRoom);
-    console.log(data);
     
     // update cookie
     req.session.creator = true;

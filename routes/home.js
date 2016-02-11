@@ -23,7 +23,6 @@ exports.view = function (req, res) {
         req.session.firstname = firstname;
         req.session.lastname = lastname;
         //code will be undefined if user create the room and enter
-        
         req.session.code = code;
         
 
