@@ -37,6 +37,7 @@ exports.view = function (req, res) {
         });
         if (errorMessage) {
             delete req.session.error;
+            delete req.session.code;
         }
     }
 };
@@ -47,5 +48,4 @@ function findAndRemoveFromArray(array, property1, value1, property2, value2) {
       //Remove from array
       array.splice(index, 1);
     }    
-  });
 }
