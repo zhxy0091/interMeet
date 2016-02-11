@@ -37,6 +37,8 @@ exports.view = function (req, res) {
         res.render('index', {error: errorMessage});
         if(errorMessage) {
             delete req.session.error;
+            delete req.session.code;
         }
+
     }   
 };
