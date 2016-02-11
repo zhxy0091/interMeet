@@ -44,6 +44,7 @@ app.post('/home', home.view);
 app.get('/newPolling', newPolling.view);
 app.post('/polling', polling.create);
 app.get('/polling', polling.view);
+app.get('/create', create.view);
 // Example route
 // app.get('/users', user.list);
 
