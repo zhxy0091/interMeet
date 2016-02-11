@@ -20,8 +20,9 @@ $('#join-meeting-button').click(function (e) {
 });
 
 $('#create-meeting-button').click(function (e) {
+    e.preventDefault();
     console.log("create clicked");
-    $.get('/create');
+    window.location.href = '/create';
 });
 
 
@@ -31,7 +32,6 @@ $('#create-meeting-cancel-button').click(function (e) {
     url: '/',
     type: 'DELETE',
     success: function(result) {
-        console.log(result);
         console.log("cancel the meeting successfully");
         window.location.href = '/';
     }
@@ -89,7 +89,6 @@ $('#leave-meeting').click(function (e) {
     url: '/',
     type: 'DELETE',
     success: function(result) {
-        console.log(result);
         console.log("leave the meeting successfully");
         window.location.href = '/';
     }

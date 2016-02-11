@@ -10,12 +10,13 @@ exports.view = function (req, res) {
         if (req.session.creator == "true") {
             delete data['meeting'][req.session.code]
             console.log("room"+req.session.code+"was deleted");
+            console.log(data['meeting']);
         } else {
             var thisUser = {
                 "firstname": req.session.firstname,
-                "lastname": req.session.lastname;
+                "lastname": req.session.lastname
             }
-            if((code in data['meeting'])) {
+            if((req.session.code in data['meeting'])) {
                 var userList = data['meeting'][req.session.code]['user'];
                 for (var i = 0; i < userList.length; i++) {
                     if(thisUser == userList[i]) {
@@ -23,6 +24,7 @@ exports.view = function (req, res) {
                         break;
                     }
                 }
+                console.log(userList);
             }
         }
         req.session.destroy();
