@@ -65,7 +65,8 @@ exports.create = function(req, res){
 		]
     };
 	for (i=0; i<count; i++)
-		pollingData['choice'].push(pollingOptions[i]);
+		if (pollingOptions[i] != undefined)
+			pollingData['choice'].push(pollingOptions[i]);
 	console.log(pollingData);
 	if (pollingTitle != undefined) {
     	data['meeting'][code]['polling'].push(pollingData);
