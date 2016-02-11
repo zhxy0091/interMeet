@@ -28,12 +28,15 @@ exports.view = function (req, res) {
         req.session.destroy();
         res.send();
     } else if (req.method == 'GET') {
-        var errorMessage = req.session.error;
-
+        var errorClass = req.session.codeErrorClass;
+        var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
-            error: errorMessage
+            errorClass: errorClass,
+            errorPlaceholder: errorPlaceholder,
+            firstname: req.session.firstname,
+            lastname: req.session.lastname
         });
-        if (errorMessage) {
+        if (errorClass) {
             delete req.session.error;
             delete req.session.code;
         }

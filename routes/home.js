@@ -32,6 +32,8 @@ exports.view = function (req, res) {
         if(!(code in meeting)) {
             console.log('code is not valid');
             req.session.error = 'Invalid Code';
+            req.session.codeErrorClass = ' has-error';
+            req.session.codeErrorPlaceholder = 'Invalid Code';
             return res.redirect('/');
         }
         if(!join) {
