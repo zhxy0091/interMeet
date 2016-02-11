@@ -8,8 +8,8 @@ exports.view = function (req, res) {
     if (req.method == 'DELETE')  {
         console.log("in index page, delete detected");
         if (req.session.creator == true) {
+            console.log(data['meeting']);
             delete data['meeting'][req.session.code]
-            console.log("room"+req.session.code+"was deleted");
             console.log(data['meeting']);
         } else {
             var thisUser = {
@@ -19,12 +19,12 @@ exports.view = function (req, res) {
             if((req.session.code in data['meeting'])) {
                 var userList = data['meeting'][req.session.code]['user'];
                 for (var i = 0; i < userList.length; i++) {
-                    if(thisUser == userList[i]) {
+                    console.log("index.js: i = " + i);
+                    if(thisUser['firstname'] == userList[i]['firstname'] && thisUser['lastname'] == userList[i]['lastname']) {
                         delete userList[i];
                         break;
                     }
                 }
-                console.log(userList);
             }
         }
         req.session.destroy();
