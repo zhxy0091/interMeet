@@ -1,6 +1,11 @@
 {
   "meeting": {
     "123456": {
+      "creator": 
+        {
+          "firstname": "Xinyuan",
+          "lastname": "Zhang"
+        },
       "user": [
         {
           "firstname": "Xinyuan",
