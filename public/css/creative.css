@@ -252,7 +252,19 @@ p {
 }
 
 .home-wrapper {
-  margin-top: 56px;
+  margin-top: 20px;
+  position: fixed;
+  max-width: 100%;
+  display: block;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.create-wrapper {
+  margin-top: 60px;
   position: fixed;
   max-width: 100%;
   display: block;
