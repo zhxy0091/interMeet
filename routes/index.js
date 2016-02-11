@@ -33,10 +33,10 @@ exports.view = function (req, res) {
     else if (req.method == 'GET') {
         console.log("in index page, get detected");
         var errorMessage = req.session.error;
-        console.log("error detected: " + errorMessage);
+       
         res.render('index', {error: errorMessage});
         if(errorMessage) {
             delete req.session.error;
         }
-    }
+    }   
 };
