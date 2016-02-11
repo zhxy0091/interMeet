@@ -12,6 +12,7 @@ exports.view = function (req, res) {
         }
     } else {
         var code = req.body.meeting.code;
+        // TODO: creator : !!!
         var firstname = req.body.user.firstname;
         var lastname = req.body.user.lastname;
         req.session.firstname = firstname;
