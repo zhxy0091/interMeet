@@ -43,15 +43,22 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.delete('/', index.view);
+
 app.get('/home', home.view);
 app.post('/home', home.view);
+
+app.get('/create', create.view);
+
 app.get('/newPolling', newPolling.view);
+
+app.get('/polling/:id', polling.view);
 app.post('/polling/new', polling.create);
 app.post('/polling/:id', polling.pollingSubmit);
+
+
 app.get('/pollingVote/:id', pollingVote.view);
-app.get('/polling/:id', polling.view);
 app.get('/pollingVote', pollingVote.view);
-app.get('/create', create.view);
+
 // Example route
 // app.get('/users', user.list);
 

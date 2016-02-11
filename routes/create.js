@@ -9,7 +9,10 @@ exports.view = function (req, res) {
     // user cookie validation (bcak to home)
 
     // get a random code
-    var randCode = "666666";
+    var randCode = Math.floor(Math.random()*90000) + 10000;
+    while(randCode in data['meeting']) {
+        randCode = Math.floor(Math.random()*90000) + 10000;
+    }
     
     // randCode validation with while loop
     
