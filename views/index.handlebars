@@ -79,35 +79,24 @@
 
               <div class="input-container container">
                 <form id="join-form" method="post" action="/home">
-                  <div class="input-group text-section">
-                    <div class="create-text-sm create-header">
-                      Code
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-code" name="meeting[code]" type="text">
-                      </div>
-                    </div>
+ 
+                  <div class="form-group has-feedback text-section" id="code-join-form-group">
+                    <label class="create-label">Code</label>
+                    <input type="text" class="form-control" id="join-input-code" name="meeting[code]" aria-describedby="inputError2Status">
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
-                  <div class="input-group text-section">
-                    <div class="create-text-sm create-header">
-                      First name
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-firstname" name="user[firstname]" type="text">
-                      </div>
-                    </div>
+                  <div class="form-group has-feedback text-section" id="firstname-join-form-group">
+                    <label class="create-label">First name</label>
+                    <input type="text" class="form-control" id="join-input-firstname" name="user[firstname]" aria-describedby="inputError2Status">
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
-                  <div class="input-group text-section">
-                    <div class="create-text-sm create-header">
-                      Last name
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="create-text-sm input-short container-fluid">
-                        <input id="join-input-lastname" name="user[lastname]" type="text">
-                      </div>
-                    </div>
+                  <div class="form-group has-feedback text-section" id="lastname-join-form-group">
+                    <label class="create-label">Last name</label>
+                    <input type="text" class="form-control" id="join-input-lastname" name="meeting[lastname]" aria-describedby="inputError2Status">
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
                 </form>
               </div>

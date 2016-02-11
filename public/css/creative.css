@@ -298,3 +298,13 @@ p {
   width: 90%;
   margin-bottom: 20px;
 }
+
+
+.create-label {
+  font-size: 20px !important;
+}
+
+label~.form-control-feedback {
+    top: 33px !important;
+}
+

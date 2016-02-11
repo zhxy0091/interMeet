@@ -189,7 +189,7 @@ function pollingRemove() {
 function validateJoin() {
     var error = "";
     var errorExist = false;
-    var errorColor = '#ffff4c';
+    var errorColor = '#faebd7';
     var legalName = /^[a-zA-Z]+$/; // allow letters, numbers, and underscores
     var legalCode = /^\d+$/
     var firstname = document.getElementById("join-input-firstname");
@@ -202,34 +202,64 @@ function validateJoin() {
     firstname.style.background = 'White';
     lastname.style.background = 'White';
     $('#error-message ul').remove();
-
+    var codeV = true;
+    var codeVmessage;
+	var firstnameV = true;
+	var firstnameVmessage;
+	var lastnameV = true;
+	var lastnameVmessage;
+    
     if(!(legalCode.test(code.value)) || code.value.length!=6) {
         code.style.background = errorColor;
-        error += "<li>Please enter a 6-digit code.</li>";
-        errorExist = true;
+        codeVmessage = "Please enter a 6-digit code.";
+        codeV = false;
     }
     if (firstname.value == "") {
         firstname.style.background = errorColor;
-        error += "<li>Please enter the firstname.</li>";
-        errorExist = true;
+        firstnameVmessage = "Please enter the firstname.";
+        firstnameV = false;
     }
     else if (!legalName.test(firstname.value)) {
         firstname.style.background = errorColor;
-        error += "<li>Please enter your correct firstname</li>";
-        errorExist = true;
+        firstnameVmessage = "Please enter your correct firstname";
+        firstnameV = false;
     }
 
     if (lastname.value == "") {
         lastname.style.background = errorColor;
-        error += "<li>Please enter the lastname.</li>";
-        errorExist = true;
+        lastnameVmessage = "Please enter the lastname.";
+        lastnameV = false;
     }
     else if (!legalName.test(lastname.value)) {
         lastname.style.background = errorColor;
-        error += "<li>Please enter your correct lastname</li>";
-        errorExist = true;
+        lastnameVmessage = "Please enter your correct lastname";
+        lastnameV = false;
     } 
-
+	
+	if (codeV && firstnameV && lastnameV)
+		return true;
+	else {
+		if (!codeV) {
+			$('#code-join-form-group').addClass(' has-error');
+		}
+		else
+			$('#code-join-form-group').removeClass('has-error');
+		if (!firstnameV) {
+			$('#firstname-join-form-group').addClass(' has-error');
+		}
+		else
+			$('#firstname-join-form-group').removeClass('has-error');
+		if (!lastnameV) {
+			$('#lastname-join-form-group').addClass(' has-error');
+		}
+		else
+			$('#lastname-join-form-group').removeClass('has-error');
+		$('#join-input-code').attr('placeholder', codeVmessage);
+		$('#join-input-firstname').attr('placeholder', firstnameVmessage);
+		$('#join-input-lastname').attr('placeholder', lastnameVmessage);
+		return false;
+	}
+	
     if(errorExist) {
         console.log(error);
         errorInput.innerHTML = error;
