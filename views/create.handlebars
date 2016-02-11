@@ -14,13 +14,15 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:700,400,500' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
 
 
     <!-- Custom CSS -->
@@ -39,20 +41,17 @@
     <div id="wrapper">
         <div class="overlay"></div>
 
+
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
+                    <a href="#">
+                       interMeet
+                    </a>
                 </li>
                 <li>
-                    <a>Meeting {{thisSession.code}}</a>
-                </li>
-                <li>
-                    <a href="./home">Home</a>
-                </li>
-                <li>
-                    <a href="./newpolling">Create polling</a>
+                    <a href="#">Home</a>
                 </li>
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
@@ -60,10 +59,8 @@
                 <li>
                     <a href="./team.html">Contact</a>
                 </li>
-				<li>
-					<a href="#" id="leave-meeting">Leave meeting</a>
-				</li>
             </ul>
+        </nav>
         </nav>
         <!-- /#sidebar-wrapper -->
 
@@ -75,91 +72,68 @@
                 <span class="hamb-bottom"></span>
             </button>
             <nav class="navbar navbar-default" id="fixtop">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">interMeet</a>
-                </div>
+              <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">interMeet</a>
+              </div>
             </nav>
-            <div class="wrapper items-wrapper">
-                <div class="container card-container">
-
-                    <div class="new-polling-error-info" id="error-message">
+            <div class="home-wrapper">
+              <div class="input-container container">
+                <form id="create-form">
+                  <div class="text-section">
+                    <div class="create-text-md create-header">
+                      Code
                     </div>
-
-					<form method="POST" id="polling-create-form" name="pollingCreateForm" action="/polling">
-						<div class="input-group text-section">
-                          <div class="polling-text-md create-header">
-                            Create new polling
-                          </div>
-                          <div class="polling-text-sm create-header">
-                            Title
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-title" name="pollingTitle" type="text">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Description
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-description" name="pollingDescription" type="text">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Option 1
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-option0" name="pollingOption0" type="text">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="input-group text-section">
-                          <div class="polling-text-sm create-header">
-                            Option 2
-                          </div>
-                          <div class="col-xs-12">
-                            <div class="polling-text-sm input-short container-fluid">
-                              <input id="polling-create-option1" name="pollingOption1" type="text">
-                            </div>
-                          </div>
-                        </div>
-					</form>	
-					<a class="polling-text-md" id="polling-create-add" onclick="pollingAdd()">
-						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					</a>
-					<a class="polling-text-md" id="polling-create-minus" onclick="pollingRemove()" hidden>
-						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-					</a>
-					<br>
-					
-                    <div class="row container text-center">
-                        <a href="#" id="polling-submit-button" class="btn page-scroll">Submit</a>
+                    <div class="create-text-md create-code">
+                      1 2 3 4 5 6
                     </div>
+                  </div>
+                  <div class="input-group text-section">
+                    <div class="create-text-md create-header">
+                      First name
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="create-text-md input-short container-fluid">
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group text-section">
+                    <div class="create-text-md create-header">
+                      Last name
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="create-text-md input-short container-fluid">
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="row container btn-section">
+                <div class="col-xs-6 text-center">
+                  <a href="index.html" class="btn btn-common btn-xl page-scroll">Cancel</a>
                 </div>
+                <div class="col-xs-6 text-center">
+                  <a href="home.html" class="btn btn-common btn-xl page-scroll">Next</a>
+                </div>
+              </div>
             </div>
         </div>
         <!-- /.modal -->
-
+        
         <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
                         <h2>interMeet</h2>
                         <p>Alpha 1.0</p>
-                        
                     </div>
                 </div>
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
         </div>
-
+        
     </div>
 
     <!-- /#page-content-wrapper -->
