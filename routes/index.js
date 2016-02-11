@@ -19,9 +19,9 @@ exports.view = function (req, res) {
                 var userList = data['meeting'][req.session.code]['user'];
                 console.log("index.js: before:");
                 console.log(userList);
-                
+
                 findAndRemoveFromArray(data['meeting'][req.session.code]['user'], 'firstname', thisUser.firstname, 'lastname', thisUser.lastname);
-                
+
                 console.log("index.js: after:");
                 console.log(data['meeting'][req.session.code]['user']);
             }
@@ -43,9 +43,10 @@ exports.view = function (req, res) {
 };
 
 function findAndRemoveFromArray(array, property1, value1, property2, value2) {
-  array.forEach(function(result, index) {
-    if(result[property1] === value1 && result[property2] === value2) {
-      //Remove from array
-      array.splice(index, 1);
-    }    
+    array.forEach(function (result, index) {
+        if (result[property1] === value1 && result[property2] === value2) {
+            //Remove from array
+            array.splice(index, 1);
+        }
+    });
 }
