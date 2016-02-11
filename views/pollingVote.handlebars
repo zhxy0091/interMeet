@@ -90,7 +90,7 @@
 						<div class="btn-group-vertical text-center" data-toggle="buttons">
                           {{#each thisPolling.choice}}
                             <label class="btn btn-common">
-                              <input type="radio" name="options" id="option{{math @index "+" 1}}" autocomplete="off">{{this}}
+                              <input type="radio" name="options" id="option{{@index}}" autocomplete="off">{{this}}
                             </label>
                           {{/each}}
                         </div>
