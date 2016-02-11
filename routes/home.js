@@ -38,7 +38,6 @@ exports.view = function (req, res) {
         }
 
         console.log('post');
-        console.log(req.session);
     }
 
     data['meeting'][code]['user'].push({
