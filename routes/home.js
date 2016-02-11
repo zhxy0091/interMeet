@@ -10,7 +10,8 @@ exports.view = function (req, res) {
         if (code == undefined) {
             return res.redirect('/');
         }
-    } else {
+    } 
+    else {
         var join = false;
         if(req.session.code == undefined) {
             req.session.code = req.body.meeting.code;
@@ -33,21 +34,22 @@ exports.view = function (req, res) {
             req.session.error = 'Invalid Code';
             return res.redirect('/');
         }
+        if(!join) {
+        data['meeting'][code]['creator'] = 
+        {   'firstname': firstname,
+            'lastname': lastname
+        };
+        }
 
         console.log('post');
-    }
+    
 
     console.log(util.inspect(data, {
         showHidden: false,
         depth: null
     }));
 
-    if(!join) {
-        data['meeting'][code]['creator'] = 
-        {   'firstname': firstname,
-            'lastname': lastname
-        };
-    }
+    
     
     console.log("home.js"+data['meeting'][code]['creator']);
     
@@ -55,6 +57,9 @@ exports.view = function (req, res) {
         'firstname': firstname,
         'lastname': lastname
     });
+    }
+
+    
     console.log(util.inspect(data, {
         showHidden: false,
         depth: null
@@ -63,8 +68,8 @@ exports.view = function (req, res) {
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
         'code': code,
-        'lastname': lastname,
-        'firstname': firstname
+        'firstname': firstname,
+        'lastname': lastname
     };
     // handlebar data pass in
     res.render('home', passIn);

@@ -19,16 +19,12 @@ exports.view = function(req, res){
 	}
 	console.log(thisPolling);
     console.log(util.inspect(data, {showHidden: false, depth: null}));
-    data['meeting'][code]['user'].push({
-        'lastname': lastname,
-        'firstname': firstname
-    });
     console.log(util.inspect(data, {showHidden: false, depth: null}));
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
             'code': code,
-            'lastname': lastname,
-            'firstname': firstname
+            'firstname': firstname,
+            'lastname': lastname
         };
 	passIn['thisPolling'] = thisPolling;
   	res.render('pollingVote', passIn );
