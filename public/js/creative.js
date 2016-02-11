@@ -241,15 +241,18 @@ function validateJoin() {
 	else {
 		if (!codeV) {
 			$('#code-join-form-group').addClass(' has-error');
+			$('#join-input-code').val('');
 		}
 		else
 			$('#code-join-form-group').removeClass('has-error');
 		if (!firstnameV) {
+			$('#join-input-firstname').val('');
 			$('#firstname-join-form-group').addClass(' has-error');
 		}
 		else
 			$('#firstname-join-form-group').removeClass('has-error');
 		if (!lastnameV) {
+			$('#join-input-lastname').val('');
 			$('#lastname-join-form-group').addClass(' has-error');
 		}
 		else
@@ -259,24 +262,12 @@ function validateJoin() {
 		$('#join-input-lastname').attr('placeholder', lastnameVmessage);
 		return false;
 	}
-	
-    if(errorExist) {
-        console.log(error);
-        errorInput.innerHTML = error;
-        errorInput.style.color = 'Red';
-
-        errorMessage.appendChild(errorInput);
-        return false;
-    }
-    else {
-        return true;
-    }
 }
 
 function validateCreate() {
     var error = "";
     var errorExist = false;
-    var errorColor = '#ffff4c';
+    var errorColor = '#faebd7';
     var legalName = /^[a-zA-Z]+$/; // allow letters, numbers, and underscores
     var firstname = document.getElementById("create-input-firstname");
     var lastname = document.getElementById("create-input-lastname");
@@ -287,48 +278,58 @@ function validateCreate() {
     firstname.style.background = 'White';
     lastname.style.background = 'White';
     $('#error-message ul').remove();
-
+	
+    var firstnameV = true;
+	var firstnameVmessage;
+	var lastnameV = true;
+	var lastnameVmessage;
     
     if (firstname.value == "") {
         firstname.style.background = errorColor;
-        error += "<li>Please enter the firstname.</li>";
-        errorExist = true;
+        firstnameVmessage = "Please enter the firstname.";
+        firstnameV = false;
     }
     else if (!legalName.test(firstname.value)) {
         firstname.style.background = errorColor;
-        error += "<li>Please enter your correct firstname</li>";
-        errorExist = true;
+        firstnameVmessage = "Please enter your correct firstname";
+        firstnameV = false;
     }
 
     if (lastname.value == "") {
         lastname.style.background = errorColor;
-        error += "<li>Please enter the lastname.</li>";
-        errorExist = true;
+        lastnameVmessage = "Please enter the lastname.";
+        lastnameV = false;
     }
     else if (!legalName.test(lastname.value)) {
         lastname.style.background = errorColor;
-        error += "<li>Please enter your correct lastname</li>";
-        errorExist = true;
+        lastnameVmessage = "Please enter your correct lastname";
+        lastnameV = false;
     } 
-
-    if(errorExist) {
-        console.log(error);
-        errorInput.innerHTML = error;
-        errorInput.style.color = 'Red';
-
-        errorMessage.appendChild(errorInput);
-        return false;
-    }
-    else {
-        return true;
-    }
+	
+	if (firstnameV && lastnameV)
+		return true;
+	else {
+		if (!firstnameV) {
+			$('#firstname-create-form-group').addClass(' has-error');
+		}
+		else
+			$('#firstname-create-form-group').removeClass('has-error');
+		if (!lastnameV) {
+			$('#lastname-create-form-group').addClass(' has-error');
+		}
+		else
+			$('#lastname-create-form-group').removeClass('has-error');
+		$('#create-input-firstname').attr('placeholder', firstnameVmessage);
+		$('#create-input-lastname').attr('placeholder', lastnameVmessage);
+		return false;
+	}
 }
 
 
 function validatePolling() {
     var error = "";
     var errorExist = false;
-    var errorColor = '#ffff4c';
+    var errorColor = '#faebd7';
 
     var errorInput = document.createElement('ul');
     var errorMessage= document.getElementById("error-message");
