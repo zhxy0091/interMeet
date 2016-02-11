@@ -19,6 +19,32 @@ $('#join-meeting-button').click(function (e) {
     // $.post('/home')
 });
 
+$('#create-meeting-button').click(function (e) {
+    console.log("create clicked");
+    $.get('/create');
+});
+
+
+$('#create-meeting-cancel-button').click(function (e) {
+    console.log("cancel create");
+    $.ajax({
+    url: '/',
+    type: 'DELETE',
+    success: function(result) {
+        console.log(result);
+        console.log("cancel the meeting successfully");
+        window.location.href = '/';
+    }
+    });
+});
+
+$('#create-meeting-next-button').click(function (e) {
+    console.log("creator enter the room");
+    $("#create-form").submit();
+});
+
+
+
 $('#polling-submit-button').click(function (e) {
     console.log("polling submitted");
     if(!validateCreate()) {

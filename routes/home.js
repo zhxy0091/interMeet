@@ -11,13 +11,20 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } else {
-        var code = req.body.meeting.code;
-        // TODO: creator : !!!
+        var code;
+        if(req.session.code == undefined) { 
+            code = req.body.meeting.code;
+        }
+        else {
+            code = req.session.code;
+        }
         var firstname = req.body.user.firstname;
         var lastname = req.body.user.lastname;
         req.session.firstname = firstname;
         req.session.lastname = lastname;
+        //code will be undefined if user create the room and enter
         req.session.code = code;
+        
 
         //log if user join or create
         //req.session.operation = "join";
