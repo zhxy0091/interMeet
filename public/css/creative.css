@@ -83,7 +83,7 @@ body {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
-    width: 60%
+    width: 250px;
 }
 
 .btn-homepage:hover,

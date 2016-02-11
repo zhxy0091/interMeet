@@ -55,7 +55,7 @@
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
                 <li>
-                    <a href="./team.html">Contact</a>
+                    <a data-toggle="modal" href="#modalContact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -93,6 +93,7 @@
                     <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                     <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
+                  <div style="height: 20px"></div>
                   <div class="form-group has-feedback text-section" id="lastname-create-form-group">
                     <label class="create-label">Last name</label>
                     <input type="text" class="form-control" id="create-input-lastname" name="meeting[lastname]" aria-describedby="inputError2Status">
@@ -100,15 +101,18 @@
                     <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
                 </form>
-              </div>
-              <div class="row container btn-section">
-                <div class="col-xs-6 text-center">
-                  <a href="#" id="create-meeting-cancel-button" class="btn btn-common btn-xl page-scroll">Cancel</a>
+                <div class="row container btn-section">
+                  <div class="col-xs-6 text-center">
+                    <a href="#" id="create-meeting-cancel-button" class="btn btn-common btn-xl page-scroll">Cancel</a>
+                  </div>
+                  <div class="col-xs-6 text-center">
+                    <a href="#" id="create-meeting-next-button" class="btn btn-common btn-xl page-scroll">Next</a>
+                  </div>
                 </div>
-                <div class="col-xs-6 text-center">
-                  <a href="#" id="create-meeting-next-button" class="btn btn-common btn-xl page-scroll">Next</a>
-                </div>
+                <div style="height: 20px"></div>
+
               </div>
+
             </div>
         </div>
         <!-- /.modal -->
@@ -119,6 +123,24 @@
                     <div class="modal-body">
                         <h2>interMeet</h2>
                         <p>Alpha 1.0</p>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <div class="modal fade" id="modalContact" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" style="text-align: left">
+                        
+                          <p>Shuming Cao</p>
+                          <p>s5cao@eng.ucsd.edu</p>
+                          <p>Changtong Qiu</p>
+                          <p></p>
+                          <p>Xinyuan Zhang</p>
+                          <p></p>
+                      </table>
                     </div>
                 </div>
                 <!-- /.modal-content -->

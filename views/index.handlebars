@@ -52,7 +52,7 @@
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
                 <li>
-                    <a href="./team.html">Contact</a>
+                    <a data-toggle="modal" href="#modalContact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -99,16 +99,17 @@
                     <span id="inputError2Status" class="sr-only">(error)</span>
                   </div>
                 </form>
-              </div>
-              <div class="row container btn-section">
-                <div class="home-content-btn">
-                  <a href="#" id="join-meeting-button" class="btn btn-homepage btn-xl page-scroll">Join</a>
-                
-                  <div style="height: 20px"></div>
-                  
-                  <a href="#" id="create-meeting-button" class="btn btn-homepage btn-xl page-scroll">New meeting? Create</a>
-                  
+				<div class="row container btn-section">
+                  <div class="home-content-btn">
+                    <a href="#" id="join-meeting-button" class="btn btn-homepage btn-xl page-scroll">Join</a>
+
+                    <div style="height: 20px"></div>
+
+                  </div>
                 </div>
+              </div>
+              <div class="row container btn-section text-center">
+                  <a href="#" id="create-meeting-button" class="btn btn-homepage btn-xl page-scroll">New meeting? Create</a>
               </div>
             </div>
         </div>
@@ -120,6 +121,24 @@
                     <div class="modal-body">
                         <h2>interMeet</h2>
                         <p>Alpha 1.0</p>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <div class="modal fade" id="modalContact" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" style="text-align: left">
+                        
+                          <p>Shuming Cao</p>
+                          <p>s5cao@eng.ucsd.edu</p>
+                          <p>Changtong Qiu</p>
+                          <p></p>
+                          <p>Xinyuan Zhang</p>
+                          <p></p>
+                      </table>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -147,6 +166,14 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
     <script src="js/sidebar.js"></script>
+    <script type="text/javascript">
+      document.ontouchstart = function(e) {
+        e.preventDefault();
+      }
+      document.ontouchmove = function(e) {
+        e.preventDefault();
+      }
+    </script>
 
 </body>
 
