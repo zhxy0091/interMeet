@@ -30,6 +30,8 @@ exports.pollingSubmit = function(req, res){
 	var pollingId = req.params.id;
 	console.log(data['meeting'][code]['polling'][req.params.id]);
 	data['meeting'][code]['polling'][req.params.id]['result'][pollingVote]++;
+    var thisUser = {'firstname':firstname, 'lastname':lastname};
+    data['meeting'][code]['polling'][req.params.id]['participant'].push(thisUser);
     var thisPolling;
 	for (var i = 0; i < data['meeting'][code]['polling'].length; i++) {
 		console.log(data['meeting'][code]['polling'][i]);
