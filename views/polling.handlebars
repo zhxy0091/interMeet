@@ -83,6 +83,9 @@
               <div class="container">
                 <canvas id="myChart" height="300"></canvas>
               </div>
+              <div class="container">
+                <canvas id="myChart2" height="300"></canvas>
+              </div>
             </div>
         </div>
         <!-- /.modal -->
@@ -173,7 +176,6 @@
         };
 		var choice;
 		{{#each thisPolling.choice}}
-          console.log("aaa");
           data['labels'].push('{{this}}');
         {{/each}}
         {{#each thisPolling.result}}
@@ -188,6 +190,28 @@
         myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
         myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
         myBarChart.update();*/
+        var colors = ['#F7464A','#46BFBD','#FDB45C','#4bd5ff','#ffaf1e'];
+        var highlightColors = ['#FF5A5E', '#5AD3D1', '#FFC870', '#7ce0ff', '#fdbd47']
+		var dataPie = [];
+        var i=0;
+        {{#each thisPolling.choice}}
+          dataPie.push({
+            value: 0,
+            color: colors[i],
+            hightlight: highlightColors[i],
+            label: '{{this}}'
+          });
+          i++;
+        {{/each}}
+        i = 0;
+        {{#each thisPolling.result}}
+          dataPie[i]['data'] = {{this}};
+          i++;
+        {{/each}}
+        console.log(dataPie);
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});
+		
       }
     </script>
 </body>
