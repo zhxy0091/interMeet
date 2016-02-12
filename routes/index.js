@@ -34,7 +34,8 @@ exports.view = function (req, res) {
             errorClass: errorClass,
             errorPlaceholder: errorPlaceholder,
             firstname: req.session.firstname,
-            lastname: req.session.lastname
+            lastname: req.session.lastname,
+            codeBackground: req.session.codeErrorColor
         });
         if (errorClass) {
             delete req.session.error;

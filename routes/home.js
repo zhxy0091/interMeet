@@ -33,7 +33,8 @@ exports.view = function (req, res) {
             console.log('code is not valid');
             req.session.error = 'Invalid Code';
             req.session.codeErrorClass = ' has-error';
-            req.session.codeErrorPlaceholder = 'Invalid Code';
+            req.session.codeErrorPlaceholder = 'Invalid code';
+            req.session.codeErrorColor = 'background: #faebd7';
             return res.redirect('/');
         }
         if(!join) {
