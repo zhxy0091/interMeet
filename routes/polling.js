@@ -86,9 +86,11 @@ exports.create = function(req, res){
         'id': pollingId,
 		'title': pollingTitle,
 		'date': today,
+        'status': 'active',
 		'choice': [
 		],
-		'result':[]
+		'result':[],
+        'participant':[]
     };
 	for (i=0; i<count; i++)
 		if (pollingOptions[i] != undefined){

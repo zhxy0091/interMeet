@@ -18,7 +18,7 @@ exports.view = function (req, res) {
     // no repeat voting
     //console.log("pollingVote.js: ");
     //console.log(thisPolling.participant);
-    for (var i = 0; i < thisPolling.participant.length; i++) {
+    for (var i = 0; i < thisPolling['participant'].length; i++) {
         if (firstname == thisPolling['participant'][i]['firstname'] && lastname == thisPolling['participant'][i]['lastname']) {
             // console.log("pollingVote.js: " + "the current user has voted before.");
             return res.redirect('/polling/' + pollingId);
