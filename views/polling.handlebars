@@ -199,13 +199,13 @@
             value: 0,
             color: colors[i],
             hightlight: highlightColors[i],
-            label: '{{this}}'
+            label: '{{this}}',
           });
           i++;
         {{/each}}
         i = 0;
         {{#each thisPolling.result}}
-          dataPie[i]['data'] = {{this}};
+          dataPie[i]['value'] = {{this}};
           i++;
         {{/each}}
         console.log(dataPie);
