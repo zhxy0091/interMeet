@@ -5,6 +5,7 @@ exports.view = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var pollingId = req.params.id;
     console.log(req.session);
 
     console.log(util.inspect(data, {showHidden: false, depth: null}));
@@ -15,6 +16,8 @@ exports.view = function(req, res){
             'firstname': firstname,
             'lastname': lastname
         };
+    var thisPolling = data['meeting'][code]['polling'][pollingId];
+    passIn['thisPolling'] = thisPolling;
   	res.render('polling', passIn );
 };
 
