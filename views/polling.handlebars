@@ -163,10 +163,10 @@
           datasets: [
             {
               label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
-              strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
-              highlightStroke: "rgba(220,220,220,1)",
+              fillColor: "rgba(239, 141, 80, 0.5)",
+              strokeColor: "rgba(239, 141, 80, 0.8)",
+              highlightFill: "rgba(239, 141, 80, 0.75)",
+              highlightStroke: "rgba(239, 141, 80, 1)",
               data: []
             }
           ]
@@ -181,13 +181,13 @@
         {{/each}}
 		console.log(data['datasets'][0]['data']);
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff"});
+        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
         myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
         myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
         myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
         myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
         myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
-        myBarChart.update();
+        myBarChart.update();*/
       }
     </script>
 </body>
