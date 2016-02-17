@@ -13,6 +13,12 @@ exports.view = function (req, res) {
         }
     } 
     else if (req.method == 'POST') {
+        if(req.session.join != undefined) {
+            //user already join a room but did not leave the room
+            //should print out alert
+            return res.redirect('/home');
+        }
+
         var join = false;
         if(req.session.code == undefined) {
             req.session.code = req.body.meeting.code;
