@@ -51,9 +51,11 @@
                 <li>
                     <a href="./home">Home</a>
                 </li>
+                {{#unless thisSession.join}}
                 <li>
                     <a href="./newpolling">Create polling</a>
                 </li>
+                {{/unless}}
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
@@ -92,10 +94,13 @@
                             </div>
                         </a>
                     </div>
-                    <hr> {{/each}}
+                    <hr> 
+                    {{/each}}
+                    {{#unless thisSession.join}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-common page-scroll">Create new polling</a>
                     </div>
+                    {{/unless}}
                 </div>
             </div>
         </div>

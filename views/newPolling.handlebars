@@ -51,9 +51,11 @@
                 <li>
                     <a href="./home">Home</a>
                 </li>
+                {{#unless thisSession.join}}
                 <li>
                     <a href="./newpolling">Create polling</a>
                 </li>
+                {{/unless}}
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>

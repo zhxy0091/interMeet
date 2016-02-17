@@ -6,6 +6,7 @@ exports.view = function (req, res) {
         var firstname = req.session.firstname;
         var lastname = req.session.lastname;
         var code = req.session.code;
+        var join = req.session.join;
         console.log('get');
         if (code == undefined) {
             return res.redirect('/');
@@ -21,6 +22,7 @@ exports.view = function (req, res) {
         var lastname = req.body.user.lastname;
         req.session.firstname = firstname;
         req.session.lastname = lastname;
+        req.session.join = join;
         
         var code = req.session.code;
 
@@ -71,7 +73,8 @@ exports.view = function (req, res) {
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
-        'lastname': lastname
+        'lastname': lastname,
+        'join': join
     };
     // handlebar data pass in
     res.render('home', passIn);
