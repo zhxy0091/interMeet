@@ -85,6 +85,9 @@
               <div class="container">
                 <canvas id="myChart" height="300"></canvas>
               </div>
+              <div class="container">
+                <canvas id="myChart2" height="300"></canvas>
+              </div>
             </div>
         </div>
         <!-- /.modal -->
@@ -108,7 +111,7 @@
                     <div class="modal-body" style="text-align: left">
                         
                           <p>Shuming Cao</p>
-                          <p>s5cao@eng.ucsd.edu</p>
+                          <p></p>
                           <p>Changtong Qiu</p>
                           <p></p>
                           <p>Xinyuan Zhang</p>
@@ -165,17 +168,16 @@
           datasets: [
             {
               label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
-              strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
-              highlightStroke: "rgba(220,220,220,1)",
+              fillColor: "rgba(239, 141, 80, 0.5)",
+              strokeColor: "rgba(239, 141, 80, 0.8)",
+              highlightFill: "rgba(239, 141, 80, 0.75)",
+              highlightStroke: "rgba(239, 141, 80, 1)",
               data: []
             }
           ]
         };
 		var choice;
 		{{#each thisPolling.choice}}
-          console.log("aaa");
           data['labels'].push('{{this}}');
         {{/each}}
         {{#each thisPolling.result}}
@@ -183,13 +185,35 @@
         {{/each}}
 		console.log(data['datasets'][0]['data']);
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff"});
+        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
         myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
         myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
         myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
         myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
         myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
-        myBarChart.update();
+        myBarChart.update();*/
+        var colors = ['#F7464A','#46BFBD','#FDB45C','#4bd5ff','#ffaf1e'];
+        var highlightColors = ['#FF5A5E', '#5AD3D1', '#FFC870', '#7ce0ff', '#fdbd47']
+		var dataPie = [];
+        var i=0;
+        {{#each thisPolling.choice}}
+          dataPie.push({
+            value: 0,
+            color: colors[i],
+            hightlight: highlightColors[i],
+            label: '{{this}}',
+          });
+          i++;
+        {{/each}}
+        i = 0;
+        {{#each thisPolling.result}}
+          dataPie[i]['value'] = {{this}};
+          i++;
+        {{/each}}
+        console.log(dataPie);
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});
+		
       }
     </script>
 </body>

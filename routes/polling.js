@@ -69,11 +69,14 @@ exports.create = function(req, res){
     var count;
     for (var i=0; i<5; i++) {
       pollingOptions[i] = req.body['pollingOption'+i];
+      console.log('option '+i+pollingOptions[i]);
       if (pollingOptions[i] == undefined) {
         count = i+1;
         break;
       }
     }
+    if (count == undefined)
+      count = 5;
 	var pollingId = data['meeting'][code]['polling'].length;
 	var today = new Date();
     var dd = today.getDate();
@@ -97,6 +100,7 @@ exports.create = function(req, res){
 		'result':[],
         'participant':[]
     };
+    console.log("polling.js - polling option number:"+count);
 	for (i=0; i<count; i++)
 		if (pollingOptions[i] != undefined){
 			pollingData['result'][i] = 0;
