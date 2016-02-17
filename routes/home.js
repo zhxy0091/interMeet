@@ -12,7 +12,7 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } 
-    else {
+    else if (req.method == 'POST') {
         var join = false;
         if(req.session.code == undefined) {
             req.session.code = req.body.meeting.code;
@@ -63,6 +63,17 @@ exports.view = function (req, res) {
         'lastname': lastname
     });
     }
+    else if (req.method == 'DELETE') {
+        var firstname = req.session.firstname;
+        var lastname = req.session.lastname;
+        var code = req.session.code;
+        var join = req.session.join;
+        id = req.body.id;
+        console.log("id is " + id);
+        data['meeting'][code]['polling'].splice(id,1);
+        //TODO use socket io to refresh data
+    }
+
 
     
     console.log(util.inspect(data, {
