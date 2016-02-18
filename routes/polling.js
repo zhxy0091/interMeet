@@ -40,20 +40,7 @@ exports.pollingSubmit = function(req, res){
 			break;
 		}
 	}
-	var passIn = data['meeting'][code];
-    passIn['thisSession'] = {
-            'code': code,
-            'lastname': lastname,
-            'firstname': firstname,
-            'join': join
-        };
-    passIn['thisPolling'] = thisPolling;
-	console.log(util.inspect(data, {
-        showHidden: false,
-        depth: null
-    }));
-    console.log('polling.js thisPolling:' + thisPolling);
-  	res.render('polling', passIn );
+    return res.redirect('/polling/' + pollingId);
 };
 
 exports.create = function(req, res){
@@ -99,24 +86,13 @@ exports.create = function(req, res){
 		'result':[],
         'participant':[]
     };
-    console.log("polling.js - polling option number:"+count);
 	for (i=0; i<count; i++)
 		if (pollingOptions[i] != undefined){
 			pollingData['result'][i] = 0;
 			pollingData['choice'].push(pollingOptions[i]);
 		}
-	console.log(pollingData);
 	if (pollingTitle != undefined) {
     	data['meeting'][code]['polling'].push(pollingData);
 	}
-    console.log(util.inspect(data, {showHidden: false, depth: null}));
-    var passIn = data['meeting'][code];
-    passIn['thisSession'] = {
-            'code': code,
-            'lastname': lastname,
-            'firstname': firstname,
-            'join': join
-        };
-	passIn['thisPolling'] = pollingData;
-	return res.redirect('/polling/'+pollingId);
+	return res.redirect('/polling/' + pollingId);
 }
