@@ -391,6 +391,8 @@ label~.form-control-feedback {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .participants-list{
