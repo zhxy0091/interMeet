@@ -144,24 +144,36 @@ p {
   top:0;
   border-radius: 0 !important;
   -moz-border-radius: 0 !important;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0, 0.0);
   border: 0px;
-  border-bottom: 4px solid black;
+  border-bottom: 0px solid black;
+  z-index: 10;
 }
 
 
 
-/* navbar header */
+/* navbar header
 
 .navbar-header {
     float: left;
     padding: 15px;
     text-align: center;
     width: 100%;
+    margin-left:5px;
 }
-.navbar-brand {
+*/
+/*.navbar-brand {
   float:none;
-  color: #fff !important;
+  
+}*/
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    color: #fff !important;
   font-size: 26px !important;
   font-family: "Ubuntu", sans-serif;
   text-shadow: 1px 2px black;
@@ -373,4 +385,15 @@ label~.form-control-feedback {
 
 .glyphicon-remove {
   color: #ffffff;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.participants-list{
+  margin-top: 10px;
+  margin-right: 15px;
 }

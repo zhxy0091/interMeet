@@ -52,15 +52,25 @@
             <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Pollings</a>
+                    <div class="btn-group pull-right participants-list">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    {{#each user}}
+                    <li><a href="#">{{this.firstname}} {{this.lastname}}</a></li>
+                    {{/each}} 
+
+                </ul>
+            </div>
                 </div>
+                
             </nav>
             
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
-                {{#if thisSession.roomError}}
+            <!--  {{#if thisSession.roomError}}
                         <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
                  
-                {{/if}}
+                {{/if}} -->
                     {{#each polling}}
                     {{#unless this.deleted}}
                     <div class="card card-polling" id="polling{{id}}">
