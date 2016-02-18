@@ -62,7 +62,7 @@ exports.view = function (req, res) {
         var join = req.session.join;
         id = req.body.id;
         console.log("id is " + id);
-        data['meeting'][code]['polling'][id] = {'delete': true};
+        data['meeting'][code]['polling'][id]['deleted'] = true;
         //TODO use socket io to refresh data
     }
 
@@ -73,6 +73,7 @@ exports.view = function (req, res) {
         'lastname': lastname,
         'join': join
     };
+	console.log(passIn);
     // handlebar data pass in
     res.render('home', passIn);
 };
