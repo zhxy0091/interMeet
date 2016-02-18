@@ -25,7 +25,7 @@ exports.view = function (req, res) {
     data["meeting"][randCode] = (newRoom);
     
     // update cookie
-    req.session.creator = true;
+    req.session.join = false;
     req.session.code = randCode;
     
     res.render('create', {code: randCode});

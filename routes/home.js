@@ -11,16 +11,15 @@ exports.view = function (req, res) {
         if (code == undefined) {
             return res.redirect('/');
         }
-    } 
-    else if (req.method == 'POST') {
-        if(req.session.join != undefined) {
+    } else if (req.method == 'POST') {
+        if (req.session.join != undefined) {
             //user already join a room but did not leave the room
             //should print out alert
             return res.redirect('/home');
         }
 
         var join = false;
-        if(req.session.code == undefined) {
+        if (req.session.code == undefined) {
             req.session.code = req.body.meeting.code;
             join = true;
         }
@@ -29,7 +28,7 @@ exports.view = function (req, res) {
         req.session.firstname = firstname;
         req.session.lastname = lastname;
         req.session.join = join;
-        
+
         var code = req.session.code;
 
         //log if user join or create
@@ -37,7 +36,7 @@ exports.view = function (req, res) {
 
         //check if code is valid
         var meeting = data['meeting'];
-        if(!(code in meeting)) {
+        if (!(code in meeting)) {
             console.log('code is not valid');
             req.session.error = 'Invalid Code';
             req.session.codeErrorClass = ' has-error';
@@ -45,47 +44,27 @@ exports.view = function (req, res) {
             req.session.codeErrorColor = 'background: #faebd7';
             return res.redirect('/');
         }
-        if(!join) {
-        data['meeting'][code]['creator'] = 
-        {   'firstname': firstname,
-            'lastname': lastname
-        };
+        if (!join) {
+            data['meeting'][code]['creator'] = {
+                'firstname': firstname,
+                'lastname': lastname
+            };
+        } else {
+            data['meeting'][code]['user'].push({
+                'firstname': firstname,
+                'lastname': lastname
+            });
         }
-
-        console.log('post');
-    
-
-    console.log(util.inspect(data, {
-        showHidden: false,
-        depth: null
-    }));
-
-    
-    
-    console.log("home.js"+data['meeting'][code]['creator']);
-    
-    data['meeting'][code]['user'].push({
-        'firstname': firstname,
-        'lastname': lastname
-    });
-    }
-    else if (req.method == 'DELETE') {
+    } else if (req.method == 'DELETE') {
         var firstname = req.session.firstname;
         var lastname = req.session.lastname;
         var code = req.session.code;
         var join = req.session.join;
         id = req.body.id;
         console.log("id is " + id);
-        data['meeting'][code]['polling'].splice(id,1);
+        data['meeting'][code]['polling'].splice(id, 1);
         //TODO use socket io to refresh data
     }
-
-
-    
-    console.log(util.inspect(data, {
-        showHidden: false,
-        depth: null
-    }));
 
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
