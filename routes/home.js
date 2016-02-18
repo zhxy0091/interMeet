@@ -14,7 +14,7 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } else if (req.method == 'POST') {
-        if (req.session.join != undefined && req.session.code != req.body.meeting.code) {
+        if (req.session.join != undefined) {
             //user already join a room but did not leave the room
             //should print out alert
             req.session.roomError = true;

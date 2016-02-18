@@ -77,11 +77,11 @@
 									<div class="col-xs-6">
 									{{#unless 0}}
 									<div class="btn-group btn-group-sm pull-right">
-										<button type="button" class="btn btn-default btn-polling-result"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
+										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
 											{{#if voted}}Result
 											{{else}}Vote{{/if}}
-											</a></button>
-                                      <button type="button" class="btn btn-default btn-polling-delete"><a id="delete{{id}}" class="home-delete-polling-button" href="#"><span class="glyphicon glyphicon-remove-circle"></span></a></button>
+											</button></a>
+                                      <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-remove-circle"></span></button></a>
 									</div>
 									{{/unless}}
 									</div>
