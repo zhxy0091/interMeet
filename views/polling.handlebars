@@ -55,16 +55,24 @@
                 </div>
             </nav>
             <div class="wrapper items-wrapper">
+              <br>
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#chart1" aria-controls="chart1" role="tab" data-toggle="tab">Bar chart</a></li>
-                <li role="presentation"><a href="#chart2" aria-controls="chart2" role="tab" data-toggle="tab">Pie chart</a></li>
+                <li role="presentation" class="active"><a href="#chart1" id="tab1" aria-controls="chart1" role="tab" data-toggle="tab">Bar chart</a></li>
+                <li role="presentation" class=""><a href="#chart2" id="tab2" aria-controls="chart2" role="tab" data-toggle="tab">Pie chart</a></li>
+                <li role="presentation" class=""><a href="#chart3" id="tab3" aria-controls="chart3" role="tab" data-toggle="tab">Radar chart</a></li>
               </ul>
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="chart1">
+                  <br>
                   <canvas id="myChart" height="300"></canvas>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="chart2">
+                  <br>
                   <canvas id="myChart2" height="300"></canvas>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="chart3">
+                  <br>
+                  <canvas id="myChart3" height="300"></canvas>
                 </div>
               </div>
             </div>
@@ -111,59 +119,129 @@
       });
     </script>
     <script type="text/javascript">
-      window.onload = function () {
-        var data = {
-          labels: [],
-          datasets: [
-            {
-              label: "My First dataset",
-              fillColor: "rgba(239, 141, 80, 0.5)",
-              strokeColor: "rgba(239, 141, 80, 0.8)",
-              highlightFill: "rgba(239, 141, 80, 0.75)",
-              highlightStroke: "rgba(239, 141, 80, 1)",
-              data: []
-            }
-          ]
-        };
-		var choice;
-		{{#each thisPolling.choice}}
-          data['labels'].push('{{this}}');
-        {{/each}}
-        {{#each thisPolling.result}}
-          data['datasets'][0]['data'].push({{this}});
-        {{/each}}
-		console.log(data['datasets'][0]['data']);
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
-        myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
-        myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
-        myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
-        myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
-        myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
-        myBarChart.update();*/
-        var colors = ['#F7464A','#46BFBD','#FDB45C','#4bd5ff','#ffaf1e'];
-        var highlightColors = ['#FF5A5E', '#5AD3D1', '#FFC870', '#7ce0ff', '#fdbd47']
-		var dataPie = [];
-        var i=0;
-        {{#each thisPolling.choice}}
-          dataPie.push({
-            value: 0,
-            color: colors[i],
-            hightlight: highlightColors[i],
-            label: '{{this}}',
-          });
-          i++;
-        {{/each}}
-        i = 0;
-        {{#each thisPolling.result}}
-          dataPie[i]['value'] = {{this}};
-          i++;
-        {{/each}}
-        console.log(dataPie);
-        var ctx2 = document.getElementById("myChart2").getContext("2d");
-        var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});
-		
+      function initiate() {
+        
+          var data = {
+            labels: [],
+            datasets: [
+              {
+                label: "My First dataset",
+                fillColor: "rgba(239, 141, 80, 0.5)",
+                strokeColor: "rgba(239, 141, 80, 0.8)",
+                highlightFill: "rgba(239, 141, 80, 0.75)",
+                highlightStroke: "rgba(239, 141, 80, 1)",
+                data: []
+              }
+            ]
+          };
+          var choice;
+          {{#each thisPolling.choice}}
+            data['labels'].push('{{this}}');
+          {{/each}}
+          {{#each thisPolling.result}}
+            data['datasets'][0]['data'].push({{this}});
+          {{/each}}
+          console.log(data['datasets'][0]['data']);
+          var ctx = document.getElementById("myChart").getContext("2d");
+          var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
+          myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
+          myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
+          myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
+          myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
+          myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
+          myBarChart.update();*/
+        
+		$('#tab1').on('shown.bs.tab', function (e) {
+              var data = {
+            labels: [],
+            datasets: [
+              {
+                label: "My First dataset",
+                fillColor: "rgba(239, 141, 80, 0.5)",
+                strokeColor: "rgba(239, 141, 80, 0.8)",
+                highlightFill: "rgba(239, 141, 80, 0.75)",
+                highlightStroke: "rgba(239, 141, 80, 1)",
+                data: []
+              }
+            ]
+          };
+          var choice;
+          {{#each thisPolling.choice}}
+            data['labels'].push('{{this}}');
+          {{/each}}
+          {{#each thisPolling.result}}
+            data['datasets'][0]['data'].push({{this}});
+          {{/each}}
+          console.log(data['datasets'][0]['data']);
+          var ctx = document.getElementById("myChart").getContext("2d");
+          var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
+          myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
+          myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
+          myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
+          myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
+          myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
+          myBarChart.update();*/
+        });
+          $('#tab2').on('shown.bs.tab', function (e) {
+            var colors = ['#F7464A','#46BFBD','#FDB45C','#4bd5ff','#ffaf1e'];
+            var highlightColors = ['#FF5A5E', '#5AD3D1', '#FFC870', '#7ce0ff', '#fdbd47']
+            var dataPie = [];
+            var i=0;
+            {{#each thisPolling.choice}}
+              dataPie.push({
+                value: 0,
+                color: colors[i],
+                hightlight: highlightColors[i],
+                label: '{{this}}',
+              });
+              i++;
+            {{/each}}
+            i = 0;
+            {{#each thisPolling.result}}
+              dataPie[i]['value'] = {{this}};
+              i++;
+            {{/each}}
+            console.log(dataPie);
+            var ctx2 = document.getElementById("myChart2").getContext("2d");
+            var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});
+        });
+        $('#tab3').on('shown.bs.tab', function (e) {
+          var dataPoint = {
+            labels: [],
+            datasets: [
+              {
+                label: "My First dataset",
+                fillColor: "rgba(239, 141, 80, 0.5)",
+                strokeColor: "rgba(239, 141, 80, 0.8)",
+                pointColor: "rgb(239,141,80)",
+                pointStrokeColor: "rgb(239,141,80)",
+                pointHighlightFill: "rgba(239, 141, 80, 0.75)",
+                pointHighlightStroke: "rgba(239, 141, 80, 1)",
+                data: []
+              }
+            ]
+          };
+          var choice;
+          {{#each thisPolling.choice}}
+            dataPoint['labels'].push('{{this}}');
+          {{/each}}
+          {{#each thisPolling.result}}
+            dataPoint['datasets'][0]['data'].push({{this}});
+          {{/each}}
+          console.log(dataPoint['datasets'][0]['data']);
+          var ctx = document.getElementById("myChart3").getContext("2d");
+          var myBarChart = new Chart(ctx).Radar(dataPoint, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
+          myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
+          myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
+          myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
+          myBarChart.datasets[0].bars[3].fillColor = "blue"; //bar 4
+          myBarChart.datasets[0].bars[4].fillColor = "white"; //bar 5
+          myBarChart.update();*/
+        });
       }
+      
+      window.onload = initiate;
+      
     </script>
 </body>
 
