@@ -51,7 +51,7 @@
                 <li>
                     <a href="./home">Home</a>
                 </li>
-                {{#unless thisSession.join}}
+                {{#unless 0}}
                 <li>
                     <a href="./newpolling">Create polling</a>
                 </li>
@@ -85,6 +85,7 @@
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
                     {{#each polling}}
+                    {{#unless this.deleted}}
                     <div class="card card-polling" id="polling{{id}}">
                     
                     {{#unless 0}}
@@ -111,9 +112,12 @@
                                 <p class="card-text">{{description}}</p>
                             </div>
                         </a>
+                        <hr>
                     </div>
-                    <hr> 
+                    
+                    {{/unless}}
                     {{/each}}
+
                     {{#unless thisSession.join}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-common page-scroll">Create new polling</a>
