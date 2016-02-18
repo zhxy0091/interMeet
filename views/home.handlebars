@@ -63,7 +63,10 @@
                     
                         {{#unless 0}}
                         <div class="btn-group btn-group-sm pull-right">
-                            <button type="button" class="btn btn-default btn-polling-result"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">Result</a></button>
+                            <button type="button" class="btn btn-default btn-polling-result"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
+                                {{#if voted}}Result
+                                {{else}}Vote{{/if}}
+                                </a></button>
                             <button type="button" class="btn btn-default btn-polling-result dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>

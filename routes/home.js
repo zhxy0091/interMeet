@@ -65,7 +65,6 @@ exports.view = function (req, res) {
         data['meeting'][code]['polling'][id]['deleted'] = true;
         //TODO use socket io to refresh data
     }
-
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
         'code': code,
@@ -74,6 +73,20 @@ exports.view = function (req, res) {
         'join': join
     };
 	console.log(passIn);
+    
+    // no repeat polling: add boolean "voted"
+    for (var i = 0; i < passIn["polling"].length; i++) {
+        for (var j = 0; j < passIn["polling"][i]["participant"].length; j++) {
+            if (firstname == passIn["polling"][i]['participant'][j]['firstname'] &&
+                lastname == passIn["polling"][i]['participant'][j]['lastname']) {
+                // console.log("pollingVote.js: " + "the current user has voted before.");
+                passIn["polling"][i]["voted"] = true;
+            } else {
+                passIn["polling"][i]["voted"] = false;
+            }
+        }
+    }
+
     // handlebar data pass in
     res.render('home', passIn);
 };
