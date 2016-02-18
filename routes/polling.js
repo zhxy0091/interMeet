@@ -30,13 +30,11 @@ exports.pollingSubmit = function(req, res){
     var join = req.session.join;
     var pollingVote = req.body.options;
 	var pollingId = req.params.id;
-	console.log(data['meeting'][code]['polling'][req.params.id]);
 	data['meeting'][code]['polling'][req.params.id]['result'][pollingVote]++;
     var thisUser = {'firstname':firstname, 'lastname':lastname};
     data['meeting'][code]['polling'][req.params.id]['participant'].push(thisUser);
     var thisPolling;
 	for (var i = 0; i < data['meeting'][code]['polling'].length; i++) {
-		console.log(data['meeting'][code]['polling'][i]);
 		if (data['meeting'][code]['polling'][i]['id'] == pollingId) {
 			thisPolling = data['meeting'][code]['polling'][i];
 			break;
@@ -120,5 +118,5 @@ exports.create = function(req, res){
             'join': join
         };
 	passIn['thisPolling'] = pollingData;
-	res.render('polling', passIn );
+	return res.redirect('/polling/'+pollingId);
 }
