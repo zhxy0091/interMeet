@@ -1,0 +1,30 @@
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a>interMeet</a>
+                </li>
+              	<li>
+                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
+				</li>
+				<li>
+                    <a>Meeting {{thisSession.code}}</a>
+                </li>
+                <li>
+                    <a href="/home">Pollings</a>
+                </li>
+                {{#unless 0}}
+                <li>
+                    <a href="/newpolling">Create polling</a>
+                </li>
+                {{/unless}}
+                <li>
+                    <a data-toggle="modal" href="#modalAbout">About</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" href="#modalContact">Contact</a>
+                </li>
+				<li>
+					<a href="#" id="leave-meeting">Leave meeting</a>
+				</li>
+            </ul>
+        </nav>

@@ -39,34 +39,7 @@
     <div id="wrapper">
         <div class="overlay"></div>
 
-        <!-- Sidebar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
-                </li>
-                <li>
-                    <a>Meeting {{thisSession.code}}</a>
-                </li>
-                <li>
-                    <a href="./home">Home</a>
-                </li>
-                {{#unless 0}}
-                <li>
-                    <a href="./newpolling">Create polling</a>
-                </li>
-                {{/unless}}
-                <li>
-                    <a data-toggle="modal" href="#modalAbout">About</a>
-                </li>
-                <li>
-                    <a data-toggle="modal" href="#modalContact">Contact</a>
-                </li>
-				<li>
-					<a href="#" id="leave-meeting">Leave meeting</a>
-				</li>
-            </ul>
-        </nav>
+        {{> sidebar}}
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
@@ -78,7 +51,7 @@
             </button>
             <nav class="navbar navbar-default" id="fixtop">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">interMeet</a>
+                    <a class="navbar-brand" href="#">Pollings</a>
                 </div>
             </nav>
 
