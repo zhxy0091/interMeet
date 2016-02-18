@@ -82,11 +82,17 @@
                 </div>
             </nav>
             <div class="wrapper items-wrapper">
-              <div class="container">
-                <canvas id="myChart" height="300"></canvas>
-              </div>
-              <div class="container">
-                <canvas id="myChart2" height="300"></canvas>
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#chart1" aria-controls="chart1" role="tab" data-toggle="tab">Bar chart</a></li>
+                <li role="presentation"><a href="#chart2" aria-controls="chart2" role="tab" data-toggle="tab">Pie chart</a></li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="chart1">
+                  <canvas id="myChart" height="300"></canvas>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="chart2">
+                  <canvas id="myChart2" height="300"></canvas>
+                </div>
               </div>
             </div>
         </div>

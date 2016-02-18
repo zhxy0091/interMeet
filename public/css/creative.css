@@ -10,7 +10,6 @@ input {
 
 body {
     font-family: 'Hind', sans-serif;
-    ;
 }
 
 .brand {
@@ -147,8 +146,10 @@ p {
   -moz-border-radius: 0 !important;
   background-color: rgba(0,0,0,0.3);
   border: 0px;
-  border-bottom: 3px solid white;
+  border-bottom: 4px solid black;
 }
+
+
 
 /* navbar header */
 
@@ -161,8 +162,9 @@ p {
 .navbar-brand {
   float:none;
   color: #fff !important;
-  font-size: 24px !important;
+  font-size: 26px !important;
   font-family: "Ubuntu", sans-serif;
+  text-shadow: 1px 2px black;
 }
 
 .page-content {
@@ -253,6 +255,7 @@ p {
   top:0;
   left:0;
   right:0;
+  background-color: #ffffff;
 }
 
 .home-wrapper {
@@ -285,7 +288,6 @@ p {
 }
 
 .card-container {
-  background: rgba(0, 0, 0, 0.1);
   padding-top: 20px;
   min-height: 100%;
 }
@@ -300,8 +302,7 @@ p {
 .card-polling h5,
 .card-polling h6,
 .card-polling p {
-  color: #fff !important;
-  text-shadow: 2px 1px #000000;
+  color: #000 !important;
 }
 
 .btn-group-vertical .btn-common {
@@ -321,6 +322,21 @@ p {
 }
 
 label~.form-control-feedback {
-    top: 33px !important;
+  top: 33px !important;
 }
 
+.btn-polling-result {
+  font-size: 16px !important;
+}
+
+.card-polling .btn-group-sm .dropdown-menu a {
+  font-size: 16px !important;
+}
+
+.card-polling .btn-group-sm .dropdown-menu {
+  min-width: 50px !important;
+}
+
+.card-polling .btn-group-sm .btn{
+  border: 1px solid black;
+}
