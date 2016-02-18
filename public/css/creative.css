@@ -388,9 +388,9 @@ label~.form-control-feedback {
 }
 
 .scrollable-menu {
-    height: 200px;
-    /*max-height: 200px;
-    overflow-x: hidden;*/
+    
+    max-height: 200px;
+    overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
@@ -398,4 +398,5 @@ label~.form-control-feedback {
 .participants-list-btn{
   margin-top: 10px;
   margin-right: 15px;
+
 }
