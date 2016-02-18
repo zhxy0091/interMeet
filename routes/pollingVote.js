@@ -5,6 +5,7 @@ exports.view = function (req, res) {
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var join = req.session.join;
     var pollingId = req.params.id;
     var thisPolling;
     for (var i = 0; i < data['meeting'][code]['polling'].length; i++) {
@@ -30,7 +31,8 @@ exports.view = function (req, res) {
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
-        'lastname': lastname
+        'lastname': lastname,
+        'join': join
     };
     passIn['thisPolling'] = thisPolling;
     res.render('pollingVote', passIn);

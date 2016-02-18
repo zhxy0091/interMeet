@@ -6,12 +6,19 @@ exports.view = function (req, res) {
         var firstname = req.session.firstname;
         var lastname = req.session.lastname;
         var code = req.session.code;
+        var join = req.session.join;
         console.log('get');
         if (code == undefined) {
             return res.redirect('/');
         }
     } 
-    else {
+    else if (req.method == 'POST') {
+        if(req.session.join != undefined) {
+            //user already join a room but did not leave the room
+            //should print out alert
+            return res.redirect('/home');
+        }
+
         var join = false;
         if(req.session.code == undefined) {
             req.session.code = req.body.meeting.code;
@@ -21,6 +28,7 @@ exports.view = function (req, res) {
         var lastname = req.body.user.lastname;
         req.session.firstname = firstname;
         req.session.lastname = lastname;
+        req.session.join = join;
         
         var code = req.session.code;
 
@@ -61,6 +69,17 @@ exports.view = function (req, res) {
         'lastname': lastname
     });
     }
+    else if (req.method == 'DELETE') {
+        var firstname = req.session.firstname;
+        var lastname = req.session.lastname;
+        var code = req.session.code;
+        var join = req.session.join;
+        id = req.body.id;
+        console.log("id is " + id);
+        data['meeting'][code]['polling'].splice(id,1);
+        //TODO use socket io to refresh data
+    }
+
 
     
     console.log(util.inspect(data, {
@@ -72,7 +91,8 @@ exports.view = function (req, res) {
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
-        'lastname': lastname
+        'lastname': lastname,
+        'join': join
     };
     // handlebar data pass in
     res.render('home', passIn);

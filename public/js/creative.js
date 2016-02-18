@@ -98,6 +98,25 @@ $('#leave-meeting').click(function (e) {
     });
 });
 
+$('.home-delete-polling-button').click(function (e) {
+    e.preventDefault();
+    console.log("delete polling clicked");
+
+    var deleteId = $(this).attr('id');
+ 
+    var id = parseInt(deleteId.substring(6));
+    console.log("ID is" + id);
+    $.ajax({
+    url: '/home',
+    type: 'DELETE',
+    dataType: 'json',
+    data: {'id': id},
+    success: function(result) {
+        console.log("Delete polling successfully");
+        window.location.href = '/home';
+    }
+    });
+});
 
 (function ($) {
     "use strict"; // Start of use strict

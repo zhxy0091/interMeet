@@ -51,9 +51,11 @@
                 <li>
                     <a href="../home">Home</a>
                 </li>
+                {{#unless thisSession.join}}
                 <li>
-                    <a href="../newpolling">Create polling</a>
+                    <a href="./newpolling">Create polling</a>
                 </li>
+                {{/unless}}
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
@@ -96,37 +98,7 @@
         </div>
         <!-- /.modal -->
 
-        <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2>interMeet</h2>
-                        <p>Alpha 1.0</p>
-                        
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <div class="modal fade" id="modalContact" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body" style="text-align: left">
-                        
-                          <p>Shuming Cao</p>
-                          <p></p>
-                          <p>Changtong Qiu</p>
-                          <p></p>
-                          <p>Xinyuan Zhang</p>
-                          <p></p>
-                      </table>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
+         {{> modal}}
 
     </div>
 

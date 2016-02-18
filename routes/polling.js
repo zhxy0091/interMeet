@@ -5,6 +5,7 @@ exports.view = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var join = req.session.join;
     var pollingId = req.params.id;
     console.log(req.session);
 
@@ -14,7 +15,8 @@ exports.view = function(req, res){
     passIn['thisSession'] = {
             'code': code,
             'firstname': firstname,
-            'lastname': lastname
+            'lastname': lastname,
+            'join': join
         };
     var thisPolling = data['meeting'][code]['polling'][pollingId];
     passIn['thisPolling'] = thisPolling;
@@ -25,6 +27,7 @@ exports.pollingSubmit = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var join = req.session.join;
     var pollingVote = req.body.options;
 	var pollingId = req.params.id;
 	console.log(data['meeting'][code]['polling'][req.params.id]);
@@ -43,7 +46,8 @@ exports.pollingSubmit = function(req, res){
     passIn['thisSession'] = {
             'code': code,
             'lastname': lastname,
-            'firstname': firstname
+            'firstname': firstname,
+            'join': join
         };
     passIn['thisPolling'] = thisPolling;
 	console.log(util.inspect(data, {
@@ -58,6 +62,7 @@ exports.create = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var join = req.session.join;
 	var pollingTitle = req.body.pollingTitle;
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
@@ -110,7 +115,8 @@ exports.create = function(req, res){
     passIn['thisSession'] = {
             'code': code,
             'lastname': lastname,
-            'firstname': firstname
+            'firstname': firstname,
+            'join': join
         };
 	passIn['thisPolling'] = pollingData;
 	res.render('polling', passIn );

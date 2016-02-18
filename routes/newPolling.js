@@ -5,6 +5,7 @@ exports.view = function(req, res){
     var firstname = req.session.firstname;
     var lastname = req.session.lastname;
     var code = req.session.code;
+    var join = req.session.join;
     console.log(req.session);
 
     console.log(util.inspect(data, {showHidden: false, depth: null}));
@@ -14,7 +15,8 @@ exports.view = function(req, res){
     passIn['thisSession'] = {
             'code': code,
             'firstname': firstname,
-            'lastname': lastname
+            'lastname': lastname,
+            'join': join
         };
   	res.render('newPolling', passIn );
 };

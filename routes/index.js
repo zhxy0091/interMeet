@@ -28,6 +28,9 @@ exports.view = function (req, res) {
         req.session.destroy();
         res.send();
     } else if (req.method == 'GET') {
+        if(req.session.join != undefined) {
+            return res.redirect('/home');
+        }
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {

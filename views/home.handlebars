@@ -51,9 +51,11 @@
                 <li>
                     <a href="./home">Home</a>
                 </li>
+                {{#unless thisSession.join}}
                 <li>
                     <a href="./newpolling">Create polling</a>
                 </li>
+                {{/unless}}
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
                 </li>
@@ -84,54 +86,45 @@
                 <div class="container card-container">
                     {{#each polling}}
                     <div class="card card-polling" id="polling{{id}}">
+                    
+                    {{#unless 0}}
+                    <div class="btn-group btn-group-sm pull-right" >
+                        <button type="button" class="btn btn-default"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">Result</a></button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                         <ul class="dropdown-menu">
+                            <li><a href="#">End Polling</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" class="home-delete-polling-button" id="delete{{id}}">Delete</a></li>
+    
+                        </ul>
+                    </div>
+                    {{/unless}}
+
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
                             <h3 class="card-header">{{title}}</h3>
                             <div class="card-block">
+
                                 <h4 class="card-title">{{date}}</h4>
                                 <p class="card-text">{{description}}</p>
                             </div>
                         </a>
                     </div>
-                    <hr> {{/each}}
+                    <hr> 
+                    {{/each}}
+                    {{#unless thisSession.join}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-common page-scroll">Create new polling</a>
                     </div>
+                    {{/unless}}
                 </div>
             </div>
         </div>
         <!-- /.modal -->
 
-        <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2>interMeet</h2>
-                        <p>Alpha 1.0</p>
-
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <div class="modal fade" id="modalContact" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body" style="text-align: left">
-                        
-                          <p>Shuming Cao</p>
-                          <p></p>
-                          <p>Changtong Qiu</p>
-                          <p></p>
-                          <p>Xinyuan Zhang</p>
-                          <p></p>
-                      </table>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
+         {{> modal}}
 
     </div>
 
