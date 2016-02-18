@@ -49,7 +49,7 @@
                 <span class="hamb-middle"></span>
                 <span class="hamb-bottom"></span>
             </button>
-            <nav class="navbar navbar-reverse" id="fixtop">
+            <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Pollings</a>
                 </div>
@@ -60,32 +60,28 @@
                     {{#each polling}}
                     {{#unless this.deleted}}
                     <div class="card card-polling" id="polling{{id}}">
-                    
-                        {{#unless 0}}
-                        <div class="btn-group btn-group-sm pull-right">
-                            <button type="button" class="btn btn-default btn-polling-result"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
-                                {{#if voted}}Result
-                                {{else}}Vote{{/if}}
-                                </a></button>
-                            <button type="button" class="btn btn-default btn-polling-result dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                             <ul class="dropdown-menu">
-                                <li><a href="#">End Polling</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#" class="home-delete-polling-button" id="delete{{id}}">Delete</a></li>
-
-                            </ul>
-                        </div>
-                        {{/unless}}
 
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
                             <h3 class="card-header">{{title}}</h3>
                             <div class="card-block">
 
                                 <h4 class="card-title">{{date}}</h4>
-                                <p class="card-text">{{description}}</p>
+								<div class="row">
+									<div class="col-xs-6">
+                                	<p class="card-text">{{description}}</p>
+									</div>
+									<div class="col-xs-6">
+									{{#unless 0}}
+									<div class="btn-group btn-group-sm pull-right">
+										<button type="button" class="btn btn-default btn-polling-result"><a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
+											{{#if voted}}Result
+											{{else}}Vote{{/if}}
+											</a></button>
+                                      <button type="button" class="btn btn-default btn-polling-delete"><a id="delete{{id}}" class="home-delete-polling-button" href="#"><span class="glyphicon glyphicon-remove-circle"></span></a></button>
+									</div>
+									{{/unless}}
+									</div>
+								</div>
                             </div>
                         </a>
                         <hr>
