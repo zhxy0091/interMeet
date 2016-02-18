@@ -62,7 +62,9 @@ exports.view = function (req, res) {
         var join = req.session.join;
         id = req.body.id;
         console.log("id is " + id);
-        data['meeting'][code]['polling'][id]['deleted'] = true;
+        if(!join) {
+            data['meeting'][code]['polling'][id]['deleted'] = true;
+        }
         //TODO use socket io to refresh data
     }
     var passIn = data['meeting'][code];
