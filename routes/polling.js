@@ -7,10 +7,6 @@ exports.view = function(req, res){
     var code = req.session.code;
     var join = req.session.join;
     var pollingId = req.params.id;
-    console.log(req.session);
-
-    console.log(util.inspect(data, {showHidden: false, depth: null}));
-    console.log(util.inspect(data, {showHidden: false, depth: null}));
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
             'code': code,
