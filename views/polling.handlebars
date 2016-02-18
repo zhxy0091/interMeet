@@ -161,7 +161,7 @@
         {{/each}}
 		console.log(data['datasets'][0]['data']);
         var ctx = document.getElementById("myChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
+        var myBarChart = new Chart(ctx).Bar(data, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});/*
         myBarChart.datasets[0].bars[0].fillColor = "green"; //bar 1
         myBarChart.datasets[0].bars[1].fillColor = "orange"; //bar 2
         myBarChart.datasets[0].bars[2].fillColor = "red"; //bar 3
@@ -188,7 +188,7 @@
         {{/each}}
         console.log(dataPie);
         var ctx2 = document.getElementById("myChart2").getContext("2d");
-        var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#ffffff", scaleLineColor: "#ffffff", scaleFontSize: 20, scaleFontFamily: "Hind"});
+        var myDoughnutChart = new Chart(ctx2).Doughnut(dataPie, {responsive: true, scaleFontColor: "#111111", scaleLineColor: "#111111", scaleFontSize: 20, scaleFontFamily: "Hind"});
 		
       }
     </script>

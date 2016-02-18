@@ -88,18 +88,19 @@
                           {{thisPolling.title}}
                         </div>
                     </div>
+                    <br>
 					<form method="POST" id="polling-vote-form" name="pollingCreateForm" action="/polling/{{thisPolling.id}}">
 						<div class="btn-group-vertical text-center" data-toggle="buttons">
                           {{#each thisPolling.choice}}
-                            <label class="btn btn-common">
+                            <label class="btn btn-reverse">
                               <input type="radio" name="options" id="option{{@index}}" value="{{@index}}" autocomplete="off">{{this}}
                             </label>
                           {{/each}}
                         </div>
 					</form>
-					
+                    <br>
                     <div class="row container text-center">
-                        <a href="#" id="polling-vote-submit-button" class="btn page-scroll">Submit</a>
+                        <a href="#" id="polling-vote-submit-button" class="btn btn-reverse page-scroll">Submit</a>
                     </div>
                 </div>
             </div>

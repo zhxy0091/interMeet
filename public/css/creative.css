@@ -55,7 +55,7 @@ body {
     position: relative;
     width: 100%;
     min-height: auto;
-    color: #fff;
+    color: #000;
     background-image: url(../image/home.jpg);
     background-position: center;
     -webkit-background-size: cover;
@@ -227,21 +227,44 @@ p {
   margin-top: 30px;
 }
 
+.btn-common-create {
+  border: 2px solid white !important;
+}
+
 .btn-common {
     color: #fff;
-    background-color: rgba(240, 98, 66, 0.2);
+    background-color: rgba(240, 98, 66, 0.8);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
     width: 90%;
+    border: 2px solid white;
 }
 
 .btn-common:hover,
 .btn-common:active,
 .btn-common.active {
-    border: 2px solid #000000;
+    border: 2px solid #111111;
     color: #fff;
     background-color: #ee4b28;
+}
+
+.btn-reverse {
+    color: rgb(240, 98, 66);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    width: 90%;
+    font-size: 16px !important;
+    border: 2px solid black;
+}
+
+.btn-reverse:hover,
+.btn-reverse:active,
+.btn-reverse.active {
+    border: 2px solid #111111;
+    color: #ffffff;
+    background-color: rgba(240, 98, 66, 0.8);
 }
 
 .items-wrapper {
@@ -268,6 +291,7 @@ p {
   top:0;
   left:0;
   right:0;
+  color: white !important;
 }
 
 .create-wrapper {
@@ -280,6 +304,7 @@ p {
   top:0;
   left:0;
   right:0;
+  color: white !important;
 }
 
 .card-polling {
@@ -339,4 +364,8 @@ label~.form-control-feedback {
 
 .card-polling .btn-group-sm .btn{
   border: 1px solid black;
+}
+
+.glyphicon-remove {
+  color: #ffffff;
 }

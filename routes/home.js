@@ -62,7 +62,7 @@ exports.view = function (req, res) {
         var join = req.session.join;
         id = req.body.id;
         console.log("id is " + id);
-        data['meeting'][code]['polling'].splice(id, 1);
+        data['meeting'][code]['polling'][id] = {'delete': true};
         //TODO use socket io to refresh data
     }
 
