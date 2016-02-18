@@ -388,14 +388,14 @@ label~.form-control-feedback {
 }
 
 .scrollable-menu {
-    height: auto;
+    height: 200px;
     max-height: 200px;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
-.participants-list{
+.participants-list-btn{
   margin-top: 10px;
   margin-right: 15px;
 }
