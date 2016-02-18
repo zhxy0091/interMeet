@@ -54,9 +54,13 @@
                     <a class="navbar-brand" href="#">Pollings</a>
                 </div>
             </nav>
-
+            
             <div class="wrapper items-wrapper">
                 <div class="container card-container">
+                {{#if thisSession.roomError}}
+                        <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
+                 
+                {{/if}}
                     {{#each polling}}
                     {{#unless this.deleted}}
                     <div class="card card-polling" id="polling{{id}}">
