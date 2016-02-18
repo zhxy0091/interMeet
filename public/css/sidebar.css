@@ -92,9 +92,11 @@ html { height: 100%;}
     background-color: #ffffff;
 }
 .sidebar-nav li:nth-child(2):before {
+	color: #1a1a1a;
     background-color: #ec1b5a;   
 }
 .sidebar-nav li:nth-child(3):before {
+	color: #1a1a1a;
     background-color: #79aefe;   
 }
 .sidebar-nav li:nth-child(4):before {
@@ -152,6 +154,13 @@ html { height: 100%;}
     font-size: 20px;
     line-height: 44px;
 }
+
+.sidebar-nav > .sidebar-subbrand {
+    height: 40px;
+    font-size: 16px;
+    line-height: 34px;
+}
+
 .sidebar-nav .dropdown-menu {
     position: relative;
     width: 100%;
