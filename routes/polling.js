@@ -95,6 +95,7 @@ exports.create = function(req, res){
 		'title': pollingTitle,
 		'date': today,
         'status': 'active',
+        'deleted': false,
 		'choice': [
 		],
 		'result':[],

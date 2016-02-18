@@ -26,7 +26,8 @@
           "id": 0,
           "title": "Do you like this web App?",
           "date": "1/9/2016",
-          "status": "active", 
+          "status": "active",
+          "deleted": false,
           "choice": [
             "Like",
             "Dislike"

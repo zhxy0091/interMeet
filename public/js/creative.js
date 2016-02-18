@@ -1,3 +1,4 @@
+
 // handle form
 $('#join-meeting-button').click(function (e) {
     console.log("join clicked");
@@ -103,8 +104,10 @@ $('.home-delete-polling-button').click(function (e) {
     console.log("delete polling clicked");
 
     var deleteId = $(this).attr('id');
- 
+   
     var id = parseInt(deleteId.substring(6));
+    var thisPolling = $('#polling'+id);
+    thisPolling.hide();
     console.log("ID is" + id);
     $.ajax({
     url: '/home',
@@ -112,11 +115,12 @@ $('.home-delete-polling-button').click(function (e) {
     dataType: 'json',
     data: {'id': id},
     success: function(result) {
-        console.log("Delete polling successfully");
+        console.log("Mark polling as deleted successfully");
         window.location.href = '/home';
     }
     });
 });
+
 
 (function ($) {
     "use strict"; // Start of use strict
