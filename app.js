@@ -52,14 +52,12 @@ app.delete('/home', home.view);
 app.get('/create', create.view);
 
 app.get('/newPolling', newPolling.view);
+app.post('/newPolling', newPolling.new)
 
 app.get('/polling/:id', polling.view);
-app.post('/polling/new', polling.create);
-app.post('/polling/:id', polling.pollingSubmit);
-
 
 app.get('/pollingVote/:id', pollingVote.view);
-app.get('/pollingVote', pollingVote.view);
+app.post('/pollingVote/:id', pollingVote.vote);
 
 // Example route
 // app.get('/users', user.list);

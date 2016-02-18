@@ -3,6 +3,8 @@ var util = require('util');
 
 exports.view = function (req, res) {
     if (req.method == 'GET') {
+        var roomError = req.session.roomError;
+        delete req.session.roomError;
         var firstname = req.session.firstname;
         var lastname = req.session.lastname;
         var code = req.session.code;
@@ -12,11 +14,14 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } else if (req.method == 'POST') {
-        if (req.session.join != undefined) {
+        if (req.session.join == true) {
             //user already join a room but did not leave the room
             //should print out alert
+            req.session.roomError = true;
             return res.redirect('/home');
         }
+        var roomError = req.session.roomError;
+        delete req.session.roomError;
 
         var join = false;
         if (req.session.code == undefined) {
@@ -72,7 +77,8 @@ exports.view = function (req, res) {
         'code': code,
         'firstname': firstname,
         'lastname': lastname,
-        'join': join
+        'join': join,
+        'roomError': roomError
     };
 	console.log(passIn);
     
