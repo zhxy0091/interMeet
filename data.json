@@ -26,11 +26,12 @@
           "id": 0,
           "title": "Do you like this web App?",
           "date": "1/9/2016",
-          "active": false,
+          "active": true,
           "deleted": false,
           "choice": [
             "Like",
-            "Dislike"
+            "Dislike",
+            "Ahem"
           ],
           "participant": [
             {
@@ -40,10 +41,15 @@
             {
               "firstname": "Shuming",
               "lastname": "Cao"
+            },
+            {
+            "firstname": "Changtong",
+            "lastname": "Qiu"
             }
           ],
           "result": [
               1,
+              0,
               1
           ]
         }
