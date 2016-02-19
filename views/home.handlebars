@@ -41,7 +41,6 @@
 
         {{> sidebar}}
         <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
@@ -51,9 +50,9 @@
             </button>
             <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Pollings</a>
-                    <div class="btn-group pull-right  participants-list-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
+                    <a class="navbar-brand">Pollings</a>
+                    <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle participants-list-btn" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
                 
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     {{#each user}}
@@ -93,7 +92,7 @@
 											{{#if voted}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
-                                      <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-remove-circle"></span></button></a>
+                                      <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
 									</div>
 									{{/unless}}
 									</div>
