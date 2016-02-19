@@ -103,7 +103,7 @@
                         </a>
                         <br>
                         <div class="progress">
-  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%">
+  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%">
     <span class="sr-only">{{this.progress}}% Complete</span>
   </div>
 </div>
