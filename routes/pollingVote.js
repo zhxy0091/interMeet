@@ -15,7 +15,11 @@ exports.view = function (req, res) {
             break;
         }
     }
-
+    
+    if (thisPolling['active'] == false) {
+		return res.redirect('/polling/' + pollingId);
+	}
+    
     // no repeat voting
     for (var i = 0; i < thisPolling['participant'].length; i++) {
         if (firstname == thisPolling['participant'][i]['firstname'] && lastname == thisPolling['participant'][i]['lastname']) {

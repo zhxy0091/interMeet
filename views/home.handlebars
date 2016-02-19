@@ -26,6 +26,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+	<link rel="stylesheet" href="css/callout.css" type="text/css">
+	
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,32 +76,31 @@
                 {{/if}} -->
                     {{#each polling}}
                     {{#unless this.deleted}}
-                    <div class="card card-polling" id="polling{{id}}">
+                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
 
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
                             <h3 class="card-header">{{title}}</h3>
                             <div class="card-block">
 
-                                <h4 class="card-title">{{date}}</h4>
 								<div class="row">
 									<div class="col-xs-6">
-                                	<p class="card-text">{{description}}</p>
+                                     	<h4 class="card-title">{{date}}</h4>
+										<p class="card-text">{{description}}</p>
 									</div>
 									<div class="col-xs-6">
-									{{#unless 0}}
 									<div class="btn-group btn-group-sm pull-right">
 										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
-											{{#if voted}}Result
+											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
-                                      <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+									    {{#unless ../../thisSession.join}}
+                                        <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                        {{/unless}}
 									</div>
-									{{/unless}}
 									</div>
 								</div>
                             </div>
                         </a>
-                        <hr>
                     </div>
                     
                     {{/unless}}
