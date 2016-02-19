@@ -68,7 +68,8 @@ exports.new = function (req, res) {
 		'choice': [
 		],
 		'result':[],
-        'participant':[]
+        'participant':[],
+        'progress': 0
     };
 	for (i=0; i<count; i++)
 		if (pollingOptions[i] != undefined){

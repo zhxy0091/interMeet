@@ -73,14 +73,19 @@ exports.view = function (req, res) {
         //TODO use socket io to refresh data
     }
     var passIn = data['meeting'][code];
+    for(var i=0; i<data['meeting'][code]['polling'].length; i++) {
+        var numParticipant = data['meeting'][code]['polling'][i]['participant'].length;
+        var numPeople = data['meeting'][code]['user'].length;
+        var progress = numParticipant*100/numPeople;
+        data['meeting'][code]['polling'][i]['progress'] = progress;
+    }
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
         'lastname': lastname,
         'join': join,
-        'roomError': roomError
+        'roomError': roomError,
     };
-    
     // no repeat polling: add boolean "voted"
     for (var i = 0; i < passIn["polling"].length; i++) {
 		passIn["polling"][i]['noVoting'] = false;

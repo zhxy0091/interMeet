@@ -30,7 +30,8 @@
           "deleted": false,
           "choice": [
             "Like",
-            "Dislike"
+            "Dislike",
+            "Ahem"
           ],
           "participant": [
             {
@@ -40,10 +41,15 @@
             {
               "firstname": "Shuming",
               "lastname": "Cao"
+            },
+            {
+            "firstname": "Changtong",
+            "lastname": "Qiu"
             }
           ],
           "result": [
               1,
+              0,
               1
           ]
         }
