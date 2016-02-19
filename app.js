@@ -55,6 +55,7 @@ app.get('/newPolling', newPolling.view);
 app.post('/newPolling', newPolling.new)
 
 app.get('/polling/:id', polling.view);
+app.delete('/polling/:id', polling.view);
 
 app.get('/pollingVote/:id', pollingVote.view);
 app.post('/pollingVote/:id', pollingVote.vote);
