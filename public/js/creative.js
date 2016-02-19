@@ -121,6 +121,27 @@ $('.home-delete-polling-button').click(function (e) {
     });
 });
 
+$('.btn-stop-polling').click(function (e) {
+    e.preventDefault();
+    console.log("stop polling clicked");
+    
+    var deleteId = $(this).attr('id');
+    var id = parseInt(deleteId.substring(12));
+    var thisPolling = $('#polling-stop'+id);
+    thisPolling.hide();
+    console.log("stopped polling ID is" + id);
+    $.ajax({
+    url: '/polling/'+id,
+    type: 'DELETE',
+    dataType: 'json',
+    data: {'id': id},
+    success: function(result) {
+        console.log("Mark polling as stopped successfully");
+        window.location.href = '/polling/'+id;
+    }
+    });
+});
+
 
 (function ($) {
     "use strict"; // Start of use strict

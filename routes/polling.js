@@ -7,6 +7,10 @@ exports.view = function(req, res){
     var code = req.session.code;
     var join = req.session.join;
     var pollingId = req.params.id;
+    var stopPolling = req.body.stopPolling;
+    if (req.method == 'DELETE') {
+		data['meeting'][code]['polling'][pollingId]['active'] = false;
+	}
     var passIn = data['meeting'][code];
     passIn['thisSession'] = {
             'code': code,

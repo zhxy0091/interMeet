@@ -263,6 +263,7 @@ p {
 
 .btn-reverse {
     color: rgb(240, 98, 66);
+    background-color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;

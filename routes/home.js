@@ -80,7 +80,6 @@ exports.view = function (req, res) {
         'join': join,
         'roomError': roomError
     };
-	console.log(passIn);
     
     // no repeat polling: add boolean "voted"
     for (var i = 0; i < passIn["polling"].length; i++) {
@@ -93,11 +92,11 @@ exports.view = function (req, res) {
                 passIn["polling"][i]["voted"] = true;
 				passIn["polling"][i]['noVoting'] = true;					
             }
-			if (!passIn["polling"][i]['active'])
-				passIn["polling"][i]['noVoting'] = true;
 		}
+        if (passIn["polling"][i]['active'] == false)
+            passIn["polling"][i]['noVoting'] = true;
     }
-
+    console.log(passIn);
     // handlebar data pass in
     res.render('home', passIn);
 };

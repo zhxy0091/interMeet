@@ -78,6 +78,15 @@
                   <canvas id="myChart3" height="300"></canvas>
                 </div>
               </div>
+              {{#if thisPolling.active}}
+              {{#unless thisSession.join}}
+              <div class="container text-center">
+                <button type="button" id="polling-stop{{thisPolling.id}}" class="btn btn-reverse btn-stop-polling">
+                  <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop polling
+                </button>
+              </div>
+              {{/unless}}
+              {{/if}}
             </div>
         </div>
         <!-- /.modal -->
