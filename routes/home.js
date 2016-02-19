@@ -54,6 +54,10 @@ exports.view = function (req, res) {
                 'firstname': firstname,
                 'lastname': lastname
             };
+            data['meeting'][code]['user'].push({
+                'firstname': firstname,
+                'lastname': lastname
+            });
         } else {
             data['meeting'][code]['user'].push({
                 'firstname': firstname,
