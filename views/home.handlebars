@@ -79,15 +79,18 @@
                     <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
 
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
-                            <h3 class="card-header">{{title}}</h3>
                             <div class="card-block">
-
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3 class="card-header">{{title}}</h3>
+                                    </div>
+                                </div>
 								<div class="row">
-									<div class="col-xs-6">
+									<div class="col-xs-3">
                                      	<h4 class="card-title">{{date}}</h4>
 										<p class="card-text">{{description}}</p>
 									</div>
-									<div class="col-xs-6">
+									<div class="col-xs-9">
 									<div class="btn-group btn-group-sm pull-right">
 										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
 											{{#if noVoting}}Result
@@ -103,10 +106,11 @@
                         </a>
                         <br>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{{this.progress}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{this.progress}}%;">
-                             {{this.progress}}%
-                            </div>
-                        </div>
+  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 0.5em;">
+    <span class="sr-only">{{this.progress}}% Complete</span>
+  </div>
+</div>
+
                         
                 
                     </div>
