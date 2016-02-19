@@ -79,9 +79,12 @@
                     <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
 
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
-                            <h3 class="card-header">{{title}}</h3>
                             <div class="card-block">
-
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3 class="card-header">{{title}}</h3>
+                                    </div>
+                                </div>
 								<div class="row">
 									<div class="col-xs-6">
                                      	<h4 class="card-title">{{date}}</h4>
