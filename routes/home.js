@@ -91,15 +91,18 @@ exports.view = function (req, res) {
     
     // no repeat polling: add boolean "voted"
     for (var i = 0; i < passIn["polling"].length; i++) {
+		passIn["polling"][i]['noVoting'] = false;
+		passIn["polling"][i]["voted"] = false;
         for (var j = 0; j < passIn["polling"][i]["participant"].length; j++) {
             if (firstname == passIn["polling"][i]['participant'][j]['firstname'] &&
                 lastname == passIn["polling"][i]['participant'][j]['lastname']) {
                 // console.log("pollingVote.js: " + "the current user has voted before.");
                 passIn["polling"][i]["voted"] = true;
-            } else {
-                passIn["polling"][i]["voted"] = false;
+				passIn["polling"][i]['noVoting'] = true;					
             }
-        }
+			if (!passIn["polling"][i]['active'])
+				passIn["polling"][i]['noVoting'] = true;
+		}
     }
 
     // handlebar data pass in

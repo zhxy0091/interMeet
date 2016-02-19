@@ -63,7 +63,7 @@ exports.new = function (req, res) {
         'id': pollingId,
 		'title': pollingTitle,
 		'date': today,
-        'status': 'active',
+        'active': true,
         'deleted': false,
 		'choice': [
 		],
