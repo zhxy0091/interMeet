@@ -14,7 +14,31 @@ exports.view = function (req, res) {
             return res.redirect('/');
         }
     } else if (req.method == 'POST') {
-        //check if code is valid
+        /*
+        if (req.session.join == true) {
+            //user already join a room but did not leave the room
+            //should print out alert
+            req.session.roomError = true;
+            return res.redirect('/home');
+        }
+        var roomError = req.session.roomError;
+        delete req.session.roomError;
+*/
+        var join = false;
+        if (req.session.code == undefined) {
+            req.session.code = req.body.meeting.code;
+            join = true;
+        }
+
+        var firstname = req.body.user.firstname;
+        var lastname = req.body.user.lastname;
+        req.session.firstname = firstname;
+        req.session.lastname = lastname;
+        req.session.join = join;
+
+        var code = req.session.code;
+
+         //check if code is valid
         var meeting = data['meeting'];
         if (!(code in meeting)) {
             console.log('code is not valid');
@@ -24,30 +48,6 @@ exports.view = function (req, res) {
             req.session.codeErrorColor = 'background: #faebd7';
             return res.redirect('/');
         }
-        if (req.session.join == true) {
-            //user already join a room but did not leave the room
-            //should print out alert
-            req.session.roomError = true;
-            return res.redirect('/home');
-        }
-        var roomError = req.session.roomError;
-        delete req.session.roomError;
-
-        var join = false;
-        if (req.session.code == undefined) {
-            req.session.code = req.body.meeting.code;
-            join = true;
-        }
-        var firstname = req.body.user.firstname;
-        var lastname = req.body.user.lastname;
-        req.session.firstname = firstname;
-        req.session.lastname = lastname;
-        req.session.join = join;
-
-        var code = req.session.code;
-
-        //log if user join or create
-        //req.session.operation = "join";
 
         
         if (!join) {

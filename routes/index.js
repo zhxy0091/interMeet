@@ -5,7 +5,7 @@ var data = require('../data.json');
 
 exports.view = function (req, res) {
     if (req.method == 'DELETE') {
-        if (req.session.creator == true) {
+        if (req.session.join == false) {
             delete data['meeting'][req.session.code]
         } else {
             var thisUser = {
@@ -28,9 +28,9 @@ exports.view = function (req, res) {
         req.session.destroy();
         res.send();
     } else if (req.method == 'GET') {
-        if(req.session.join != undefined) {
+       /* if(req.session.join != undefined) {
             return res.redirect('/home');
-        }
+        }*/
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
