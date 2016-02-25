@@ -27,10 +27,11 @@ exports.view = function (req, res) {
         }
         req.session.destroy();
         res.send();
+        return res.redirect('/');
     } else if (req.method == 'GET') {
-        /* if(req.session.join != undefined) {
+        if(req.session.code != undefined && req.session.firstname != undefined && req.session.lastname != undefined) {
              return res.redirect('/home');
-         }*/
+        }
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
