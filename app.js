@@ -9,6 +9,7 @@ var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
 var home = require('./routes/home');
+var home2 = require('./routes/home2')
 var newPolling = require('./routes/newPolling');
 var polling = require('./routes/polling');
 
@@ -48,6 +49,10 @@ app.delete('/', index.view);
 app.get('/home', home.view);
 app.post('/home', home.view);
 app.delete('/home', home.view);
+
+app.get('/home2', home2.view);
+app.post('/home2', home2.view);
+app.delete('/home2', home2.view);
 
 app.get('/create', create.view);
 

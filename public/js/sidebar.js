@@ -6,16 +6,21 @@ $(document).ready(function () {
     trigger.click(function () {
       hamburger_cross();      
     });
+    
+    overlay.click(function() {
+      hamburger_cross();
+      $('#wrapper').toggleClass('toggled');
+    })
 
     function hamburger_cross() {
 
       if (isClosed == true) {          
-        overlay.hide();
+        overlay.fadeOut(500);
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
       } else {   
-        overlay.show();
+        overlay.fadeIn(500);
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;
