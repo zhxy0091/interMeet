@@ -44,10 +44,10 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.post('/', index.joinOrCreateRoom)
 app.delete('/', index.view);
 
 app.get('/home', home.view);
-app.post('/home', home.view);
 app.delete('/home', home.view);
 
 app.get('/home2', home2.view);
