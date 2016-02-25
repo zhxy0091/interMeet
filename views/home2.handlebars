@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>interMeet</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:700,400,500' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="css/list.css" type="text/css">
+	<link rel="stylesheet" href="css/callout.css" type="text/css">
+	
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <div class="sidebar-header header-cover" style="background-image:url(image/orange-background.jpg);background-repeat:no-repeat;
+background-size:contain; padding-top: 0">
+                  <div style="padding: 0px 15px 0px 30px; margin-top: 0;">
+                    <div style="height: 25px"></div>
+                    <h2 style="color: white !important; margin-top: 0;"><b>
+                      interMeet</b>
+                    </h2>
+                    <br>
+                    <p style="font-size: 18px !important;">
+                      <b>{{thisSession.firstname}} {{thisSession.lastname}}</b>
+                    <br>
+                      Meeting {{thisSession.code}}
+                    </p>
+                  </div>
+                </div>
+              	
+                <li>
+                    <a href="/home">Pollings</a>
+                </li>
+                {{#unless thisSession.join}}
+                <li>
+                    <a href="/newpolling">Create polling</a>
+                </li>
+                {{/unless}}
+                <li>
+                    <a data-toggle="modal" href="#modalParticipants">Participants</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" href="#modalAbout">About</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" href="#modalContact">Contact</a>
+                </li>
+				<li>
+					<a href="#" id="leave-meeting">Exit</a>
+				</li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <nav class="navbar navbar-inverse" id="fixtop">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Pollings</a>
+                   
+                </div>
+                
+            </nav>
+            
+            <div class="wrapper items-wrapper">
+                <div class="container card-container">
+            <!--  {{#if thisSession.roomError}}
+                        <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
+                 
+                {{/if}} -->
+                    {{#each polling}}
+                    {{#unless this.deleted}}
+                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
+
+                        <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3 class="card-header">{{title}}</h3>
+                                    </div>
+                                </div>
+								<div class="row">
+									<div class="col-xs-3">
+                                     	<h4 class="card-title">{{date}}</h4>
+										<p class="card-text">{{description}}</p>
+									</div>
+									<div class="col-xs-9">
+									<div class="btn-group btn-group-sm pull-right">
+										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
+											{{#if noVoting}}Result
+											{{else}}Vote{{/if}}
+											</button></a>
+									    {{#unless ../../thisSession.join}}
+                                        <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                        {{/unless}}
+									</div>
+									</div>
+								</div>
+                            </div>
+                        </a>
+                        <br>
+                        <div class="progress">
+  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 0.5em;">
+    <span class="sr-only">{{this.progress}}% Complete</span>
+  </div>
+</div>
+
+                        
+                
+                    </div>
+                    
+                    {{/unless}}
+                    {{/each}}
+
+                    {{#unless thisSession.join}}
+                    <div class="row container text-center">
+                        <a href="/newPolling" class="btn btn-reverse page-scroll">Create new polling</a>
+                    </div>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+
+         {{> modal}}
+
+    </div>
+
+    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+    <script src="js/sidebar.js"></script>
+      <script type="text/javascript">
+      document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+      $('body').on('touchstart', '.items-wrapper', function(e) {
+        if (e.currentTarget.scrollTop === 0) {
+          e.currentTarget.scrollTop = 1;
+        }
+        else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+          e.currentTarget.scrollTop -= 1;
+        }
+      });
+      $('body').on('touchmove', '.items-wrapper', function(e) {
+        e.stopPropagation();
+      });
+    </script>
+</body>
+
+</html>

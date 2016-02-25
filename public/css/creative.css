@@ -412,3 +412,8 @@ label~.form-control-feedback {
   margin-right: 15px;
 }
 
+.modal .wrapper {
+    max-height: 420px;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+}
