@@ -412,8 +412,15 @@ label~.form-control-feedback {
   margin-right: 15px;
 }
 
-.modal .wrapper {
-    max-height: 420px;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
+
+.wrapper.modal-wrapper {
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+
+.icon-car {
+    background-image: url('images/ic_add_circle_outline_black_48dp_2x.png');
+    background-position: center center;
 }

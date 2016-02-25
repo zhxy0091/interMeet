@@ -21,7 +21,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:700,400,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"  type='text/css'>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -93,7 +93,7 @@ background-size:contain; padding-top: 0">
             <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
                     <a class="navbar-brand">Pollings</a>
-                   
+                  <a href="/newPolling" class="pull-right" style="padding-top: 2px; z-index: 999"><i class="material-icons" style="font-size: 48px; color: #ffffff;" >add_circle_outline</i></a>
                 </div>
                 
             </nav>
@@ -154,14 +154,14 @@ background-size:contain; padding-top: 0">
                     </div>
                     {{/unless}}
                 </div>
+              
             </div>
         </div>
         <!-- /.modal -->
-
-         {{> modal}}
+    
 
     </div>
-
+    {{> modal}}
     <!-- /#page-content-wrapper -->
     <!-- /#wrapper -->
 
@@ -180,22 +180,6 @@ background-size:contain; padding-top: 0">
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
     <script src="js/sidebar.js"></script>
-      <script type="text/javascript">
-      document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
-      $('body').on('touchstart', '.items-wrapper', function(e) {
-        if (e.currentTarget.scrollTop === 0) {
-          e.currentTarget.scrollTop = 1;
-        }
-        else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
-          e.currentTarget.scrollTop -= 1;
-        }
-      });
-      $('body').on('touchmove', '.items-wrapper', function(e) {
-        e.stopPropagation();
-      });
-    </script>
 </body>
 
 </html>

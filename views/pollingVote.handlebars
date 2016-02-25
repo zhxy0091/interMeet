@@ -103,23 +103,6 @@
     <!-- Custom Theme JavaScript -->
     <script src="../js/creative.js"></script>
     <script src="../js/sidebar.js"></script>
-    <script type="text/javascript">
-      document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
-      $('body').on('touchstart', '.items-wrapper', function(e) {
-        if (e.currentTarget.scrollTop === 0) {
-          e.currentTarget.scrollTop = 1;
-        }
-        else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
-          e.currentTarget.scrollTop -= 1;
-        }
-      });
-      $('body').on('touchmove', '.items-wrapper', function(e) {
-        e.stopPropagation();
-      });
-    </script>
-	</script>
 </body>
 
 </html>
