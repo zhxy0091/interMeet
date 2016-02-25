@@ -28,9 +28,9 @@ exports.view = function (req, res) {
         req.session.destroy();
         res.send();
     } else if (req.method == 'GET') {
-       /* if(req.session.join != undefined) {
-            return res.redirect('/home');
-        }*/
+        /* if(req.session.join != undefined) {
+             return res.redirect('/home');
+         }*/
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
@@ -54,4 +54,59 @@ function findAndRemoveFromArray(array, property1, value1, property2, value2) {
             array.splice(index, 1);
         }
     });
+}
+
+exports.joinOrCreateRoom = function (req, res) {
+    /*
+        if (req.session.join == true) {
+            //user already join a room but did not leave the room
+            //should print out alert
+            req.session.roomError = true;
+            return res.redirect('/home');
+        }
+        var roomError = req.session.roomError;
+        delete req.session.roomError;
+    */
+    var join = false;
+    if (req.session.code == undefined) {
+        req.session.code = req.body.meeting.code;
+        join = true;
+    }
+
+    var firstname = req.body.user.firstname;
+    var lastname = req.body.user.lastname;
+    req.session.firstname = firstname;
+    req.session.lastname = lastname;
+    req.session.join = join;
+
+    var code = req.session.code;
+
+    //check if code is valid
+    var meeting = data['meeting'];
+    if (!(code in meeting)) {
+        console.log('code is not valid');
+        req.session.error = 'Invalid Code';
+        req.session.codeErrorClass = ' has-error';
+        req.session.codeErrorPlaceholder = 'Invalid code';
+        req.session.codeErrorColor = 'background: #faebd7';
+        return res.redirect('/');
+    }
+
+
+    if (!join) {
+        data['meeting'][code]['creator'] = {
+            'firstname': firstname,
+            'lastname': lastname
+        };
+        data['meeting'][code]['user'].push({
+            'firstname': firstname,
+            'lastname': lastname
+        });
+    } else {
+        data['meeting'][code]['user'].push({
+            'firstname': firstname,
+            'lastname': lastname
+        });
+    }
+    res.redirect('/home');
 }
