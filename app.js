@@ -51,8 +51,6 @@ app.get('/home', home.view);
 app.delete('/home', home.view);
 
 app.get('/home2', home2.view);
-app.post('/home2', home2.view);
-app.delete('/home2', home2.view);
 
 app.get('/create', create.view);
 
