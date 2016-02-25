@@ -28,7 +28,7 @@ exports.view = function (req, res) {
         }
     }
 
-    var passIn = data['meeting'][code];
+    var passIn = JSON.parse(JSON.stringify(data['meeting'][code]));
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
