@@ -12,7 +12,6 @@ exports.view = function (req, res) {
         console.log('get');
         if (code == undefined) {
             return res.redirect('/');
-
         }
     } else if (req.method == 'DELETE') {
         var firstname = req.session.firstname;
@@ -26,13 +25,19 @@ exports.view = function (req, res) {
         }
         //TODO use socket io to refresh data
     }
-    var passIn = data['meeting'][code];
+    
     for (var i = 0; i < data['meeting'][code]['polling'].length; i++) {
         var numParticipant = data['meeting'][code]['polling'][i]['participant'].length;
         var numPeople = data['meeting'][code]['user'].length;
         var progress = numParticipant * 100 / numPeople;
         data['meeting'][code]['polling'][i]['progress'] = progress;
     }
+    
+    // var passIn = data['meeting'][code];
+    var passIn = JSON.parse(JSON.stringify(data['meeting'][code]));
+    console.log(JSON.stringify(passIn));
+    /* no data modification to the JSON file from here */
+    
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
@@ -55,7 +60,26 @@ exports.view = function (req, res) {
         if (passIn["polling"][i]['active'] == false)
             passIn["polling"][i]['noVoting'] = true;
     }
-    console.log(passIn);
+    
+//    // sort the polling list
+//    console.log("newPolling.js: before");
+//    console.log(data['meeting'][code]['polling']);
+    passIn["polling"].sort(function(a, b) {
+        // a is active but b is not
+        if (a['active'] && !b['active'])
+            return -1;
+        // a is inactive, b is active
+        else if (!a['active'] && b['active'])
+            return 1;
+        else {
+            if (a['id'] < b['id']) return 1;
+            else if (a['id'] > b['id']) return -1;
+            else return 0;
+        }
+    });
+//    console.log("newPolling.js: after");
+//    console.log(data['meeting'][code]['polling']);
+    
     // handlebar data pass in
     res.render('home', passIn);
 };

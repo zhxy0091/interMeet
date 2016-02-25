@@ -11,7 +11,7 @@ exports.view = function(req, res){
     if (req.method == 'DELETE') {
 		data['meeting'][code]['polling'][pollingId]['active'] = false;
 	}
-    var passIn = data['meeting'][code];
+    var passIn = JSON.parse(JSON.stringify(data['meeting'][code]));
     passIn['thisSession'] = {
             'code': code,
             'firstname': firstname,

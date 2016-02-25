@@ -17,7 +17,7 @@ exports.view = function (req, res) {
         showHidden: false,
         depth: null
     }));
-    var passIn = data['meeting'][code];
+    var passIn = JSON.parse(JSON.stringify(data['meeting'][code]));
     passIn['thisSession'] = {
         'code': code,
         'firstname': firstname,
@@ -36,6 +36,8 @@ exports.new = function (req, res) {
     var pollingDescription = req.body.pollingDescription;
     var pollingOptions = [];
     var count;
+    
+    // get the polling form
     for (var i=0; i<5; i++) {
       pollingOptions[i] = req.body['pollingOption'+i];
       console.log('option '+i+pollingOptions[i]);
@@ -79,5 +81,6 @@ exports.new = function (req, res) {
 	if (pollingTitle != undefined) {
     	data['meeting'][code]['polling'].push(pollingData);
 	}
+    
 	return res.redirect('/polling/' + pollingId);
 }
