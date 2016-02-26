@@ -43,6 +43,12 @@ exports.view = function (req, res) {
         if (passIn["polling"][i]['active'] == false)
             passIn["polling"][i]['noVoting'] = true;
     }
+  
+    if (passIn['polling'].length > 0)
+      passIn['ifPolling'] = true;
+    else
+      passIn['ifPolling'] = false;
+    console.log(passIn['ifPolling'])
     console.log(passIn);
     // handlebar data pass in
     res.render('home2', passIn);

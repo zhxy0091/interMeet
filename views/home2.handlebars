@@ -93,10 +93,13 @@ background-size:contain; padding-top: 0">
             <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
                     <a class="navbar-brand">Pollings</a>
+                {{#unless thisSession.join}}
+
                   <div class="pull-right" style="padding-top: 3px; width: 48px; height: 48px">
                   <a href="/newPolling" class="" style=" z-index: 999; position: absolute"><div><i class="material-icons" style="font-size: 48px; color: #ffffff;" >add_circle_outline</i></div></a>
                   </div>
                 </div>
+                {{/unless}}
                 
             </nav>
             
@@ -106,11 +109,18 @@ background-size:contain; padding-top: 0">
                         <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
                  
                 {{/if}} -->
+                  {{#unless ifPolling}}
+                  <p>Currently there is no polling.
+                  {{#if ../thisSession.join}}
+                    Please wait for the meeting holder to create a new polling.
+                  {{/if}}
+                  </p>
+                  {{/unless}}
                     {{#each polling}}
                     {{#unless this.deleted}}
                     <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
 
-                        <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
+                        <a id="pollingLink{{id}}">
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-xs-12">

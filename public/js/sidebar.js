@@ -15,12 +15,12 @@ $(document).ready(function () {
     function hamburger_cross() {
 
       if (isClosed == true) {          
-        overlay.fadeOut(500);
+        overlay.fadeOut(300);
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
       } else {   
-        overlay.fadeIn(500);
+        overlay.fadeIn(300);
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;

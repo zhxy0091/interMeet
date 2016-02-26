@@ -77,6 +77,11 @@ exports.view = function (req, res) {
             else return 0;
         }
     });
+    if (passIn['polling'].length > 0)
+      passIn['ifPolling'] = true;
+    else
+      passIn['ifPolling'] = false;
+    console.log(passIn['ifPolling'])
 //    console.log("newPolling.js: after");
 //    console.log(data['meeting'][code]['polling']);
     
