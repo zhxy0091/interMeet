@@ -29,9 +29,9 @@ exports.view = function (req, res) {
         res.send();
         return res.redirect('/');
     } else if (req.method == 'GET') {
-        if(req.session.code != undefined && req.session.firstname != undefined && req.session.lastname != undefined) {
+      /*  if(req.session.code != undefined && req.session.firstname != undefined && req.session.lastname != undefined) {
              return res.redirect('/home');
-        }
+        }  */
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
@@ -83,6 +83,7 @@ exports.joinOrCreateRoom = function (req, res) {
     var code = req.session.code;
 
     //check if code is valid
+    console.log("get code" + code);
     var meeting = data['meeting'];
     if (!(code in meeting)) {
         console.log('code is not valid');
@@ -92,6 +93,7 @@ exports.joinOrCreateRoom = function (req, res) {
         req.session.codeErrorColor = 'background: #faebd7';
         return res.redirect('/');
     }
+
 
 
     if (!join) {
