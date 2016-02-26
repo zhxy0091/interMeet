@@ -129,7 +129,8 @@ background-size:contain; padding-top: 0">
 											{{else}}Vote{{/if}}
 											</button></a>
 									    {{#unless ../../thisSession.join}}
-                                        <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                        <a data-toggle="modal" href="#modalDelete"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                        
                                         {{/unless}}
 									</div>
 									</div>
@@ -138,10 +139,10 @@ background-size:contain; padding-top: 0">
                         </a>
                         <br>
                         <div class="progress">
-  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 0.5em;">
-    <span class="sr-only">{{this.progress}}% Complete</span>
-  </div>
-</div>
+                          <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 0.5em;">
+                            <span class="sr-only">{{this.progress}}% Complete</span>
+                          </div>
+                        </div>
 
                         
                 

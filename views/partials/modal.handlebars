@@ -81,3 +81,26 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+                                    {{#each polling}}
+                                    {{#unless this.deleted}}
+                                    {{#unless ../../thisSession.join}}
+                                        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog" role="document" style="width: 80%">
+                                                <div class="modal-content">
+                                                  <div class="row text-center">
+                                                    <h2>Do you want to delete this polling?</h2>   
+                                                  </div>
+                                                  <div class="row text-center">
+                                                    <p>{{ ../../title }}</p>
+                                                  </div>
+                                                  <a id="delete{{../../id}}" class="home-dialog-button home-delete-polling-button" href="#"><button type="button" class="btn btn-dialog" data-dismiss="modal" aria-label="Close">Yes</button></a>   
+                                                  <a class="home-dialog-button" href="#"><button type="button" class="btn btn-dialog" data-dismiss="modal" aria-label="Close">No</button></a>
+                                                  <div class="row" style="height: 20px"></div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                    {{/unless}}
+                                    {{/unless}}
+                                    {{/each}}
