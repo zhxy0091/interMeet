@@ -53,7 +53,7 @@ background-size:contain; padding-top: 0">
                       interMeet</b>
                     </h2>
                     <br>
-                    <p style="font-size: 18px !important;">
+                    <p style="font-size: 18px !important;" onclick="nameClick();">
                       <b>{{thisSession.firstname}} {{thisSession.lastname}}</b>
                     <br>
                       Meeting {{thisSession.code}}
@@ -66,11 +66,11 @@ background-size:contain; padding-top: 0">
                 </li>
                 {{#unless thisSession.join}}
                 <li>
-                    <a href="/newpolling">Create polling</a>
+                    <a href="/newpolling"  onclick="createPollingSidebar();">Create polling</a>
                 </li>
                 {{/unless}}
                 <li>
-                    <a data-toggle="modal" href="#modalParticipants">Participants</a>
+                    <a data-toggle="modal" href="#modalParticipants" onclick="participantsClick();">Participants</a>
                 </li>
                 <li>
                     <a data-toggle="modal" href="#modalAbout">About</a>
@@ -97,7 +97,7 @@ background-size:contain; padding-top: 0">
                 {{#unless thisSession.join}}
 
                   <div class="pull-right" style="padding-top: 3px; width: 48px; height: 48px">
-                  <a href="/newPolling" class="" style=" z-index: 999; position: absolute"><div><i class="material-icons" style="font-size: 48px; color: #ffffff;" >add_circle_outline</i></div></a>
+                  <a href="/newPolling" class="" style=" z-index: 999; position: absolute"  onclick="createPollingNavbar();"><div><i class="material-icons" style="font-size: 48px; color: #ffffff;" >add_circle_outline</i></div></a>
                   </div>
                 </div>
                 {{/unless}}
@@ -119,7 +119,7 @@ background-size:contain; padding-top: 0">
                   {{/unless}}
                     {{#each polling}}
                     {{#unless this.deleted}}
-                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
+                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}" onclick="pollingCardClick();">
 
                         <a id="pollingLink{{id}}">
                             <div class="card-block">
@@ -135,7 +135,7 @@ background-size:contain; padding-top: 0">
 									</div>
 									<div class="col-xs-9">
 									<div class="btn-group btn-group-sm pull-right">
-										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
+										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result" onclick="pollingButtonClick();">
 											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
@@ -164,7 +164,7 @@ background-size:contain; padding-top: 0">
 
                     {{#unless thisSession.join}}
                     <div class="row container text-center">
-                        <a href="/newPolling" class="btn btn-reverse page-scroll">Create new polling</a>
+                        <a href="/newPolling" class="btn btn-reverse page-scroll"  onclick="createPollingBottom();">Create new polling</a>
                     </div>
                     {{/unless}}
                 </div>

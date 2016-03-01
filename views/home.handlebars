@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-  <!-- Google Analytics Content Experiment code -->
+  
+ <!-- Google Analytics Content Experiment code -->
 <script>function utmx_section(){}function utmx(){}(function(){var
-k='117679621-0',d=document,l=d.location,c=d.cookie;
+k='117679621-1',d=document,l=d.location,c=d.cookie;
 if(l.search.indexOf('utm_expid='+k)>0)return;
 function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
 indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
@@ -57,7 +58,36 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     <div id="wrapper">
         <div class="overlay"></div>
 
-        {{> sidebar}}
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a>interMeet</a>
+                </li>
+              	<li onclick="nameClick()">
+                    <a>{{thisSession.firstname}} {{thisSession.lastname}}</a>
+				</li>
+				<li onclick="nameClick()">
+                    <a>Meeting {{thisSession.code}}</a>
+                </li>
+                <li>
+                    <a href="/home">Pollings</a>
+                </li>
+                {{#unless thisSession.join}}
+                <li onclick="createPollingSidebar();">
+                    <a href="/newpolling">Create polling</a>
+                </li>
+                {{/unless}}
+                <li>
+                    <a data-toggle="modal" href="#modalAbout">About</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" href="#modalContact">Contact</a>
+                </li>
+				<li>
+					<a href="#" id="leave-meeting">Exit</a>
+				</li>
+            </ul>
+        </nav>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -70,7 +100,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                 <div class="navbar-header">
                     <a class="navbar-brand">Pollings</a>
                     <div class="btn-group pull-right">
-                <button type="button" class="btn btn-default dropdown-toggle participants-list-btn" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
+                <button type="button" class="btn btn-default dropdown-toggle participants-list-btn" data-toggle="dropdown" onclick="participantsClick();"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
                 
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     {{#each user}}
@@ -92,7 +122,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                 {{/if}} -->
                     {{#each polling}}
                     {{#unless this.deleted}}
-                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}">
+                    <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}" onclick="pollingCardClick();">
 
                         <a id="pollingLink{{id}}" href="/pollingVote/{{id}}">
                             <div class="card-block">
@@ -108,7 +138,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 									</div>
 									<div class="col-xs-9">
 									<div class="btn-group btn-group-sm pull-right">
-										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result">
+										<a id="pollingLink{{id}}" href="/pollingVote/{{id}}"><button type="button" class="btn btn-default btn-polling-result" onclick="pollingButtonClick();">
 											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
@@ -136,7 +166,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
                     {{#unless thisSession.join}}
                     <div class="row container text-center">
-                        <a href="/newPolling" class="btn btn-reverse page-scroll">Create new polling</a>
+                        <a href="/newPolling" class="btn btn-reverse page-scroll" onclick="createPollingBottom();">Create new polling</a>
                     </div>
                     {{/unless}}
                 </div>

@@ -442,4 +442,34 @@ function validatePolling() {
     }
 }
 
+function nameClick() {
+    ga('send', 'event', 'name', 'click');
+}
 
+function participantsClick() {
+    ga('send', 'event', 'participants', 'click');
+}
+
+function createPollingSidebar() {
+    ga('send', 'event', 'createPollingSidebar', 'click');
+}
+
+function createPollingBottom() {
+    ga('send', 'event', 'createPollingBottom', 'click');
+}
+
+function createPollingNavbar() {
+    ga('send', 'event', 'createPollingNavbar', 'click');
+}
+
+function pollingCardClick() {
+    ga('send', 'event', 'pollingCard', 'click');
+}
+
+function pollingButtonClick() {
+    ga('send', 'event', 'pollingButton', 'click');
+}
+
+function deleteCancelClick() {
+    ga('send', 'event', 'deleteCancel', 'click');
+}
