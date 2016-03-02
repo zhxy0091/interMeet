@@ -64,7 +64,7 @@ background-size:contain; padding-top: 0">
                 <li>
                     <a href="/home">Pollings</a>
                 </li>
-                {{#unless thisSession.join}}
+                {{#unless 0}}
                 <li>
                     <a href="/newpolling"  onclick="createPollingSidebar();">Create polling</a>
                 </li>
@@ -94,7 +94,7 @@ background-size:contain; padding-top: 0">
             <nav class="navbar navbar-inverse" id="fixtop">
                 <div class="navbar-header">
                     <a class="navbar-brand">Pollings</a>
-                {{#unless thisSession.join}}
+                {{#unless 0}}
 
                   <div class="pull-right" style="padding-top: 3px; width: 48px; height: 48px">
                   <a href="/newPolling" class="" style=" z-index: 999; position: absolute"  onclick="createPollingNavbar();"><div><i class="material-icons" style="font-size: 48px; color: #ffffff;" >add_circle_outline</i></div></a>
@@ -112,7 +112,7 @@ background-size:contain; padding-top: 0">
                 {{/if}} -->
                   {{#unless ifPolling}}
                   <p>Currently there is no polling.
-                  {{#if ../thisSession.join}}
+                  {{#if 0}}
                     Please wait for the meeting holder to create a new polling.
                   {{/if}}
                   </p>
@@ -139,7 +139,7 @@ background-size:contain; padding-top: 0">
 											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
-									    {{#unless ../../thisSession.join}}
+									    {{#unless 0}}
                                         <a data-toggle="modal" href="#modalDelete"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
                                         
                                         {{/unless}}
@@ -162,7 +162,7 @@ background-size:contain; padding-top: 0">
                     {{/unless}}
                     {{/each}}
 
-                    {{#unless thisSession.join}}
+                    {{#unless 0}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-reverse page-scroll"  onclick="createPollingBottom();">Create new polling</a>
                     </div>

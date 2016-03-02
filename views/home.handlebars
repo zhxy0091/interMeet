@@ -72,7 +72,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                 <li>
                     <a href="/home">Pollings</a>
                 </li>
-                {{#unless thisSession.join}}
+                {{#unless 0}}
                 <li onclick="createPollingSidebar();">
                     <a href="/newpolling">Create polling</a>
                 </li>
@@ -142,7 +142,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
-									    {{#unless ../../thisSession.join}}
+									    {{#unless 0}}
                                         <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
                                         {{/unless}}
 									</div>
@@ -164,7 +164,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                     {{/unless}}
                     {{/each}}
 
-                    {{#unless thisSession.join}}
+                    {{#unless 0}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-reverse page-scroll" onclick="createPollingBottom();">Create new polling</a>
                     </div>
