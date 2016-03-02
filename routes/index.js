@@ -29,9 +29,9 @@ exports.view = function (req, res) {
         res.send();
         return res.redirect('/');
     } else if (req.method == 'GET') {
-      /*  if(req.session.code != undefined && req.session.firstname != undefined && req.session.lastname != undefined) {
+        if(req.session.code != undefined && req.session.firstname != undefined && req.session.lastname != undefined) {
              return res.redirect('/home');
-        }  */
+        }  
         var errorClass = req.session.codeErrorClass;
         var errorPlaceholder = req.session.codeErrorPlaceholder;
         res.render('index', {
@@ -91,6 +91,10 @@ exports.joinOrCreateRoom = function (req, res) {
         req.session.codeErrorClass = ' has-error';
         req.session.codeErrorPlaceholder = 'Invalid code';
         req.session.codeErrorColor = 'background: #faebd7';
+        delete req.session.code;
+        delete req.session.firstname;
+        delete req.session.lastname;
+        delete req.session.join;
         return res.redirect('/');
     }
 
