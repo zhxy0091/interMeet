@@ -20,7 +20,7 @@ exports.view = function (req, res) {
         var join = req.session.join;
         id = req.body.id;
         console.log("id is " + id);
-        if (!join) {
+        if (!join || join) {
             data['meeting'][code]['polling'][id]['deleted'] = true;
         }
         //TODO use socket io to refresh data
