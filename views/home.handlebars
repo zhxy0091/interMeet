@@ -60,7 +60,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
+                <li class="z-brand">
                     <a>interMeet</a>
                 </li>
               	<li onclick="nameClick()">
@@ -120,6 +120,11 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                         <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
                  
                 {{/if}} -->
+                    {{#unless 0}}
+                    <div class="row container text-center">
+                        <a href="/newPolling" class="btn btn-reverse page-scroll" onclick="createPollingBottom();">Create new polling</a>
+                    </div>
+                    {{/unless}}
                     {{#each polling}}
                     {{#unless this.deleted}}
                     <div class="card card-polling bs-callout {{#if active}}bs-callout-success{{else}}bs-callout-danger{{/if}}" id="polling{{id}}" onclick="pollingCardClick();">
@@ -163,12 +168,6 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                     
                     {{/unless}}
                     {{/each}}
-
-                    {{#unless 0}}
-                    <div class="row container text-center">
-                        <a href="/newPolling" class="btn btn-reverse page-scroll" onclick="createPollingBottom();">Create new polling</a>
-                    </div>
-                    {{/unless}}
                 </div>
             </div>
         </div>
