@@ -71,8 +71,10 @@ $('#polling-submit-button').click(function (e) {
 
 $('#polling-vote-submit-button').click(function (e) {
     console.log("vote clicked");
-	
-    $("#polling-vote-form").submit();
+    if ($("input[name='options']:checked").val() == undefined)
+      $('#alert-polling').show();
+    else
+      $("#polling-vote-form").submit();
 //    e.preventDefault();
 //    var code = $('#join-input-code').val();
 //    console.log(code);
