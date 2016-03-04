@@ -37,6 +37,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:700,400,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"  type='text/css'>
     {{> googleAnalytics}}
 
 
@@ -81,7 +82,7 @@ background-size:contain; padding-top: 0">
                 <li>
                     <a href="/home">Pollings</a>
                 </li>
-                {{#unless 0}}
+                {{#unless thisSession.join}}
                 <li>
                     <a href="/newpolling"  onclick="createPollingSidebar();">Create polling</a>
                 </li>
@@ -110,7 +111,7 @@ background-size:contain; padding-top: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand">Pollings</a>
                     <div class="btn-group pull-right">
-                <button type="button" class="btn btn-default dropdown-toggle participants-list-btn" data-toggle="modal" data-target="#modalParticipants"><span class="glyphicon glyphicon-user"></span></button>
+                <a class="pull-right participants-button" data-toggle="modal" href="#modalParticipants"><i class="material-icons" style="font-size: 48px; color: #ffffff;" >supervisor_account</i></button>
                 
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     {{#each user}}
@@ -130,7 +131,7 @@ background-size:contain; padding-top: 0">
                         <p>Please leave current meeting {{thisSession.code}} first before entering another room by clicking Leave Room on the sidebar</p>
                  
                 {{/if}} -->
-                    {{#unless 0}}
+                    {{#unless thisSession.join}}
                     <div class="row container text-center">
                         <a href="/newPolling" class="btn btn-reverse page-scroll" onclick="createPollingBottom();">Create new polling</a>
                     </div>
@@ -157,8 +158,8 @@ background-size:contain; padding-top: 0">
 											{{#if noVoting}}Result
 											{{else}}Vote{{/if}}
 											</button></a>
-									    {{#unless 0}}
-                                        <a id="delete{{id}}" class="home-delete-polling-button" href="#"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
+									    {{#unless ../../thisSession.join}}
+                                        <a data-toggle="modal" href="#modalDelete{{id}}"><button type="button" class="btn btn-default btn-polling-delete"><span class="glyphicon glyphicon-trash"></span></button></a>
                                         {{/unless}}
 									</div>
 									</div>
