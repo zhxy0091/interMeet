@@ -31,6 +31,8 @@ exports.view = function (req, res) {
         var numPeople = data['meeting'][code]['user'].length;
         var progress = numParticipant * 100 / numPeople;
         data['meeting'][code]['polling'][i]['progress'] = progress;
+        data['meeting'][code]['polling'][i]['numParticipant'] = numParticipant;
+        data['meeting'][code]['polling'][i]['numPeople'] = numPeople;
     }
     
     // var passIn = data['meeting'][code];

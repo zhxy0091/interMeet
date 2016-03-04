@@ -150,10 +150,14 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                         </a>
                         <br>
                         <div class="progress">
-  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 0.5em;">
+  <div class="progress-bar progress-bar-striped {{#if active}}active{{/if}}" role="progressbar" aria-valuenow="{{this.progress}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progress}}%; min-width: 1.8em;">
     <span class="sr-only">{{this.progress}}% Complete</span>
+    {{this.numParticipant}}/{{this.numPeople}}
   </div>
+
 </div>
+
+
 
                         
                 
