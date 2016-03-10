@@ -83,10 +83,15 @@ html { height: 100%;}
             transition: width .2s ease-in;
 
 }
-.sidebar-nav li:first-child a {
-    color: #1a1a1a;
-    background-color: #ffffff;
+.sidebar-nav li {
+  background-color: #fff;
+  border-bottom: 2px solid #B2DFDB;
 }
+
+.sidebar-nav li:nth-child(2) {
+    border-top: 2px solid #B2DFDB;
+
+}/*
 .sidebar-nav li:nth-child(2) {
 	color: #1a1a1a;
     background-color: #ffedf2;   
@@ -112,7 +117,7 @@ html { height: 100%;}
 }
 .sidebar-nav li:nth-child(9) {
     background-color: #c6dfea;   
-}
+}*/
 
 .sidebar-nav li a {
     display: block;
@@ -257,4 +262,9 @@ html { height: 100%;}
     bottom: 0;
     background-color: rgba(5,5,5,.8);
     z-index: 11;
+}
+
+.sidebar-header.header-cover {
+  padding-bottom: 5px;
+  background-image: url("../image/sidebar.png");
 }

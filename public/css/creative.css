@@ -25,7 +25,7 @@ body {
 }
 
 a {
-    color: #f05f40;
+    color: #009688;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -56,7 +56,8 @@ body {
     width: 100%;
     min-height: auto;
     color: #000;
-    background-image: url(../image/home.jpg);
+    /*background-image: url(../image/home.jpg);*/
+    background-color: #009688;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -98,7 +99,7 @@ body {
 .btn-homepage.active {
     border: 2px solid #000000;
     color: #fff;
-    background-color: #ee4b28;
+    background-color: #009688;
 }
 
 .btn {
@@ -249,7 +250,7 @@ p {
 
 .btn-common {
     color: #fff;
-    background-color: rgba(240, 98, 66, 0.8);
+    background-color: #009688;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -262,11 +263,11 @@ p {
 .btn-common.active {
     border: 2px solid #111111;
     color: #fff;
-    background-color: #ee4b28;
+    background-color: #009688;
 }
 
 .btn-reverse {
-    color: rgb(240, 98, 66);
+    color: #009688;
     background-color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
@@ -295,7 +296,7 @@ p {
 .btn-reverse.active {
     border: 2px solid #111111;
     color: #ffffff;
-    background-color: rgba(240, 98, 66, 0.8);
+    background-color: #009688;
 }
 
 .items-wrapper {
