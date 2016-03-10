@@ -33,7 +33,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #eb3812;
+    color: #009688;
 }
 
 h1,
@@ -111,7 +111,8 @@ body {
 }
 
 .btn-xl {
-    padding: 15px 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .modal h1,
